@@ -50,18 +50,18 @@ public class CollectorRouteBuilder extends RouteBuilder {
         log.debug("Creating Routes");
 
         onException(MalformedURLException.class)
-                .to("bean:errorHandler?method=handleMalformedURL(${exchange}, true)");
+                .process(errorHandler).stop();
 
         onException(IOException.class)
-                .maximumRedeliveries(2)
-                .to("bean:errorHandler?method=handleIO(${exchange}, true)");
+                .maximumRedeliveries(3)
+                .process(errorHandler).stop();
 
         // Slashdot RSS
         from("rss:http://rss.slashdot.org/Slashdot/slashdot?" +
                 "splitEntries=true&consumer.delay=60000&consumer.initialDelay=2000&feedHeader=true$filter=true").
-                setHeader(Feed.HEADER.NAME, simple("slashdot")).
-                setHeader(Feed.HEADER.URI, simple("http://www.epnoi.org/feeds/slashdot")).
-                setHeader(Feed.HEADER.URL, simple("http://rss.slashdot.org/Slashdot/slashdot")).
+                setHeader(Feed.ID.NAME, simple("slashdot")).
+                setHeader(Feed.ID.URI, simple("http://www.epnoi.org/feeds/slashdot")).
+                setHeader(Feed.ID.URL, simple("http://rss.slashdot.org/Slashdot/slashdot")).
                 process(dateStamp).
                 marshal().rss().
                 to("seda:inputFeed");
@@ -78,7 +78,7 @@ public class CollectorRouteBuilder extends RouteBuilder {
         // RSS Item Content process
         from("seda:inputItemContent").
                 to("file:target/?fileName=${in.header.Feed.Name}/${in.header.date}/item-${in.header.time}-content.txt").
-                setHeader(Item.HEADER.URI, simple("${in.header.Feed.Name}/${in.header.date}/item-${in.header.time}-content.txt")).
+                setHeader(Item.ID.URI, simple("${in.header.Feed.Name}/${in.header.date}/item-${in.header.time}-content.txt")).
                 process(toContent).
                 process(rssContentProcessor).
                 to("stream:out");
