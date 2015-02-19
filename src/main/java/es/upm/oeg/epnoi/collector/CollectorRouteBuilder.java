@@ -58,7 +58,7 @@ public class CollectorRouteBuilder extends RouteBuilder {
 
         // Slashdot RSS
         from("rss:http://rss.slashdot.org/Slashdot/slashdot?" +
-                "splitEntries=true&consumer.delay=5000&consumer.initialDelay=1000&feedHeader=true$filter=true").
+                "splitEntries=true&consumer.delay=60000&consumer.initialDelay=2000&feedHeader=true$filter=true").
                 setHeader(Feed.HEADER.NAME, simple("slashdot")).
                 setHeader(Feed.HEADER.URI, simple("http://www.epnoi.org/feeds/slashdot")).
                 setHeader(Feed.HEADER.URL, simple("http://rss.slashdot.org/Slashdot/slashdot")).

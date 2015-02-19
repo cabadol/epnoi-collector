@@ -1,6 +1,7 @@
 package es.upm.oeg.epnoi.collector.processor;
 
 import es.upm.oeg.epnoi.collector.model.Feed;
+import es.upm.oeg.epnoi.collector.model.Item;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.slf4j.Logger;
@@ -31,10 +32,15 @@ public class RSSContentRetriever implements Processor {
         String content = "fail";
         StringWriter pw = null;
 
-        log.info("Retrieving content from {} ", feed.getLink());
+        if ((feed.getItems() == null) || (feed.getItems().size() <= 0))
+                return;
+
+        Item item = feed.getItems().get(0); // Feed only has one item because RSS component split it
+
+        log.info("Retrieving content from {} ", item.getLink());
 
         try {
-            url = new URL(feed.getLink());
+            url = new URL(item.getLink());
             is = url.openStream(); // throws an IOException
             br = new BufferedReader(new InputStreamReader(is));
 
