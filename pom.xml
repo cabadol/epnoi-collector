@@ -15,6 +15,7 @@
         <mavendependency.version>2.5.1</mavendependency.version>
         <spring.version>4.1.4.RELEASE</spring.version>
         <springboot.version>1.2.1.RELEASE</springboot.version>
+        <tika.version>0.10</tika.version>
     </properties>
     <build>
         <plugins>
@@ -73,7 +74,7 @@
         </dependencies>
     </dependencyManagement>
     <dependencies>
-        <!-- Camel Test -->
+        <!-- Camel Testing -->
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-test</artifactId>
@@ -121,6 +122,19 @@
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-stream</artifactId>
             <version>${camel.version}</version>
+        </dependency>
+        <!-- Parse RSS Content -->
+        <dependency>
+            <groupId>org.apache.tika</groupId>
+            <artifactId>tika-core</artifactId>
+            <version>${tika.version}</version>
+            <classifier>jdk14</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tika</groupId>
+            <artifactId>tika-parsers</artifactId>
+            <version>${tika.version}</version>
+            <classifier>jdk14</classifier>
         </dependency>
     </dependencies>
 </project>

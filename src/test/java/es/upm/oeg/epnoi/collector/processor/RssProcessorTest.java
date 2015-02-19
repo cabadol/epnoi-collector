@@ -1,22 +1,19 @@
 package es.upm.oeg.epnoi.collector.processor;
 
+import es.upm.oeg.epnoi.collector.model.Feed;
 import org.apache.camel.EndpointInject;
-import org.apache.camel.Exchange;
 import org.apache.camel.Produce;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.test.junit4.CamelTestSupport;
-import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
-
-import java.io.File;
 
 /**
  * Created by cbadenes on 18/02/15.
  *
- * Tests for {@link es.upm.oeg.epnoi.collector.processor.RssProcessor}
+ * Tests for {@link RSSContentProcessor}
  */
 public class RssProcessorTest extends CamelTestSupport{
 
@@ -81,10 +78,16 @@ public class RssProcessorTest extends CamelTestSupport{
         return new RouteBuilder() {
             public void configure() {
 
-                RssProcessor processor = new RssProcessor();
+                RSSContentProcessor rssProcessor = new RSSContentProcessor();
+
+                DateStamp dateProcessor = new DateStamp();
 
                   from("direct:start").
-                          process(processor).
+                          setHeader(Feed.HEADER.NAME, simple("slashdot")).
+                          setHeader(Feed.HEADER.URI, simple("http://www.epnoi.org/feeds/slashdot")).
+                          setHeader(Feed.HEADER.URL, simple("http://rss.slashdot.org/Slashdot/slashdot")).
+                          process(dateProcessor).
+                          process(rssProcessor).
                           to("mock:result");
             }
         };
