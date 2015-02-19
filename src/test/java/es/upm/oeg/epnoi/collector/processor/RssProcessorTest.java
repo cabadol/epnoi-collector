@@ -83,9 +83,9 @@ public class RssProcessorTest extends CamelTestSupport{
                 DateStamp dateProcessor = new DateStamp();
 
                   from("direct:start").
-                          setHeader(Feed.HEADER.NAME, simple("slashdot")).
-                          setHeader(Feed.HEADER.URI, simple("http://www.epnoi.org/feeds/slashdot")).
-                          setHeader(Feed.HEADER.URL, simple("http://rss.slashdot.org/Slashdot/slashdot")).
+                          setHeader(Feed.ID.NAME, simple("slashdot")).
+                          setHeader(Feed.ID.URI, simple("http://www.epnoi.org/feeds/slashdot")).
+                          setHeader(Feed.ID.URL, simple("http://rss.slashdot.org/Slashdot/slashdot")).
                           process(dateProcessor).
                           process(rssProcessor).
                           to("mock:result");

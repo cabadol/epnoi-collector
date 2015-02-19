@@ -1,35 +1,56 @@
 package es.upm.oeg.epnoi.collector.model;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import javax.xml.bind.annotation.XmlElement;
 import java.util.ArrayList;
 import java.util.List;
 
+@ToString
+@EqualsAndHashCode
 public class Feed implements Resource{
 
-    public class HEADER{
+    public class ID {
         public static final String NAME = "Feed.Name";
         public static final String URI  = "Feed.URI";
         public static final String URL  = "Feed.URL";
     }
 
+    @Getter
+    @Setter
     private String title;
+
+    @Getter
+    @Setter
     private String link;
+
+    @Getter
+    @Setter
     private String description;
+
+    @Getter
+    @Setter
     private String language;
+
+    @Getter
+    @Setter
     private String copyright;
+
+    @Getter
+    @Setter
     private String pubDate;
+
+    @Getter
+    @Setter
     private String URI;
 
-
+    @Getter
+    @Setter
     private List<Item> items = new ArrayList<Item>();
 
-    //--------------------------------------------------------------------------------
-
-    public Feed(){
-        this.items = new ArrayList<Item>();
-    }
-
-    //--------------------------------------------------------------------------------
 
     public Feed(String title, String link, String description, String language,
                 String copyright, String pubDate) {
@@ -41,119 +62,6 @@ public class Feed implements Resource{
         System.out.println("creation pubDate>  "+pubDate);
         this.pubDate = pubDate;
 
-    }
-
-    //--------------------------------------------------------------------------------
-
-    public List<Item> getItems() {
-        return items;
-    }
-
-    //--------------------------------------------------------------------------------
-
-    public String getTitle() {
-        return title;
-    }
-
-    //--------------------------------------------------------------------------------
-
-    public String getLink() {
-        return link;
-    }
-
-    //--------------------------------------------------------------------------------
-
-    public String getDescription() {
-        return description;
-    }
-
-    //--------------------------------------------------------------------------------
-
-    public String getLanguage() {
-        return language;
-    }
-
-    //--------------------------------------------------------------------------------
-
-    public String getCopyright() {
-        return copyright;
-    }
-
-    //--------------------------------------------------------------------------------
-
-    public String getPubDate() {
-        return pubDate;
-    }
-
-    // --------------------------------------------------------------------------
-    @XmlElement(name="URI")
-    public String getURI() {
-        return URI;
-    }
-
-    // --------------------------------------------------------------------------
-
-    public void setURI(String uRI) {
-        URI = uRI;
-    }
-
-    // --------------------------------------------------------------------------
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    // --------------------------------------------------------------------------
-
-    public void setLink(String link) {
-        this.link = link;
-    }
-
-    // --------------------------------------------------------------------------
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    // --------------------------------------------------------------------------
-
-    public void setLanguage(String language) {
-        this.language = language;
-    }
-
-    // --------------------------------------------------------------------------
-
-    public void setCopyright(String copyright) {
-        this.copyright = copyright;
-    }
-
-    // --------------------------------------------------------------------------
-
-    public void setPubDate(String pubDate) {
-
-        System.out.println("Este era "+this.pubDate+" y esta le meto "+pubDate);
-        this.pubDate = pubDate;
-    }
-
-    // --------------------------------------------------------------------------
-
-    public void setItems(List<Item> items) {
-        this.items = items;
-    }
-
-    // --------------------------------------------------------------------------
-
-    public void addItem(Item item){
-        this.items.add(item);
-    }
-
-    // --------------------------------------------------------------------------
-
-    @Override
-    public String toString() {
-        return "Feed [URI="+this.URI+", copyright=" + copyright + ", description=" + description
-                + ", language=" + language + ", link=" + link + ", pubDate="
-                + pubDate + ", title=" + title + "]";
     }
 
 }

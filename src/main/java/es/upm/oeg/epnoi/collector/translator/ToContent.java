@@ -12,9 +12,7 @@ import org.springframework.stereotype.Component;
 import org.xml.sax.ContentHandler;
 
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 /**
@@ -28,7 +26,7 @@ public class ToContent implements Processor{
 
         String raw = exchange.getIn().getBody(String.class);
 
-        String resourceURI = exchange.getIn().getHeader(Item.HEADER.URI, String.class);
+        String resourceURI = exchange.getIn().getHeader(Item.ID.URI, String.class);
 
         Metadata metadata = new Metadata();
         metadata.set(Metadata.RESOURCE_NAME_KEY, resourceURI);

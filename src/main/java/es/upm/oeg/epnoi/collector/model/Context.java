@@ -1,65 +1,39 @@
 package es.upm.oeg.epnoi.collector.model;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by cbadenes on 18/02/15.
- */
+@ToString
+@EqualsAndHashCode
 public class Context {
+
     static {
-        //System.out.println("============================================================================================================>"+ new Date());
         emptyContext = new Context();
     }
+
+    @Getter
     private static final Context emptyContext;
+
     public static final String ANNOTATED_CONTENT = "ANNOTATED_CONTENT";
     public static final String INFORMATION_SOURCE_URI = "INFORMATION_SOURCE_URI";
     public static final String INFORMATION_SOURCE_NAME = "INFORMATION_SOURCE_NAME";
+
+    @Getter
+    @Setter
     Map<String, String> parameters = new HashMap<String, String>();
+
+    @Getter
+    @Setter
     Map<String, Object> elements = new HashMap<String, Object>();
 
-    // ---------------------------------------------------------------
-
-    public static Context getEmptyContext(){
-        return Context.emptyContext;
-    }
-
-    // ---------------------------------------------------------------
-
-    public Map<String, Object> getElements() {
-        return elements;
-    }
-
-    // ---------------------------------------------------------------
-
-    public void setElements(Map<String, Object> elements) {
-        this.elements = elements;
-    }
-
-    // ---------------------------------------------------------------
-
-    public Map<String, String> getParameters() {
-        return parameters;
-    }
-
-    // ---------------------------------------------------------------
-
-    public void setParameters(Map<String, String> parameters) {
-        this.parameters = parameters;
-    }
-
-    // ---------------------------------------------------------------
-
-    @Override
-    public String toString() {
-        return "Context [parameters=" + parameters + ", elements=" + elements
-                + "]";
-    }
 
     public void clear() {
         this.elements.clear();
-
-
     }
 
 }
