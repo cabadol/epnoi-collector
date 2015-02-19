@@ -4,8 +4,8 @@ import es.upm.oeg.epnoi.collector.model.Feed;
 import es.upm.oeg.epnoi.collector.model.Item;
 import es.upm.oeg.epnoi.collector.processor.DateStamp;
 import es.upm.oeg.epnoi.collector.processor.ErrorHandler;
-import es.upm.oeg.epnoi.collector.processor.RSSContentRetriever;
 import es.upm.oeg.epnoi.collector.processor.RSSContentProcessor;
+import es.upm.oeg.epnoi.collector.processor.RSSContentRetriever;
 import es.upm.oeg.epnoi.collector.translator.ToContent;
 import es.upm.oeg.epnoi.collector.translator.ToFeed;
 import org.apache.camel.builder.RouteBuilder;
@@ -17,9 +17,6 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.net.MalformedURLException;
 
-/**
- * Created by cbadenes on 18/02/15.
- */
 @Component
 public class CollectorRouteBuilder extends RouteBuilder {
 
@@ -82,8 +79,6 @@ public class CollectorRouteBuilder extends RouteBuilder {
                 process(toContent).
                 process(rssContentProcessor).
                 to("stream:out");
-
-
 
     }
 }

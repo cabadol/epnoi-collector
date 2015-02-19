@@ -15,9 +15,7 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
-/**
- * Created by cbadenes on 19/02/15.
- */
+
 @Component
 public class ToContent implements Processor{
 

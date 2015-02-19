@@ -11,9 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-/**
- * Created by cbadenes on 18/02/15.
- */
+
 @Component
 public class DateStamp implements Processor{
 

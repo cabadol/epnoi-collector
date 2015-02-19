@@ -1,6 +1,8 @@
 package es.upm.oeg.epnoi.collector.processor;
 
 import es.upm.oeg.epnoi.collector.model.Context;
+import es.upm.oeg.epnoi.collector.model.Feed;
+import es.upm.oeg.epnoi.collector.model.InformationSource;
 import es.upm.oeg.epnoi.collector.model.Item;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
@@ -8,9 +10,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-/**
- * Created by cbadenes on 18/02/15.
- */
 
 @Component
 public class RSSContentProcessor implements Processor{
@@ -31,40 +30,29 @@ public class RSSContentProcessor implements Processor{
 
         feedContext.getElements().put(itemURI, content);
 
+        String feedURI = exchange.getIn().getHeader(Feed.ID.URI, String.class);
+
+
+//        InformationSource informationSource = (InformationSource) this.harvester
+//                .getCore()
+//                .getInformationHandler()
+//                .get(feedURI,
+//                        InformationSourceRDFHelper.INFORMATION_SOURCE_CLASS);
+//
+//        feedContext.getParameters().put(
+//                Context.INFORMATION_SOURCE_NAME,
+//                informationSource.getName());
+
+        feedContext.getParameters().put(Context.INFORMATION_SOURCE_URI, feedURI);
+
         // Send context to Core UIA
 
-        // change the existing message to say Hello
+        // change the existing message to send the feed context
         exchange.getIn().setBody(feedContext, Context.class);
+
+        // this.harvester.getCore().getInformationHandler().put(feed, feedContext);
     }
 
-
-//    private void toCore(){
-//        //
-////        if (this.harvester.getCore() != null) {
-////
-////            InformationSource informationSource = (InformationSource) this.harvester
-////                    .getCore()
-////                    .getInformationHandler()
-////                    .get(this.manifest.getURI(),
-////                            InformationSourceRDFHelper.INFORMATION_SOURCE_CLASS);
-////            feedContext.getParameters().put(
-////                    Context.INFORMATION_SOURCE_NAME,
-////                    informationSource.getName());
-////            feedContext.getParameters().put(
-////                    Context.INFORMATION_SOURCE_URI, manifest.getURI());
-////
-////            this.harvester.getCore().getInformationHandler()
-////                    .put(feed, feedContext);
-////        } else {
-////
-////            System.out.println("Result: Feed> " + feed);
-////            for (Item item : feed.getItems()) {
-////                System.out.println("		 Item> " + item);
-////            }
-////
-////            System.out.println("Result: Context> " + feedContext);
-////        }
-//    }
 
 
 }
