@@ -128,7 +128,7 @@ public class CollectorRouteBuilder extends RouteBuilder {
                 to("file:target/?fileName=${in.header." + Header.RESOURCE_DESCRIPTOR_LOCAL_PATH + "}").
                 setHeader(Exchange.HTTP_METHOD, constant("GET")).
                 setHeader(Exchange.HTTP_URI, simple("${header." + Header.RESOURCE_CONTENT_REMOTE_PATH + "}")).
-                to("http://dummyhost").
+                to("http://dummyhost?throwExceptionOnFailure=false").
                 setHeader(Header.RESOURCE_CONTENT_LOCAL_PATH,
                         simple("${in.header." + Header.PROVIDER_PROTOCOL + "}/" +
                                 "${in.header." + Header.PROVIDER_NAME + "}/" +
