@@ -88,12 +88,12 @@ public class HttpTest extends CamelTestSupport{
                 ns.add("oai_dc","http://www.openarchives.org/OAI/2.0/oai_dc/");
 
                 from("direct:start")
-                .setHeader(Header.PROVIDER.PROTOCOL, simple("oaipmh"))
-                .setHeader(Header.PROVIDER.NAME, simple("ucm"))
-                .setHeader(Header.PROVIDER.URI, simple("http://www.epnoi.org/oai-providers/ucm"))
-                .setHeader(Header.PROVIDER.URL, simple("http://eprints.ucm.es/cgi/oai2"))
-                .setHeader(Header.RESOURCE.FORMAT, simple("pdf"))
-                .setHeader(Header.RESOURCE.PATH, xpath("//oai:metadata/oai:dc/dc:identifier/text()", String.class).namespaces(ns))
+                .setHeader(Header.PROVIDER_PROTOCOL, simple("oaipmh"))
+                .setHeader(Header.PROVIDER_NAME, simple("ucm"))
+                .setHeader(Header.PROVIDER_URI, simple("http://www.epnoi.org/oai-providers/ucm"))
+                .setHeader(Header.PROVIDER_URL, simple("http://eprints.ucm.es/cgi/oai2"))
+                .setHeader(Header.RESOURCE_CONTENT_FORMAT, simple("pdf"))
+                .setHeader(Header.RESOURCE_CONTENT_REMOTE_PATH, xpath("//oai:metadata/oai:dc/dc:identifier/text()", String.class).namespaces(ns))
                 .process(dateStamp)
                 .to("seda:inputResource");
 

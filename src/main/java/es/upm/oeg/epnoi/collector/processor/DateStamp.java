@@ -1,5 +1,6 @@
 package es.upm.oeg.epnoi.collector.processor;
 
+import es.upm.oeg.epnoi.collector.model.Header;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.slf4j.Logger;
@@ -16,9 +17,6 @@ import java.util.Locale;
 public class DateStamp implements Processor{
 
 
-    public static final String TIME_MILLIS  = "EPNOI.TIME";
-    public static final String DATE         = "EPNOI.DATE";
-
     Logger log = LoggerFactory.getLogger(DateStamp.class);
 
     DateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
@@ -27,10 +25,10 @@ public class DateStamp implements Processor{
     public void process(Exchange exchange) throws Exception {
         Date date = new Date();
 
-        exchange.getIn().setHeader(TIME_MILLIS, date.getTime());
-        log.debug("Added Header property: {}={}", TIME_MILLIS, date.getTime());
+        exchange.getIn().setHeader(Header.TIME_MILLIS, date.getTime());
+        log.debug("Added Header property: {}={}", Header.TIME_MILLIS, date.getTime());
 
-        exchange.getIn().setHeader(DATE, simpleDateFormat.format(date));
-        log.debug("Added Header property: {}={}",DATE, simpleDateFormat.format(date));
+        exchange.getIn().setHeader(Header.TIME_DATE, simpleDateFormat.format(date));
+        log.debug("Added Header property: {}={}",Header.TIME_DATE, simpleDateFormat.format(date));
     }
 }

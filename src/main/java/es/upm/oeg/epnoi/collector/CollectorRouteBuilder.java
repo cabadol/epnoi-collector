@@ -45,7 +45,7 @@ public class CollectorRouteBuilder extends RouteBuilder {
     @Override
     public void configure() throws Exception {
 
-        log.debug("Creating Routes");
+        log.info("Initializing camel context for Epnoi Collector");
 
         onException(MalformedURLException.class)
                 .process(errorHandler).stop();
@@ -54,15 +54,25 @@ public class CollectorRouteBuilder extends RouteBuilder {
                 .maximumRedeliveries(3)
                 .process(errorHandler).stop();
 
-        // Slashdot RSS
-//        from("rss:http://rss.slashdot.org/Slashdot/slashdot?" +
-//                "splitEntries=true&consumer.delay=5000&consumer.initialDelay=1000&feedHeader=true$filter=true").
-//                setHeader(Header.PROVIDER.NAME, simple("slashdot")).
-//                setHeader(Header.PROVIDER.URI, simple("http://www.epnoi.org/feeds/slashdot")).
-//                setHeader(Header.PROVIDER.URL, simple("http://rss.slashdot.org/Slashdot/slashdot")).
-//                process(dateStamp).
-//                marshal().rss().
-//                to("seda:inputFeed");
+        /************************************************************************************************************
+         * RSS Feeds
+         ************************************************************************************************************/
+
+        // RSS Namespaces
+        Namespaces nsRSS = new Namespaces("dc", "http://purl.org/dc/elements/1.1/");
+
+        from("rss:http://rss.slashdot.org/Slashdot/slashdot?" +
+                "splitEntries=true&consumer.delay=5000&consumer.initialDelay=1000&feedHeader=true$filter=true").
+                process(dateStamp).
+                setHeader(Header.PROVIDER_PROTOCOL, constant("rss")).
+                setHeader(Header.PROVIDER_NAME, constant("slashdot")).
+                setHeader(Header.PROVIDER_URI, constant("http://www.epnoi.org/feeds/slashdot")).
+                setHeader(Header.PROVIDER_URL, constant("http://rss.slashdot.org/Slashdot/slashdot")).
+                marshal().rss().
+                setHeader(Header.RESOURCE_DESCRIPTOR_FORMAT, constant("xml")).
+                setHeader(Header.RESOURCE_CONTENT_FORMAT, constant("htm")).
+                setHeader(Header.RESOURCE_CONTENT_REMOTE_PATH, xpath("//item/link/text()", String.class).namespaces(nsRSS)).
+                to("seda:inputResource");
 //
 //
 //        // RSS Feed process
@@ -86,34 +96,45 @@ public class CollectorRouteBuilder extends RouteBuilder {
          * OAI-PMH Data Providers
          ************************************************************************************************************/
         // OAI-PMH Namespaces
-        Namespaces ns = new Namespaces("oai", "http://www.openarchives.org/OAI/2.0/");
-        ns.add("dc", "http://purl.org/dc/elements/1.1/");
-        ns.add("provenance", "http://www.openarchives.org/OAI/2.0/provenance");
-        ns.add("oai_dc","http://www.openarchives.org/OAI/2.0/oai_dc/");
+        Namespaces nsOAI = new Namespaces("oai", "http://www.openarchives.org/OAI/2.0/");
+        nsOAI.add("dc", "http://purl.org/dc/elements/1.1/");
+        nsOAI.add("provenance", "http://www.openarchives.org/OAI/2.0/provenance");
+        nsOAI.add("oai_dc","http://www.openarchives.org/OAI/2.0/oai_dc/");
 
 
         // UCM
         from("oaipmh://eprints.ucm.es/cgi/oai2?" +
-                "delay=60000&initialDelay=1000&from=2015-03-03T05:00:00Z").
+                "delay=60000&initialDelay=1000&from=2015-03-03T13:00:00Z").
                 process(dateStamp).
-                setHeader(Header.PROVIDER.PROTOCOL, simple("oaipmh")).
-                setHeader(Header.PROVIDER.NAME, simple("ucm")).
-                setHeader(Header.PROVIDER.URI, simple("http://www.epnoi.org/oai-providers/ucm")).
-                setHeader(Header.PROVIDER.URL, simple("http://eprints.ucm.es/cgi/oai2")).
-                setHeader(Header.RESOURCE.FORMAT, simple("pdf")).
-                setHeader(Header.RESOURCE.PATH, xpath("//oai:metadata/oai:dc/dc:identifier/text()", String.class).namespaces(ns)).
+                setHeader(Header.PROVIDER_PROTOCOL, constant("oaipmh")).
+                setHeader(Header.PROVIDER_NAME, constant("ucm")).
+                setHeader(Header.PROVIDER_URI, constant("http://www.epnoi.org/oai-providers/ucm")).
+                setHeader(Header.PROVIDER_URL, constant("http://eprints.ucm.es/cgi/oai2")).
+                setHeader(Header.RESOURCE_DESCRIPTOR_FORMAT, constant("xml")).
+                setHeader(Header.RESOURCE_CONTENT_FORMAT, constant("pdf")).
+                setHeader(Header.RESOURCE_CONTENT_REMOTE_PATH, xpath("//oai:metadata/oai:dc/dc:identifier/text()", String.class).namespaces(nsOAI)).
                 to("seda:inputResource");
 
 
         /************************************************************************************************************
-         * Common retriever and processor
+         * Common retriever and storer
          ************************************************************************************************************/
         from("seda:inputResource").
-                to("file:target/?fileName=${in.header.EPNOI.PROVIDER.PROTOCOL}/${in.header.EPNOI.PROVIDER.NAME}/${in.header.EPNOI.DATE}/resource-${in.header.EPNOI.TIME}.xml").
+                setHeader(Header.RESOURCE_DESCRIPTOR_LOCAL_PATH,
+                        simple("${in.header." + Header.PROVIDER_PROTOCOL + "}/" +
+                                "${in.header." + Header.PROVIDER_NAME + "}/" +
+                                "${in.header." + Header.TIME_DATE + "}/" +
+                                "resource-${in.header." + Header.TIME_MILLIS + "}.${in.header." + Header.RESOURCE_DESCRIPTOR_FORMAT + "}")).
+                to("file:target/?fileName=${in.header." + Header.RESOURCE_DESCRIPTOR_LOCAL_PATH + "}").
                 setHeader(Exchange.HTTP_METHOD, constant("GET")).
-                setHeader(Exchange.HTTP_URI, simple("${header.EPNOI.RESOURCE.PATH}")).
+                setHeader(Exchange.HTTP_URI, simple("${header." + Header.RESOURCE_CONTENT_REMOTE_PATH + "}")).
                 to("http://dummyhost").
-                to("file:target/?fileName=${in.header.EPNOI.PROVIDER.PROTOCOL}/${in.header.EPNOI.PROVIDER.NAME}/${in.header.EPNOI.DATE}/resource-${in.header.EPNOI.TIME}.${in.header.EPNOI.RESOURCE.FORMAT}").
+                setHeader(Header.RESOURCE_CONTENT_LOCAL_PATH,
+                        simple("${in.header." + Header.PROVIDER_PROTOCOL + "}/" +
+                                "${in.header." + Header.PROVIDER_NAME + "}/" +
+                                "${in.header." + Header.TIME_DATE + "}/" +
+                                "resource-${in.header." + Header.TIME_MILLIS + "}.${in.header." + Header.RESOURCE_CONTENT_FORMAT + "}")).
+                to("file:target/?fileName=${in.header." + Header.RESOURCE_CONTENT_LOCAL_PATH + "}").
                 to("stream:out");
 
 

@@ -1,16 +1,17 @@
 package es.upm.oeg.epnoi.collector.processor;
 
-import es.upm.oeg.epnoi.collector.model.Header;
 import org.apache.camel.EndpointInject;
 import org.apache.camel.Produce;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.builder.RouteBuilder;
+import org.apache.camel.builder.xml.Namespaces;
 import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.test.junit4.CamelTestSupport;
 import org.junit.Ignore;
 import org.junit.Test;
 
-public class RssProcessorTest extends CamelTestSupport{
+
+public class RSSXPathTest extends CamelTestSupport{
 
     @EndpointInject(uri = "mock:result")
     protected MockEndpoint resultEndpoint;
@@ -19,9 +20,10 @@ public class RssProcessorTest extends CamelTestSupport{
     protected ProducerTemplate template;
 
     @Test
-    @Ignore
-    public void testSendMatchingMessage() throws Exception {
-        String expectedBody = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
+    public void rssMessage() throws Exception {
+        resultEndpoint.expectedMessageCount(1);
+
+        String xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
                 "<rss xmlns:dc=\"http://purl.org/dc/elements/1.1/\" version=\"2.0\">\n" +
                 "  <channel>\n" +
                 "    <title>Slashdot</title>\n" +
@@ -61,9 +63,7 @@ public class RssProcessorTest extends CamelTestSupport{
                 "</rss>\n" +
                 "\n";
 
-        resultEndpoint.expectedBodiesReceived(expectedBody);
-
-        template.sendBody(expectedBody);
+        template.sendBody(xml);
 
         resultEndpoint.assertIsSatisfied();
     }
@@ -73,17 +73,15 @@ public class RssProcessorTest extends CamelTestSupport{
         return new RouteBuilder() {
             public void configure() {
 
-                RSSContentProcessor rssProcessor = new RSSContentProcessor();
+                Namespaces ns = new Namespaces("oai", "http://www.openarchives.org/OAI/2.0/");
+                ns.add("dc", "http://purl.org/dc/elements/1.1/");
+                ns.add("provenance", "http://www.openarchives.org/OAI/2.0/provenance");
+                ns.add("oai_dc","http://www.openarchives.org/OAI/2.0/oai_dc/");
 
-                DateStamp dateProcessor = new DateStamp();
-
-                  from("direct:start").
-                          setHeader(Header.PROVIDER_NAME, simple("slashdot")).
-                          setHeader(Header.PROVIDER_URI, simple("http://www.epnoi.org/feeds/slashdot")).
-                          setHeader(Header.PROVIDER_URL, simple("http://rss.slashdot.org/Slashdot/slashdot")).
-                          process(dateProcessor).
-                          process(rssProcessor).
-                          to("mock:result");
+                from("direct:start")
+                        .setHeader("header.value1", constant("sample"))
+                        .setHeader("fromXpath", xpath("//item/link/text()",String.class).namespaces(ns))
+                        .to("mock:result");
             }
         };
     }

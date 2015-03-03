@@ -27,7 +27,7 @@ public class RSSContentProcessor implements Processor{
 
         feedContext.getElements().put(itemURI, content);
 
-        String feedURI = exchange.getIn().getHeader(Header.PROVIDER.URI, String.class);
+        String feedURI = exchange.getIn().getHeader(Header.PROVIDER_URI, String.class);
 
 
 //        InformationSource informationSource = (InformationSource) this.harvester

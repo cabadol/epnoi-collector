@@ -41,10 +41,10 @@ public class OAIRecordRetriever implements Processor {
 
         }
 
-        exchange.getIn().setHeader(Header.RESOURCE.PATH,url);
+        exchange.getIn().setHeader(Header.RESOURCE_CONTENT_REMOTE_PATH,url);
 
 
-        LOG.info("Added Header property: {}={}", Header.RESOURCE.PATH,url);
+        LOG.info("Added Header property: {}={}", Header.RESOURCE_CONTENT_REMOTE_PATH,url);
 
     }
 }

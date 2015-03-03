@@ -45,11 +45,11 @@ public class ToFeed implements Processor {
         log.debug("Feed: {}", feed);
 
         if (feed.getPubDate() == "") {
-            String date = exchange.getIn().getHeader(DateStamp.DATE, String.class);
+            String date = exchange.getIn().getHeader(Header.TIME_DATE, String.class);
             feed.setPubDate(date);
             log.debug("PubDate updated to: {}", date);
         }
-        String uri = exchange.getIn().getHeader(Header.PROVIDER.URI, String.class);
+        String uri = exchange.getIn().getHeader(Header.PROVIDER_URI, String.class);
         feed.setURI(uri);
         log.debug("URI updated to: {}", uri);
 

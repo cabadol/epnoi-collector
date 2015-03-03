@@ -11,7 +11,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 
-public class XPathTest extends CamelTestSupport{
+public class OAIXPathTest extends CamelTestSupport{
 
     @EndpointInject(uri = "mock:result")
     protected MockEndpoint resultEndpoint;
@@ -21,7 +21,7 @@ public class XPathTest extends CamelTestSupport{
 
     @Test
     @Ignore
-    public void testSendMatchingMessage() throws Exception {
+    public void oaipmhMessage() throws Exception {
         resultEndpoint.expectedMessageCount(1);
 
         String xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n" +
