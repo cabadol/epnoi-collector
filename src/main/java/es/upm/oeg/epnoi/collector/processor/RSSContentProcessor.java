@@ -1,9 +1,6 @@
 package es.upm.oeg.epnoi.collector.processor;
 
-import es.upm.oeg.epnoi.collector.model.Context;
-import es.upm.oeg.epnoi.collector.model.Feed;
-import es.upm.oeg.epnoi.collector.model.InformationSource;
-import es.upm.oeg.epnoi.collector.model.Item;
+import es.upm.oeg.epnoi.collector.model.*;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.slf4j.Logger;
@@ -30,7 +27,7 @@ public class RSSContentProcessor implements Processor{
 
         feedContext.getElements().put(itemURI, content);
 
-        String feedURI = exchange.getIn().getHeader(Feed.ID.URI, String.class);
+        String feedURI = exchange.getIn().getHeader(Header.PROVIDER.URI, String.class);
 
 
 //        InformationSource informationSource = (InformationSource) this.harvester

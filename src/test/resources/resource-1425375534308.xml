@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:provenance="http://www.openarchives.org/OAI/2.0/provenance" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <responseDate>2015-03-03T09:38:52Z</responseDate>
+    <request verb="ListRecords" metadataPrefix="oai_dc" from="2015-03-03T05:00:00Z">http://eprints.ucm.es/cgi/oai2</request>
+    <ListRecords>
+        <record>
+            <header>
+                <identifier>oai:www.ucm.es:28868</identifier>
+                <datestamp>2015-03-03T09:30:04Z</datestamp>
+                <setSpec>7374617475733D707562</setSpec>
+                <setSpec>7375626A656374733D41:415F3131:415F31315F323836</setSpec>
+                <setSpec>7375626A656374733D41:415F3131:415F31315F333031</setSpec>
+                <setSpec>74797065733D61727469636C65</setSpec>
+            </header>
+            <metadata>
+                <dc>
+                    <dc:relation>http://eprints.ucm.es/28868/</dc:relation>
+                    <dc:title>Radiation tolerant isolation amplifiers for temperature measurement</dc:title>
+                    <dc:creator>Zong, Yi</dc:creator>
+                    <dc:creator>Franco Peláez, Francisco Javier</dc:creator>
+                    <dc:creator>Agapito Serrano, Juan Andrés</dc:creator>
+                    <dc:creator>Fernandes, Ana C.</dc:creator>
+                    <dc:creator>Marques, José G.</dc:creator>
+                    <dc:subject>Electrónica</dc:subject>
+                    <dc:subject>Radiactividad</dc:subject>
+                    <dc:description>This paper concentrates on the selection of radiation tolerant isolation amplifiers, which are suitable for the signal conditioners for cryogenic system in the Large Hadron Collider (LHC). The evolution and the results of different commercial isolation amplifiers’ parameters under neutron and gamma radiation are presented. In most cases, the tested isolation amplifiers’ input offset voltage, bias currents and output offset voltage hardly changed during the radiation. The \{DC\} gain in input stage was only affected for some isolation amplifiers with a small open loop gain. Transmission coefficient showed decrease for all the tested isolation amplifiers. Also, the \{DC\} output voltage increased and the ripple voltage decreased for all the build-in isolated regulators. In addition, results on 1B41 signal conditioner showed that it was tolerant to 7–8×1012&amp;#xa0;n/cm2, which was 50\% higher than the expected dose in the LHC.</dc:description>
+                    <dc:publisher>Elsevier Science BV</dc:publisher>
+                    <dc:date>2006-09-29</dc:date>
+                    <dc:type>info:eu-repo/semantics/article</dc:type>
+                    <dc:type>PeerReviewed</dc:type>
+                    <dc:identifier>http://eprints.ucm.es/28868/1/Zong2006_Eprint.pdf</dc:identifier>
+                    <dc:format>application/pdf</dc:format>
+                    <dc:language>en</dc:language>
+                    <dc:rights>info:eu-repo/semantics/openAccess</dc:rights>
+                    <dc:relation>http://www.sciencedirect.com/science/article/pii/S0168900206015774</dc:relation>
+                    <dc:relation>10.1016/j.nima.2006.09.007</dc:relation>
+                    <dc:relation>FPA2002-00912</dc:relation>
+                    <dc:relation>K476/LHC</dc:relation>
+                </dc>
+            </metadata>
+        </record>
+    </ListRecords>
+</OAI-PMH>

@@ -13,12 +13,6 @@ import java.util.List;
 @EqualsAndHashCode
 public class Feed implements Resource{
 
-    public class ID {
-        public static final String NAME = "Feed.Name";
-        public static final String URI  = "Feed.URI";
-        public static final String URL  = "Feed.URL";
-    }
-
     @Getter
     @Setter
     private String title;

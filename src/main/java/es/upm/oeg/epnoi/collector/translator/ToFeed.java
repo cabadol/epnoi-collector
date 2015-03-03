@@ -1,6 +1,7 @@
 package es.upm.oeg.epnoi.collector.translator;
 
 import es.upm.oeg.epnoi.collector.model.Feed;
+import es.upm.oeg.epnoi.collector.model.Header;
 import es.upm.oeg.epnoi.collector.model.Item;
 import es.upm.oeg.epnoi.collector.processor.DateStamp;
 import org.apache.camel.Exchange;
@@ -48,7 +49,7 @@ public class ToFeed implements Processor {
             feed.setPubDate(date);
             log.debug("PubDate updated to: {}", date);
         }
-        String uri = exchange.getIn().getHeader(Feed.ID.URI, String.class);
+        String uri = exchange.getIn().getHeader(Header.PROVIDER.URI, String.class);
         feed.setURI(uri);
         log.debug("URI updated to: {}", uri);
 

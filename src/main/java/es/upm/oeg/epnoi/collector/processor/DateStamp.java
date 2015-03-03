@@ -15,8 +15,9 @@ import java.util.Locale;
 @Component
 public class DateStamp implements Processor{
 
-    public static final String TIME_MILLIS  = "time";
-    public static final String DATE         = "date";
+
+    public static final String TIME_MILLIS  = "EPNOI.TIME";
+    public static final String DATE         = "EPNOI.DATE";
 
     Logger log = LoggerFactory.getLogger(DateStamp.class);
 

@@ -1,6 +1,6 @@
 package es.upm.oeg.epnoi.collector.processor;
 
-import es.upm.oeg.epnoi.collector.model.Feed;
+import es.upm.oeg.epnoi.collector.model.Header;
 import org.apache.camel.EndpointInject;
 import org.apache.camel.Produce;
 import org.apache.camel.ProducerTemplate;
@@ -10,11 +10,6 @@ import org.apache.camel.test.junit4.CamelTestSupport;
 import org.junit.Ignore;
 import org.junit.Test;
 
-/**
- * Created by cbadenes on 18/02/15.
- *
- * Tests for {@link RSSContentProcessor}
- */
 public class RssProcessorTest extends CamelTestSupport{
 
     @EndpointInject(uri = "mock:result")
@@ -83,9 +78,9 @@ public class RssProcessorTest extends CamelTestSupport{
                 DateStamp dateProcessor = new DateStamp();
 
                   from("direct:start").
-                          setHeader(Feed.ID.NAME, simple("slashdot")).
-                          setHeader(Feed.ID.URI, simple("http://www.epnoi.org/feeds/slashdot")).
-                          setHeader(Feed.ID.URL, simple("http://rss.slashdot.org/Slashdot/slashdot")).
+                          setHeader(Header.PROVIDER.NAME, simple("slashdot")).
+                          setHeader(Header.PROVIDER.URI, simple("http://www.epnoi.org/feeds/slashdot")).
+                          setHeader(Header.PROVIDER.URL, simple("http://rss.slashdot.org/Slashdot/slashdot")).
                           process(dateProcessor).
                           process(rssProcessor).
                           to("mock:result");
