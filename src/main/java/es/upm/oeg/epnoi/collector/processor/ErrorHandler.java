@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ErrorHandler implements Processor{
 
-    Logger log = LoggerFactory.getLogger(ErrorHandler.class);
+    private static final Logger log = LoggerFactory.getLogger(ErrorHandler.class);
 
     @Override
     public void process(Exchange exchange) throws Exception {

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Slashdot</title>
+    <link>http://slashdot.org/</link>
+    <description>News for nerds, stuff that matters</description>
+    <language>en-us</language>
+    <copyright>Copyright 1997-2015, Dice. All Rights Reserved. Slashdot is a Dice Holdings, Inc. service</copyright>
+    <pubDate>Tue, 03 Mar 2015 13:53:17 GMT</pubDate>
+    <category>Technology</category>
+    <dc:creator>help@slashdot.org</dc:creator>
+    <dc:subject>Technology</dc:subject>
+    <dc:publisher>Dice</dc:publisher>
+    <dc:date>2015-03-03T13:53:17Z</dc:date>
+    <dc:language>en-us</dc:language>
+    <dc:rights>Copyright 1997-2015, Dice. All Rights Reserved. Slashdot is a Dice Holdings, Inc. service</dc:rights>
+    <image>
+      <title>Slashdot</title>
+      <url>http://a.fsdn.com/sd/topics/topicslashdot.gif</url>
+      <link>http://slashdot.org/</link>
+    </image>
+    <item>
+      <title>Secret Memo Slams Canadian Police On Inaccurate ISP Request Records</title>
+      <link>http://rss.slashdot.org/~r/Slashdot/slashdot/~3/e8B990MrTio/story01.htm</link>
+      <slash:comments xmlns:slash="http://purl.org/rss/1.0/modules/slash/">13</slash:comments>
+      <slash:department xmlns:slash="http://purl.org/rss/1.0/modules/slash/">tip-of-the-iceberg</slash:department>
+      <slash:section xmlns:slash="http://purl.org/rss/1.0/modules/slash/">news</slash:section>
+      <slash:hit_parade xmlns:slash="http://purl.org/rss/1.0/modules/slash/">13,12,7,5,3,2,1</slash:hit_parade>
+      <feedburner:origLink xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0">http://slashdot.feedsportal.com/c/35028/f/647410/s/43f44ad0/sc/8/l/0Lnews0Bslashdot0Borg0Cstory0C150C0A30C0A20C1592560Csecret0Ememo0Eslams0Ecanadian0Epolice0Eon0Einaccurate0Eisp0Erequest0Erecords0Dutm0Isource0Frss10B0Amainlinkanon0Gutm0Imedium0Ffeed/story01.htm</feedburner:origLink>
+      <description>An anonymous reader writes Last fall, Daniel Therrien, the government's newly appointed Privacy Commissioner of Canada, released the annual report on the Privacy Act, the legislation that governs how government collects, uses, and discloses personal information. The lead story from the report was the result of an audit of the Royal Canadian Mounted Police practices regarding warrantless requests for telecom subscriber information. Michael Geist now reports that a secret internal memo reveals the situation was far worse, with auditors finding the records from Canada's lead law enforcement agency were unusable since they were "inaccurate and incomplete."&lt;p&gt;&lt;div class="share_submission" style="position:relative;"&gt; &lt;a class="slashpop" href="http://twitter.com/home?status=Secret+Memo+Slams+Canadian+Police+On+Inaccurate+ISP+Request+Records%3A+http%3A%2F%2Fbit.ly%2F1wE8ZKW"&gt;&lt;img src="http://a.fsdn.com/sd/twitter_icon_large.png"&gt;&lt;/a&gt; &lt;a class="slashpop" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fnews.slashdot.org%2Fstory%2F15%2F03%2F02%2F159256%2Fsecret-memo-slams-canadian-police-on-inaccurate-isp-request-records%3Futm_source%3Dslashdot%26utm_medium%3Dfacebook"&gt;&lt;img src="http://a.fsdn.com/sd/facebook_icon_large.png"&gt;&lt;/a&gt; &lt;a class="nobg" href="http://plus.google.com/share?url=http://news.slashdot.org/story/15/03/02/159256/secret-memo-slams-canadian-police-on-inaccurate-isp-request-records?utm_source=slashdot&amp;amp;utm_medium=googleplus" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"&gt;&lt;img src="http://www.gstatic.com/images/icons/gplus-16.png" alt="Share on Google+"/&gt;&lt;/a&gt; &lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://news.slashdot.org/story/15/03/02/159256/secret-memo-slams-canadian-police-on-inaccurate-isp-request-records?utm_source=rss1.0moreanon&amp;amp;utm_medium=feed"&gt;Read more of this story&lt;/a&gt; at Slashdot.&lt;/p&gt;&lt;iframe src="http://slashdot.org/slashdot-it.pl?op=discuss&amp;amp;id=7041173&amp;amp;smallembed=1" style="height: 300px; width: 100%; border: none;"&gt;&lt;/iframe&gt;&lt;img width='1' height='1' src='http://slashdot.feedsportal.com/c/35028/f/647410/s/43f44ad0/sc/8/mf.gif' border='0'/&gt;&lt;br clear='all'/&gt;&lt;br/&gt;&lt;br/&gt;&lt;a href="http://da.feedsportal.com/r/222166739896/u/49/f/647410/c/35028/s/43f44ad0/sc/8/rc/1/rc.htm" rel="nofollow"&gt;&lt;img src="http://da.feedsportal.com/r/222166739896/u/49/f/647410/c/35028/s/43f44ad0/sc/8/rc/1/rc.img" border="0"/&gt;&lt;/a&gt;&lt;br/&gt;&lt;a href="http://da.feedsportal.com/r/222166739896/u/49/f/647410/c/35028/s/43f44ad0/sc/8/rc/2/rc.htm" rel="nofollow"&gt;&lt;img src="http://da.feedsportal.com/r/222166739896/u/49/f/647410/c/35028/s/43f44ad0/sc/8/rc/2/rc.img" border="0"/&gt;&lt;/a&gt;&lt;br/&gt;&lt;a href="http://da.feedsportal.com/r/222166739896/u/49/f/647410/c/35028/s/43f44ad0/sc/8/rc/3/rc.htm" rel="nofollow"&gt;&lt;img src="http://da.feedsportal.com/r/222166739896/u/49/f/647410/c/35028/s/43f44ad0/sc/8/rc/3/rc.img" border="0"/&gt;&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;&lt;a href="http://da.feedsportal.com/r/222166739896/u/49/f/647410/c/35028/s/43f44ad0/sc/8/a2.htm"&gt;&lt;img src="http://da.feedsportal.com/r/222166739896/u/49/f/647410/c/35028/s/43f44ad0/sc/8/a2.img" border="0"/&gt;&lt;/a&gt;&lt;img width="1" height="1" src="http://pi.feedsportal.com/r/222166739896/u/49/f/647410/c/35028/s/43f44ad0/sc/8/a2t.img" border="0"/&gt;&lt;img src="//feeds.feedburner.com/~r/Slashdot/slashdot/~4/e8B990MrTio" height="1" width="1" alt=""/&gt;</description>
+      <pubDate>Mon, 02 Mar 2015 17:19:00 GMT</pubDate>
+      <guid isPermaLink="false">http://slashdot.feedsportal.com/c/35028/f/647410/s/43f44ad0/sc/8/l/0Lnews0Bslashdot0Borg0Cstory0C150C0A30C0A20C1592560Csecret0Ememo0Eslams0Ecanadian0Epolice0Eon0Einaccurate0Eisp0Erequest0Erecords0Dutm0Isource0Frss10B0Amainlinkanon0Gutm0Imedium0Ffeed/story01.htm</guid>
+      <dc:creator>samzenpus</dc:creator>
+      <dc:subject>canada</dc:subject>
+      <dc:date>2015-03-02T17:19:00Z</dc:date>
+    </item>
+  </channel>
+</rss>
+
