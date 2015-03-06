@@ -32,7 +32,7 @@ public class TimeClock implements Processor{
 
 
         // Read published date
-        String time = exchange.getIn().getHeader(Header.PUBLICATION_PUBLISHED, String.class);
+        String time = exchange.getProperty(Header.PUBLICATION_PUBLISHED, String.class);
 
         if ((time == null) || (time.trim().equals(""))){
             LOG.warn("no published date info for: {}! Collector timestamp used",Header.PUBLICATION_URI);
@@ -46,13 +46,13 @@ public class TimeClock implements Processor{
         addProperty(exchange,Header.PUBLICATION_PUBLISHED_DATE, Joiner.on("-").join(dateTime.getYear(),dateTime.getMonthOfYear(),dateTime.getDayOfMonth()));
 
         // Add time in format: millis
-        addProperty(exchange, Header.PUBLICATION_PUBLISHED_MILLIS,dateTime.getMillis());
+        addProperty(exchange,Header.PUBLICATION_PUBLISHED_MILLIS,dateTime.getMillis());
 
     }
 
 
     private void addProperty(Exchange exchange, String key, Object value){
-        exchange.getIn().setHeader(key, value);
-        LOG.debug("Added Header property: {}={}", key, value);
+        exchange.setProperty(key, value);
+        LOG.debug("Added Exchange Property: {}={}", key, value);
     }
 }

@@ -1,17 +1,13 @@
 package es.upm.oeg.epnoi.collector.processor;
 
-import es.upm.oeg.epnoi.collector.Header;
-import es.upm.oeg.epnoi.collector.utils.FileServer;
 import org.apache.camel.EndpointInject;
 import org.apache.camel.Exchange;
 import org.apache.camel.Produce;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.builder.RouteBuilder;
-import org.apache.camel.builder.xml.Namespaces;
 import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.test.junit4.CamelTestSupport;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 
@@ -23,84 +19,13 @@ public class HttpTest extends CamelTestSupport{
     @Produce(uri = "direct:start")
     protected ProducerTemplate template;
 
-    private FileServer server;
-
-    @Before
-    public void setup() throws Exception {
-        server = new FileServer();
-        server.start(8080, "src/test/resources");
-    }
-
-    @After
-    public void close() throws Exception {
-        server.stop();
-    }
-
     @Test
+    @Ignore
     public void harvest() throws Exception {
-        String xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n" +
-                "<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\" xmlns:provenance=\"http://www.openarchives.org/OAI/2.0/provenance\" xmlns:oai_dc=\"http://www.openarchives.org/OAI/2.0/oai_dc/\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\">\n" +
-                "    <responseDate>2015-03-03T14:28:29Z</responseDate>\n" +
-                "    <request verb=\"ListRecords\" metadataPrefix=\"oai_dc\" from=\"2015-03-03T13:00:00Z\">http://eprints.ucm.es/cgi/oai2</request>\n" +
-                "    <ListRecords>\n" +
-                "        <record>\n" +
-                "            <header>\n" +
-                "                <identifier>oai:www.ucm.es:28974</identifier>\n" +
-                "                <datestamp>2015-03-03T13:38:54Z</datestamp>\n" +
-                "                <setSpec>7374617475733D756E707562</setSpec>\n" +
-                "                <setSpec>7375626A656374733D42:425F33</setSpec>\n" +
-                "                <setSpec>74797065733D746865736973</setSpec>\n" +
-                "            </header>\n" +
-                "            <metadata>\n" +
-                "                <dc>\n" +
-                "                    <dc:relation>http://eprints.ucm.es/28974/</dc:relation>\n" +
-                "                    <dc:title>Identificación y caracterización funcional del complejo nuclear de proteínas LSM de \"Arabidopsis thaliana\" en la respuesta de aclimatación a las temperaturas bajas</dc:title>\n" +
-                "                    <dc:creator>Hernández Verdeja, Tamara</dc:creator>\n" +
-                "                    <dc:creator>Fernandez Libre, Antonio</dc:creator>\n" +
-                "                    <dc:contributor>Salinas Muñoz, Julio</dc:contributor>\n" +
-                "                    <dc:subject>Biología</dc:subject>\n" +
-                "                    <dc:publisher>Universidad Complutense de Madrid</dc:publisher>\n" +
-                "                    <dc:date>2014-12-12</dc:date>\n" +
-                "                    <dc:type>info:eu-repo/semantics/doctoralThesis</dc:type>\n" +
-                "                    <dc:type>PeerReviewed</dc:type>\n" +
-                "                    <dc:identifier>http://localhost:8080/oaipmh/resource-1425392911570-reduced.pdf</dc:identifier>\n" +
-                "                    <dc:format>application/pdf</dc:format>\n" +
-                "                    <dc:language>es</dc:language>\n" +
-                "                    <dc:rights>info:eu-repo/semantics/openAccess</dc:rights>\n" +
-                "                </dc>\n" +
-                "            </metadata>\n" +
-                "        </record>\n" +
-                "    </ListRecords>\n" +
-                "</OAI-PMH>\n";
-
-
-        String json = "{\"publications\":" +
-                "[{" +
-                    "\"title\":\"Identificación y caracterización funcional del complejo nuclear de proteínas LSM de \\\"Arabidopsis thaliana\\\" en la respuesta de aclimatación a las temperaturas bajas\"," +
-                    "\"description\":\"\",\"published\":\"2015-03-03T13:38:54Z\"," +
-                    "\"uri\":\"http://localhost:8080/oaipmh/resource-1425392911570-reduced.pdf\"," +
-                    "\"url\":\"file://oaipmh/ucm/2015-3-3/resource-1425389934000.pdf\"," +
-                    "\"language\":\"es\"," +
-                    "\"rights\":\"info:eu-repo/semantics/openAccess\"," +
-                    "\"creators\":[" +
-                        "\"Hernández Verdeja, Tamara\"," +
-                        "\"Fernandez Libre, Antonio\"]," +
-                    "\"format\":\"pdf\"," +
-                    "\"reference\":{" +
-                        "\"format\":\"xml\"," +
-                        "\"url\":\"file://oaipmh/ucm/2015-3-3/resource-1425389934000.xml\"}" +
-                "}]," +
-                "\"source\":{" +
-                    "\"name\":\"ucm\"," +
-                    "\"uri\":\"http://www.epnoi.org/oai-providers/ucm\"," +
-                    "\"url\":\"http://eprints.ucm.es/cgi/oai2\"," +
-                    "\"protocol\":\"oaipmh\"" +
-                "}}";
 
         resultEndpoint.expectedMessageCount(1);
-        resultEndpoint.expectedBodiesReceived(json);
 
-        template.sendBody(xml);
+        template.sendBody("sample");
         resultEndpoint.assertIsSatisfied();
     }
 
@@ -109,60 +34,12 @@ public class HttpTest extends CamelTestSupport{
         return new RouteBuilder() {
             public void configure() {
 
-                /************************************************************************************************************
-                 * OAI-PMH Data Providers
-                 ************************************************************************************************************/
-
-                TimeClock timeClock = new TimeClock();
-
-                ContextBuilder contextBuilder = new ContextBuilder();
-
-                Namespaces ns = new Namespaces("oai", "http://www.openarchives.org/OAI/2.0/")
-                        .add("dc", "http://purl.org/dc/elements/1.1/")
-                        .add("provenance", "http://www.openarchives.org/OAI/2.0/provenance")
-                        .add("oai_dc", "http://www.openarchives.org/OAI/2.0/oai_dc/");
 
                 from("direct:start").
-                        setHeader(Header.SOURCE_NAME,                   constant("ucm")).
-                        setHeader(Header.SOURCE_URI,                    constant("http://www.epnoi.org/oai-providers/ucm")).
-                        setHeader(Header.SOURCE_URL,                    constant("http://eprints.ucm.es/cgi/oai2")).
-                        setHeader(Header.SOURCE_PROTOCOL,               constant("oaipmh")).
-                        setHeader(Header.PUBLICATION_TITLE,             xpath("//oai:metadata/oai:dc/dc:title/text()", String.class).namespaces(ns)).
-                        setHeader(Header.PUBLICATION_DESCRIPTION,       xpath("//oai:metadata/oai:dc/dc:description/text()", String.class).namespaces(ns)).
-                        setHeader(Header.PUBLICATION_PUBLISHED,         xpath("//oai:header/oai:datestamp/text()", String.class).namespaces(ns)).
-                        setHeader(Header.PUBLICATION_URI,               xpath("//oai:metadata/oai:dc/dc:identifier/text()", String.class).namespaces(ns)).
-                        setHeader(Header.PUBLICATION_URL_REMOTE,        xpath("//oai:metadata/oai:dc/dc:identifier/text()", String.class).namespaces(ns)).
-                        setHeader(Header.PUBLICATION_LANGUAGE,          xpath("//oai:metadata/oai:dc/dc:language/text()", String.class).namespaces(ns)).
-                        setHeader(Header.PUBLICATION_RIGHTS,            xpath("//oai:metadata/oai:dc/dc:rights/text()", String.class).namespaces(ns)).
-                        setHeader(Header.PUBLICATION_CREATORS,          xpath("string-join(//oai:metadata/oai:dc/dc:creator/text(),\";\")", String.class).namespaces(ns)).
-                        setHeader(Header.PUBLICATION_FORMAT,            constant("pdf")).
-                        setHeader(Header.PUBLICATION_REFERENCE_FORMAT, constant("xml")).
-                        to("seda:inbox");
-
-
-
-                /************************************************************************************************************
-                 * Common retriever and storer
-                 ************************************************************************************************************/
-
-                from("seda:inbox").
-                        process(timeClock).
-                        setHeader(Header.PUBLICATION_REFERENCE_URL,
-                                simple("${in.header." + Header.SOURCE_PROTOCOL + "}/" +
-                                        "${in.header." + Header.SOURCE_NAME + "}/" +
-                                        "${in.header." + Header.PUBLICATION_PUBLISHED_DATE + "}/" +
-                                        "resource-${in.header." + Header.PUBLICATION_PUBLISHED_MILLIS + "}.${in.header." + Header.PUBLICATION_REFERENCE_FORMAT + "}")).
-                        to("file:target/?fileName=${in.header." + Header.PUBLICATION_REFERENCE_URL + "}").
                         setHeader(Exchange.HTTP_METHOD, constant("GET")).
-                        setHeader(Exchange.HTTP_URI, simple("${header." + Header.PUBLICATION_URL_REMOTE + "}")).
-                        to("http://dummyhost?throwExceptionOnFailure=false").
-                        setHeader(Header.PUBLICATION_URL_LOCAL,
-                                simple("${in.header." + Header.SOURCE_PROTOCOL + "}/" +
-                                        "${in.header." + Header.SOURCE_NAME + "}/" +
-                                        "${in.header." + Header.PUBLICATION_PUBLISHED_DATE + "}/" +
-                                        "resource-${in.header." + Header.PUBLICATION_PUBLISHED_MILLIS + "}.${in.header." + Header.PUBLICATION_FORMAT + "}")).
-                        to("file:target/?fileName=${in.header." + Header.PUBLICATION_URL_LOCAL + "}").
-                        process(contextBuilder).
+                        setHeader(Exchange.HTTP_URI, constant("http://rss.slashdot.org/~r/Slashdot/slashdot/~3/qFYJLyH7aXA/musician-releases-album-of-music-to-code-by")).
+                        to("http://dummyhost?throwExceptionOnFailure=true").
+                        to("file:target/?fileName=out.htm").
                         to("mock:result");
             }
         };

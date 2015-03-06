@@ -1,0 +1,41 @@
+{
+  "providers": [
+    {
+      "name":"slashdot",
+      "protocol": "rss",
+      "url": "http://rss.slashdot.org/Slashdot/slashdot"
+
+    },
+    {
+      "name": "ucm",
+      "protocol": "oaipmh",
+      "url": "http://eprints.ucm.es/cgi/oai2",
+      "from": "2015-03-05T15:00:00Z"
+    },
+    {
+      "name": "upm",
+      "protocol": "oaipmh",
+      "url": "http://oa.upm.es/perl/oai2",
+      "from": "2015-03-05T15:00:00Z"
+    }
+    // Example:
+    //    {
+    //      "protocol": "rss",
+    //      "url": "http://rss.slashdot.org/Slashdot/slashdot",
+    //      "uri": "http://www.epnoi.org/rss/slashdot",
+    //      "name": "slashdot",
+    //      "from": "2015-03-06T16:26:00Z",
+    //      "delay": 6000,
+    //      "publication": {
+    //        "title": "$//rss:item/rss:title/text()",
+    //        "description": "$//rss:item/rss:description/text()\"",
+    //        "uri": "$//rss:item/rss:link/text()",
+    //        "url": "$//rss:item/rss:link/text()",
+    //        "language": "$//rss:channel/dc:language/text()\"",
+    //        "rights": "$//rss:channel/dc:rights/text()",
+    //        "creators": "$string-join(//rss:channel/dc:creator/text(),\";\")",
+    //        "format": "htm"
+    //      }
+    //    }
+  ]
+}

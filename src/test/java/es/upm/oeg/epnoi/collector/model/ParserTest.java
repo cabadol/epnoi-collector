@@ -3,6 +3,10 @@ package es.upm.oeg.epnoi.collector.model;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import es.upm.oeg.camel.euia.model.Context;
+import es.upm.oeg.camel.euia.model.Publication;
+import es.upm.oeg.camel.euia.model.Reference;
+import es.upm.oeg.camel.euia.model.Source;
 import org.junit.Test;
 
 import java.util.Arrays;

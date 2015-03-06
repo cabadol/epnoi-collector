@@ -23,6 +23,7 @@ public class Header {
 
     // Publication
     private static final String PUBLICATION                     = joiner.join(EPNOI,"publication");
+    public static final String PUBLICATION_UUID                = joiner.join(PUBLICATION,"uuid");
     public static final String PUBLICATION_TITLE                = joiner.join(PUBLICATION,"title");
     public static final String PUBLICATION_DESCRIPTION          = joiner.join(PUBLICATION,"description");
     public static final String PUBLICATION_PUBLISHED            = joiner.join(PUBLICATION,"published");
