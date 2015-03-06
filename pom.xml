@@ -6,7 +6,7 @@
 
     <groupId>es.upm.oeg</groupId>
     <artifactId>epnoi-collector</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
 
     <properties>
         <camel.version>2.14.1</camel.version>

@@ -64,7 +64,7 @@ public class ContextBuilder implements Processor {
 
 
         exchange.getIn().setBody(json,String.class);
-        LOG.info("Exchange IN body updated to: {}", json);
+        LOG.info("Sending json to UIA: {}", json);
 
     }
 }
