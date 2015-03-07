@@ -1,3 +1,5 @@
+For more details about Epnoi system see: https://github.com/fitash/epnoi/wiki
+
 # Epnoi-Collector
 
 This tool allows you harvest scientific publications from [RSS](http://www.rssboard.org/rss-specification) servers and/or [OAI-PMH](http://www.openarchives.org) data providers.  
