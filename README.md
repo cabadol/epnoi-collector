@@ -1,6 +1,6 @@
 # research-collector
 
-This tool allows you harvest scientific publications from RSS servers and/or OAI-PMH data providers.  
+This tool allows you harvest scientific publications from [RSS](http://www.rssboard.org/rss-specification) servers and/or [OAI-PMH](http://www.openarchives.org) data providers.  
 
 ## Provider Info
 | Property | Default  | Description |
@@ -17,8 +17,20 @@ This tool allows you harvest scientific publications from RSS servers and/or OAI
 
 ## Publication Info
 Because each server can provide information differently, we need to know how these attributes are distributed.  
-Using [XPATH](http://www.w3.org/TR/xpath/) expressions or constant values, you can define how to obtain them from the response received by the server.     
-To indicate that it is a XPATH expression you must include at first the character `$`
+Using [XPATH](http://www.w3.org/TR/xpath/) expressions or constant values, you can define how to obtain them from the response received by the server.  
+
+The list of namespaces loaded in the system to be used by XPATH expressions are the following:  
+
+| Namespace | Code | 
+| :------- |:-----| 
+| http://www.openarchives.org/OAI/2.0/    | `oai`| 
+| http://purl.org/dc/elements/1.1/    | `dc` | 
+| http://www.openarchives.org/OAI/2.0/provenance    | `provenance`    | 
+| http://www.openarchives.org/OAI/2.0/oai_dc/    | `oai_dc`    | 
+| http://purl.org/rss/1.0/    | `rss`    | 
+
+
+All XPath expressions must include at first the `$` character:  
 
 | Element | RSS | OAI-PMH |
 | :---: |:---| :--- | 
@@ -32,21 +44,10 @@ To indicate that it is a XPATH expression you must include at first the characte
 | creators    | `$string-join(//rss:channel/dc:creator/text(),";")`    | `$string-join(//oai:metadata/oai:dc/dc:creator/text(),";")` | 
 | format    | `htm`    | `pdf` | 
 
-Namespaces included to be used by XPATH expressions are:  
 
-| Namespace | Code | 
-| :------- |:-----| 
-| http://www.openarchives.org/OAI/2.0/    | `oai`| 
-| http://purl.org/dc/elements/1.1/    | `dc` | 
-| http://www.openarchives.org/OAI/2.0/provenance    | `provenance`    | 
-| http://www.openarchives.org/OAI/2.0/oai_dc/    | `oai_dc`    | 
-| http://purl.org/rss/1.0/    | `rss`    | 
+## Config Format
+System is configured using a *json* file like this:
 
-## Format
-We used *json* to 
-
-## Config File
-This is a sample of configuration file:   
 ```json
 {
   "providers": [
