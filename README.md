@@ -13,26 +13,29 @@ This tool allows you harvest scientific publications from RSS servers and/or OAI
 | delay    | `60000 `   | Delay in milliseconds between each poll |
 | initialDelay    | `1000`    | Milliseconds before polling starts |
 
-## Publication Info
-Because each server can provide information differently, we need to know how these attributes are distributed.
-Using [XPATH](http://www.w3.org/TR/xpath/) expressions or constant values, you can define how to obtain them from the response received by the server.   
-*To indicate that it is a XPATH expression you must include at first the character `$`*
+\* These attributes are mandatory
 
-| Element | RSS | OAI-PMH | Description |
-| :------- |:--------:| :----------: | :------- |
-| title    | `$//rss:item/rss:title/text()`| `$//oai:metadata/oai:dc/dc:title/text()` | asasasas |
-| description    | `$//rss:item/rss:description/text()` | `$//oai:metadata/oai:dc/dc:description/text()` | An account of the resource. Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource. |
-| published    | `$//rss:item/dc:date/text()`    | `$//oai:header/oai:datestamp/text()` | Date of submission of the resource |
-| uri    | `$//rss:item/rss:link/text()`    | `$//oai:metadata/oai:dc/dc:identifier/text()` | asasasas |
-| url    | `$//rss:item/rss:link/text()`    | `$//oai:metadata/oai:dc/dc:identifier/text()` | asasasas |
-| language    | `$//rss:channel/dc:language/text()`    | `$/oai:metadata/oai:dc/dc:language/text()` | asasasas |
-| rights    | `$//rss:channel/dc:rights/text()`    | `$//oai:metadata/oai:dc/dc:rights/text()` | asasasas |
-| creators    | `$string-join(//rss:channel/dc:creator/text(),";")`    | `$string-join(//oai:metadata/oai:dc/dc:creator/text(),";")` | List of entities primarily responsible for making the resource |
-| format    | `htm`    | `pdf` | asasasas |
+## Publication Info
+Because each server can provide information differently, we need to know how these attributes are distributed.  
+Using [XPATH](http://www.w3.org/TR/xpath/) expressions or constant values, you can define how to obtain them from the response received by the server.     
+To indicate that it is a XPATH expression you must include at first the character `$`
+
+| Element | RSS | OAI-PMH |
+| :---: |:---| :--- | 
+| title    | `$//rss:item/rss:title/text()` | `$//oai:metadata/oai:dc/dc:title/text()` | 
+| description    | `$//rss:item/rss:description/text()` | `$//oai:metadata/oai:dc/dc:description/text()` | 
+| published    | `$//rss:item/dc:date/text()`    | `$//oai:header/oai:datestamp/text()` | 
+| uri    | `$//rss:item/rss:link/text()`    | `$//oai:metadata/oai:dc/dc:identifier/text()` | 
+| url    | `$//rss:item/rss:link/text()`    | `$//oai:metadata/oai:dc/dc:identifier/text()` | 
+| language    | `$//rss:channel/dc:language/text()`    | `$/oai:metadata/oai:dc/dc:language/text()` | 
+| rights    | `$//rss:channel/dc:rights/text()`    | `$//oai:metadata/oai:dc/dc:rights/text()` | 
+| creators    | `$string-join(//rss:channel/dc:creator/text(),";")`    | `$string-join(//oai:metadata/oai:dc/dc:creator/text(),";")` | 
+| format    | `htm`    | `pdf` | 
 
 Namespaces included to be used by XPATH expressions are:  
+
 | Namespace | Code | 
-| :------- |:--------:| 
+| :------- |:-----| 
 | http://www.openarchives.org/OAI/2.0/    | `oai`| 
 | http://purl.org/dc/elements/1.1/    | `dc` | 
 | http://www.openarchives.org/OAI/2.0/provenance    | `provenance`    | 
@@ -42,6 +45,31 @@ Namespaces included to be used by XPATH expressions are:
 ## Format
 We used *json* to 
 
+## Config File
+This is a sample of configuration file:   
+```json
+{
+  "providers": [
+    {
+      "name":"slashdot",
+      "protocol": "rss",
+      "url": "http://rss.slashdot.org/Slashdot/slashdot"
 
+    },
+    {
+      "name": "upm",
+      "protocol": "oaipmh",
+      "url": "http://oa.upm.es/perl/oai2",
+      "from": "2015-01-01T00:00:00Z"
+    },
+    {
+      "name": "ucm",
+      "protocol": "oaipmh",
+      "url": "http://eprints.ucm.es/cgi/oai2",
+      "from": "2014-01-01T00:00:00Z"
+    }
+  ]
+}
+```
 
 This work is funded by the EC-funded project DrInventor ([www.drinventor.eu](www.drinventor.eu)).
