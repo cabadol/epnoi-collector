@@ -1,8 +1,6 @@
 package es.upm.oeg.epnoi.collector.processor;
 
 import es.upm.oeg.epnoi.collector.Header;
-import es.upm.oeg.epnoi.collector.config.RouteBuilderFactory;
-import es.upm.oeg.epnoi.collector.model.Provider;
 import es.upm.oeg.epnoi.collector.utils.FileServer;
 import org.apache.camel.EndpointInject;
 import org.apache.camel.Exchange;

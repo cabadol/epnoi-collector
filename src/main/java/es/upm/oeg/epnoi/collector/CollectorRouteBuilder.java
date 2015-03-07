@@ -1,7 +1,7 @@
 package es.upm.oeg.epnoi.collector;
 
 import com.google.gson.Gson;
-import es.upm.oeg.epnoi.collector.config.RouteBuilderFactory;
+import es.upm.oeg.epnoi.collector.routes.RouteBuilderFactory;
 import es.upm.oeg.epnoi.collector.model.Configuration;
 import es.upm.oeg.epnoi.collector.model.Provider;
 import es.upm.oeg.epnoi.collector.processor.ContextBuilder;
@@ -10,7 +10,6 @@ import es.upm.oeg.epnoi.collector.processor.TimeClock;
 import es.upm.oeg.epnoi.collector.processor.UUIDGenerator;
 import org.apache.camel.Exchange;
 import org.apache.camel.builder.RouteBuilder;
-import org.apache.camel.builder.xml.Namespaces;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
