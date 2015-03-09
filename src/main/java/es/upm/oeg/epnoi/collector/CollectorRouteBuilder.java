@@ -50,8 +50,11 @@ public class CollectorRouteBuilder extends RouteBuilder {
     @Value("${storage.path}")
     String basedir;
 
-    @Value("${epnoi.server.host}")
-    String epnoiHost;
+    @Value("${uia.service.host}")
+    String uiaServers;
+
+    @Value("${uia.service.notification}")
+    Boolean uiaNotificate;
 
     @Override
     public void configure() throws Exception {
@@ -106,10 +109,12 @@ public class CollectorRouteBuilder extends RouteBuilder {
                 to("file:" + basedir + "/?fileName=${property." + Header.PUBLICATION_URL_LOCAL + "}").
                 to(PROCESS_ROUTE);
 
-        from(PROCESS_ROUTE).
-                // Create a context message for Epnoi UIA
-                process(contextBuilder).
-                to("euia:out?servers="+epnoiHost);
+        if (uiaNotificate){
+            from(PROCESS_ROUTE).
+                    // Create a context message for Epnoi UIA
+                            process(contextBuilder).
+                    to("euia:out?servers="+ uiaServers);
+        }
 
         from(DELETED_ROUTE).process(removeHandler);
 
