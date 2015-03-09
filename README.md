@@ -7,8 +7,8 @@ This tool allows you harvest scientific publications from [RSS](http://www.rssbo
 ## Provider Info
 | Property | Default  | Description |
 | :------- |:--------:| :---------- |
-| protocol\*    |     | `rss` or `oaipmh` |
-| url\*    |     | The base URL for making protocol requests to the repository |
+| *protocol*\*    |     | `rss` or `oaipmh` |
+| *url*\*    |     | The base URL for making protocol requests to the repository |
 | name    | *url domain name*    | A human readable name for the repository |
 | uri    | `http://www.epnoi.org/'protocol'/'name'`    | A uniform resource identifier used to identify the repository |
 | from    | `1970-01-01T00:00:00Z`    | Specifies a lower bound for datestamp-based selective harvesting. It is a valid [ISO-8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874) value. After first request, this value is updated to current time |
