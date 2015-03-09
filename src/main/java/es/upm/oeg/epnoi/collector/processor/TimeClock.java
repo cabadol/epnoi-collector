@@ -12,6 +12,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import java.text.DecimalFormat;
+
 
 @Component
 public class TimeClock implements Processor{
@@ -22,6 +24,8 @@ public class TimeClock implements Processor{
     DateTimeZone timezone = DateTimeZone.forID("Zulu");//UTC
 
     DateTimeFormatter dateTimeFormatter = ISODateTimeFormat.dateTimeNoMillis().withZone(timezone);
+
+    DecimalFormat decimalFormat = new DecimalFormat("00");
 
     @Override
     public void process(Exchange exchange) throws Exception {
@@ -43,7 +47,7 @@ public class TimeClock implements Processor{
         DateTime dateTime = dateTimeFormatter.parseDateTime(time);
 
         // Add date in format: yyyy-mm-dd
-        addProperty(exchange,Header.PUBLICATION_PUBLISHED_DATE, Joiner.on("-").join(dateTime.getYear(),dateTime.getMonthOfYear(),dateTime.getDayOfMonth()));
+        addProperty(exchange,Header.PUBLICATION_PUBLISHED_DATE, Joiner.on("-").join(dateTime.getYear(),decimalFormat.format(dateTime.getMonthOfYear()),decimalFormat.format(dateTime.getDayOfMonth())));
 
         // Add time in format: millis
         addProperty(exchange,Header.PUBLICATION_PUBLISHED_MILLIS,dateTime.getMillis());

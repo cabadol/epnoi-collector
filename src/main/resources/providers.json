@@ -1,22 +1,20 @@
 {
   "providers": [
-//    {
-//      "name":"slashdot",
-//      "protocol": "rss",
-//      "url": "http://rss.slashdot.org/Slashdot/slashdot"
-//
-//    },
-//    {
-//      "name": "ucm",
-//      "protocol": "oaipmh",
-//      "url": "http://eprints.ucm.es/cgi/oai2",
-//      "from": "2015-03-05T15:00:00Z"
-//    },
+    {
+      "name":"slashdot",
+      "protocol": "rss",
+      "url": "http://rss.slashdot.org/Slashdot/slashdot"
+
+    },
+    {
+      "name": "ucm",
+      "protocol": "oaipmh",
+      "url": "http://eprints.ucm.es/cgi/oai2"
+    },
     {
       "name": "upm",
       "protocol": "oaipmh",
-      "url": "http://oa.upm.es/perl/oai2",
-      "from": "2015-03-05T15:00:00Z"
+      "url": "http://oa.upm.es/perl/oai2"
     }
     // Example:
     //    {

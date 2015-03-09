@@ -17,7 +17,7 @@ public abstract class AbstractRouteBuilder implements IRouteBuilder{
 
     public static final String XPATH = "$";
 
-    private final Namespaces ns;
+    protected final Namespaces ns;
 
     public AbstractRouteBuilder(){
         this.ns = new Namespaces("oai", "http://www.openarchives.org/OAI/2.0/")
@@ -43,7 +43,6 @@ public abstract class AbstractRouteBuilder implements IRouteBuilder{
         add(Header.PUBLICATION_CREATORS, provider.getPublication().getCreators(), def, builder);
         add(Header.PUBLICATION_FORMAT, provider.getPublication().getFormat(), def, builder);
         add(Header.PUBLICATION_REFERENCE_FORMAT, "xml", def, builder);
-        def.to(CollectorRouteBuilder.INBOX_ROUTE);
         LOG.debug("Route definition: {}", def);
     }
 
@@ -53,5 +52,9 @@ public abstract class AbstractRouteBuilder implements IRouteBuilder{
         }else{
             def.setProperty(property,builder.constant(expression));
         }
+    }
+
+    protected void nextStage(ProcessorDefinition<RouteDefinition> def){
+        def.to(CollectorRouteBuilder.INBOX_ROUTE);
     }
 }

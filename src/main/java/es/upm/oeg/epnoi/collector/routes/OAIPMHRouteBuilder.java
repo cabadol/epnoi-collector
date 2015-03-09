@@ -1,5 +1,6 @@
 package es.upm.oeg.epnoi.collector.routes;
 
+import es.upm.oeg.epnoi.collector.CollectorRouteBuilder;
 import es.upm.oeg.epnoi.collector.model.Provider;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.ProcessorDefinition;
@@ -38,7 +39,7 @@ public class OAIPMHRouteBuilder extends AbstractRouteBuilder {
         }
         // Default URI xpath expression
         if (provider.getPublication().getUri() == null){
-            provider.getPublication().setUri(XPATH+"//oai:metadata/oai:dc/dc:identifier/text()");
+            provider.getPublication().setUri(XPATH+"//oai:header/oai:identifier/text()");
         }
         // Default URL xpath expression
         if (provider.getPublication().getUrl() == null){
@@ -60,6 +61,10 @@ public class OAIPMHRouteBuilder extends AbstractRouteBuilder {
         if (provider.getPublication().getFormat() == null){
             provider.getPublication().setFormat("pdf");
         }
+        // default From value
+        if (provider.getFrom() == null){
+            provider.setFrom("1970-01-01T00:00:00Z");
+        }
         provider.validate();
         this.provider = provider;
         LOG.debug("OAIPMH Provider: {}",provider);
@@ -67,15 +72,31 @@ public class OAIPMHRouteBuilder extends AbstractRouteBuilder {
 
     @Override
     public void create(RouteBuilder builder) {
-        // https://github.com/cabadol/camel-oaipmh
+
+        // Create OAI-PMH URI https://github.com/cabadol/camel-oaipmh
         StringBuilder route =  new StringBuilder().append(provider.getUrl().replace("http", "oaipmh")).
                 append("?delay=").append(provider.getDelay()).
                 append("&initialDelay=").append(provider.getInitialDelay());
+
+        // Add attributes
         if (provider.getFrom() != null){
             route.append("&from=").append(provider.getFrom());
         }
 
+        // Initialize route definition
         ProcessorDefinition<RouteDefinition> definition = builder.from(route.toString());
+
+        // Add xpath and constant properties
         addProperties(builder, definition, provider);
+
+
+        // Filter 'deleted' resources
+        definition = (ProcessorDefinition<RouteDefinition>) definition.
+                choice().
+                    when().xpath("//oai:header[@status=\"deleted\"]", String.class, ns).to(CollectorRouteBuilder.DELETED_ROUTE).stop().
+                end();
+
+        // Send to next stage
+        nextStage(definition);
     }
 }

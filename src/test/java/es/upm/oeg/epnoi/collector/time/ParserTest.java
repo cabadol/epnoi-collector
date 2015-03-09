@@ -21,7 +21,7 @@ public class ParserTest extends CamelTestSupport {
     @Test
     public void validTime() throws Exception {
         resultEndpoint.expectedMessageCount(1);
-        resultEndpoint.expectedPropertyReceived(Header.PUBLICATION_PUBLISHED_DATE, "2015-3-3");
+        resultEndpoint.expectedPropertyReceived(Header.PUBLICATION_PUBLISHED_DATE, "2015-03-03");
         resultEndpoint.expectedPropertyReceived(Header.PUBLICATION_PUBLISHED_MILLIS,"1425389934000");
 
         template.sendBodyAndProperty("message", Header.PUBLICATION_PUBLISHED, "2015-03-03T13:38:54Z");

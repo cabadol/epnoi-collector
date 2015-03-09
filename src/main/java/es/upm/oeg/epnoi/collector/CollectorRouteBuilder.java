@@ -1,13 +1,10 @@
 package es.upm.oeg.epnoi.collector;
 
 import com.google.gson.Gson;
+import es.upm.oeg.epnoi.collector.processor.*;
 import es.upm.oeg.epnoi.collector.routes.RouteBuilderFactory;
 import es.upm.oeg.epnoi.collector.model.Configuration;
 import es.upm.oeg.epnoi.collector.model.Provider;
-import es.upm.oeg.epnoi.collector.processor.ContextBuilder;
-import es.upm.oeg.epnoi.collector.processor.ErrorHandler;
-import es.upm.oeg.epnoi.collector.processor.TimeClock;
-import es.upm.oeg.epnoi.collector.processor.UUIDGenerator;
 import org.apache.camel.Exchange;
 import org.apache.camel.builder.RouteBuilder;
 import org.slf4j.Logger;
@@ -28,6 +25,10 @@ public class CollectorRouteBuilder extends RouteBuilder {
 
     public static final String INBOX_ROUTE = "seda:inbox";
 
+    public static final String PROCESS_ROUTE = "seda:processing";
+
+    public static final String DELETED_ROUTE = "seda:deleted";
+
     @Autowired
     ErrorHandler errorHandler;
 
@@ -38,6 +39,9 @@ public class CollectorRouteBuilder extends RouteBuilder {
     ContextBuilder contextBuilder;
 
     @Autowired
+    RemoveHandler removeHandler;
+
+    @Autowired
     UUIDGenerator uuidGenerator;
 
     @Value("${camel.config.location}")
@@ -45,6 +49,9 @@ public class CollectorRouteBuilder extends RouteBuilder {
 
     @Value("${storage.path}")
     String basedir;
+
+    @Value("${epnoi.server.host}")
+    String epnoiHost;
 
     @Override
     public void configure() throws Exception {
@@ -97,12 +104,14 @@ public class CollectorRouteBuilder extends RouteBuilder {
                                 "resource-${property." + Header.PUBLICATION_UUID + "}.${property." + Header.PUBLICATION_FORMAT + "}")).
                 // Save publication file
                 to("file:" + basedir + "/?fileName=${property." + Header.PUBLICATION_URL_LOCAL + "}").
-                to("seda:processing");
+                to(PROCESS_ROUTE);
 
-        from("seda:processing").
+        from(PROCESS_ROUTE).
                 // Create a context message for Epnoi UIA
                 process(contextBuilder).
-                to("euia:out");
+                to("euia:out?servers="+epnoiHost);
+
+        from(DELETED_ROUTE).process(removeHandler);
 
     }
 }

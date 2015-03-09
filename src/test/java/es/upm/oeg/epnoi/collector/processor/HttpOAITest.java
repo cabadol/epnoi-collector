@@ -78,8 +78,8 @@ public class HttpOAITest extends CamelTestSupport{
                 "[{" +
                     "\"title\":\"Identificación y caracterización funcional del complejo nuclear de proteínas LSM de \\\"Arabidopsis thaliana\\\" en la respuesta de aclimatación a las temperaturas bajas\"," +
                     "\"description\":\"\",\"published\":\"2015-03-03T13:38:54Z\"," +
-                    "\"uri\":\"http://localhost:8080/oaipmh/resource-1425392911570-reduced.pdf\"," +
-                    "\"url\":\"file://oaipmh/ucm/2015-3-3/resource-1425389934000.pdf\"," +
+                    "\"uri\":\"oai:www.ucm.es:28974\"," +
+                    "\"url\":\"file://oaipmh/ucm/2015-03-03/resource-1425389934000.pdf\"," +
                     "\"language\":\"es\"," +
                     "\"rights\":\"info:eu-repo/semantics/openAccess\"," +
                     "\"creators\":[" +
@@ -88,7 +88,7 @@ public class HttpOAITest extends CamelTestSupport{
                     "\"format\":\"pdf\"," +
                     "\"reference\":{" +
                         "\"format\":\"xml\"," +
-                        "\"url\":\"file://oaipmh/ucm/2015-3-3/resource-1425389934000.xml\"}" +
+                        "\"url\":\"file://oaipmh/ucm/2015-03-03/resource-1425389934000.xml\"}" +
                 "}]," +
                 "\"source\":{" +
                     "\"name\":\"ucm\"," +
@@ -132,7 +132,7 @@ public class HttpOAITest extends CamelTestSupport{
                         setProperty(Header.PUBLICATION_TITLE, xpath("//oai:metadata/oai:dc/dc:title/text()", String.class).namespaces(ns)).
                         setProperty(Header.PUBLICATION_DESCRIPTION, xpath("//oai:metadata/oai:dc/dc:description/text()", String.class).namespaces(ns)).
                         setProperty(Header.PUBLICATION_PUBLISHED, xpath("//oai:header/oai:datestamp/text()", String.class).namespaces(ns)).
-                        setProperty(Header.PUBLICATION_URI, xpath("//oai:metadata/oai:dc/dc:identifier/text()", String.class).namespaces(ns)).
+                        setProperty(Header.PUBLICATION_URI, xpath("//oai:header/oai:identifier/text()", String.class).namespaces(ns)).
                         setProperty(Header.PUBLICATION_URL_REMOTE, xpath("//oai:metadata/oai:dc/dc:identifier/text()", String.class).namespaces(ns)).
                         setProperty(Header.PUBLICATION_LANGUAGE, xpath("//oai:metadata/oai:dc/dc:language/text()", String.class).namespaces(ns)).
                         setProperty(Header.PUBLICATION_RIGHTS, xpath("//oai:metadata/oai:dc/dc:rights/text()", String.class).namespaces(ns)).

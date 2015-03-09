@@ -64,7 +64,8 @@ public class ContextBuilder implements Processor {
 
 
         exchange.getIn().setBody(json,String.class);
-        LOG.info("Sending json to UIA: {}", json);
+        LOG.info("Sending resource to UIA: {}", exchange.getProperty(Header.PUBLICATION_URL_LOCAL, String.class));
+        LOG.debug("Json: {}", json);
 
     }
 }

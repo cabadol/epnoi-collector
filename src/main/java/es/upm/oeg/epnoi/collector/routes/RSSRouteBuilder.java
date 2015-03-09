@@ -61,6 +61,10 @@ public class RSSRouteBuilder extends AbstractRouteBuilder{
         if (provider.getPublication().getFormat() == null){
             provider.getPublication().setFormat("htm");
         }
+        // default From value
+        if (provider.getFrom() == null){
+            provider.setFrom("1970-01-01T00:00:00Z");
+        }
         provider.validate();
         this.provider = provider;
         LOG.debug("RSS Provider: {}",provider);
@@ -68,18 +72,26 @@ public class RSSRouteBuilder extends AbstractRouteBuilder{
 
     @Override
     public void create(RouteBuilder builder) {
-        // http://camel.apache.org/rss.html
+        // Create RSS uri http://camel.apache.org/rss.html
         StringBuilder route =  new StringBuilder().append("rss:").append(provider.getUrl()).
                 append("?splitEntries=true&").
                 append("consumer.delay=").append(provider.getDelay()).
                 append("&consumer.initialDelay=").append(provider.getInitialDelay()).
                 append("&feedHeader=false&filter=true");
+
+        // Add properties
         if (provider.getFrom() != null){
             route.append("&lastUpdate=").append(provider.getFrom());
         }
 
+        // Initialize route definition
         ProcessorDefinition<RouteDefinition> definition = builder.from(route.toString()).marshal().rss();
+
+        // Add xpath and constants properties
         addProperties(builder, definition, provider);
+
+        // Next stage
+        nextStage(definition);
     }
 
 }

@@ -115,14 +115,14 @@ public class HttpRSSTest extends CamelTestSupport{
                 "s.feedburner.com/~r/Slashdot/slashdot/~4/qFYJLyH7aXA\\\" height\\u003d\\\"1\\\" width\\u003d\\\"1\\\" alt\\u003d\\\"\\\"/\\u003e\"," +
                 "\"published\":\"2015-03-06T03:03:00Z\"," +
                 "\"uri\":\"http://localhost:8080/rss/resource.htm\"," +
-                "\"url\":\"file://rss/slashdot/2015-3-6/resource-1425610980000.htm\"," +
+                "\"url\":\"file://rss/slashdot/2015-03-06/resource-1425610980000.htm\"," +
                 "\"language\":\"en-us\"," +
                 "\"rights\":\"Copyright 1997-2015, Dice. All Rights Reserved. Slashdot is a Dice Holdings, Inc. service\"," +
                 "\"creators\":[\"help@slashdot.org\"]," +
                 "\"format\":\"htm\"," +
                 "\"reference\":" +
                 "{\"format\":\"xml\"," +
-                "\"url\":\"file://rss/slashdot/2015-3-6/resource-1425610980000.xml\"}}]," +
+                "\"url\":\"file://rss/slashdot/2015-03-06/resource-1425610980000.xml\"}}]," +
                 "\"source\":{" +
                 "\"name\":\"slashdot\"," +
                 "\"uri\":\"http://www.epnoi.org/feeds/slashdot\"," +
