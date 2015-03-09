@@ -196,7 +196,7 @@
                 <artifactId>site-maven-plugin</artifactId>
                 <version>0.10</version>
                 <configuration>
-                    <message>Library of ${project.version}</message>
+                    <message>${project.name} v${project.version}</message>
                     <noJekyll>true</noJekyll>
                     <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory>
                     <branch>refs/heads/mvn-repo</branch>
