@@ -1,4 +1,4 @@
-For more details about Epnoi system see: https://github.com/fitash/epnoi/wiki
+For more details about Epnoi see: https://github.com/fitash/epnoi/wiki
 
 # Epnoi-Collector
 
@@ -15,24 +15,24 @@ This tool allows you harvest scientific publications from [RSS](http://www.rssbo
 | delay    | `60000 `   | Delay in milliseconds between each poll |
 | initialDelay    | `1000`    | Milliseconds before polling starts |
 
-\* These attributes are mandatory
+\* *these attributes are mandatory*
 
 ## Publication Info
-Because each server can provide information differently, we need to know how these attributes are distributed.  
-Using [XPATH](http://www.w3.org/TR/xpath/) expressions or constant values, you can define how to obtain them from the response received by the server.  
+Because each server can provide information differently, we need to know how these attributes are distributed:  
 
-The list of namespaces loaded in the system to be used by XPATH expressions are the following:  
+| Attribute | Description |
+| :--- |:---|
+| [title](http://dublincore.org/documents/dcmi-terms/#elements-title)    | A name given to the resource. | 
+| [description](http://dublincore.org/documents/dcmi-terms/#elements-description)    | An account of the resource. Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource. | 
+| published    | Date of submission of the resource.  | 
+| [uri](http://dublincore.org/documents/dcmi-terms/#URI)    | Identifier constructed according to the generic syntax for Uniform Resource Identifiers as specified by the Internet Engineering Task Force. | 
+| [url](http://dublincore.org/documents/dcmi-terms/#terms-identifier)    | An unambiguous reference to the resource file. | 
+| [language](http://dublincore.org/documents/dcmi-terms/#elements-language)    | A language of the resource. Recommended best practice is to use a controlled vocabulary such as RFC 4646 [RFC4646]. | 
+| [rights](http://dublincore.org/documents/dcmi-terms/#terms-rights)    | Information about rights held in and over the resource. Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights. | 
+| [creators](http://dublincore.org/documents/dcmi-terms/#terms-creator)    | List of entities, separated by `;`, primarily responsible for making the resource. Examples of a Creator include a person, an organization, or a service. | 
+| [format](http://dublincore.org/documents/dcmi-terms/#terms-format)    | The file format, physical medium, or dimensions of the resource. | 
 
-| Namespace | Code | 
-| :------- |:-----| 
-| http://www.openarchives.org/OAI/2.0/    | `oai`| 
-| http://purl.org/dc/elements/1.1/    | `dc` | 
-| http://www.openarchives.org/OAI/2.0/provenance    | `provenance`    | 
-| http://www.openarchives.org/OAI/2.0/oai_dc/    | `oai_dc`    | 
-| http://purl.org/rss/1.0/    | `rss`    | 
-
-
-All XPath expressions must include at first the `$` character:  
+Using [XPath](http://www.w3.org/TR/xpath/) expressions (prefix `$`) or constant values, you can define how to obtain the attributes from the response received by the server: 
 
 | Element | RSS | OAI-PMH |
 | :---: |:---| :--- | 
@@ -46,9 +46,18 @@ All XPath expressions must include at first the `$` character:
 | creators    | `$string-join(//rss:channel/dc:creator/text(),";")`    | `$string-join(//oai:metadata/oai:dc/dc:creator/text(),";")` | 
 | format    | `htm`    | `pdf` | 
 
+The list of namespaces available to be used in *xpath* expressions are the following:  
+
+| Namespace | Code | 
+| :------- |:-----| 
+| http://www.openarchives.org/OAI/2.0/    | `oai`| 
+| http://purl.org/dc/elements/1.1/    | `dc` | 
+| http://www.openarchives.org/OAI/2.0/provenance    | `provenance`    | 
+| http://www.openarchives.org/OAI/2.0/oai_dc/    | `oai_dc`    | 
+| http://purl.org/rss/1.0/    | `rss`    | 
 
 ## Config Format
-System is configured using a *json* file like this:
+All providers are listed in the `providers.json` file:
 
 ```json
 {
@@ -62,8 +71,7 @@ System is configured using a *json* file like this:
     {
       "name": "upm",
       "protocol": "oaipmh",
-      "url": "http://oa.upm.es/perl/oai2",
-      "from": "2015-01-01T00:00:00Z"
+      "url": "http://oa.upm.es/perl/oai2"
     },
     {
       "name": "ucm",
