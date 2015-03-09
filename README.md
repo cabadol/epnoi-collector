@@ -24,7 +24,7 @@ Because each server can provide information differently, we need to know how the
 | :--- |:---|
 | [title](http://dublincore.org/documents/dcmi-terms/#elements-title)    | A name given to the resource. | 
 | [description](http://dublincore.org/documents/dcmi-terms/#elements-description)    | An account of the resource. Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource. | 
-| published    | Date of submission of the resource.  | 
+| [published](http://dublincore.org/documents/dcmi-terms/#terms-dateSubmitted)    | Date of submission of the resource.  | 
 | [uri](http://dublincore.org/documents/dcmi-terms/#URI)    | Identifier constructed according to the generic syntax for Uniform Resource Identifiers as specified by the Internet Engineering Task Force. | 
 | [url](http://dublincore.org/documents/dcmi-terms/#terms-identifier)    | An unambiguous reference to the resource file. | 
 | [language](http://dublincore.org/documents/dcmi-terms/#elements-language)    | A language of the resource. Recommended best practice is to use a controlled vocabulary such as RFC 4646 [RFC4646]. | 
