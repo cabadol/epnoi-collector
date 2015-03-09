@@ -39,7 +39,7 @@ All XPath expressions must include at first the `$` character:
 | title    | `$//rss:item/rss:title/text()` | `$//oai:metadata/oai:dc/dc:title/text()` | 
 | description    | `$//rss:item/rss:description/text()` | `$//oai:metadata/oai:dc/dc:description/text()` | 
 | published    | `$//rss:item/dc:date/text()`    | `$//oai:header/oai:datestamp/text()` | 
-| uri    | `$//rss:item/rss:link/text()`    | `$//oai:metadata/oai:dc/dc:identifier/text()` | 
+| uri    | `$//rss:item/rss:link/text()`    | `$//oai:header/oai:identifier/text()` |
 | url    | `$//rss:item/rss:link/text()`    | `$//oai:metadata/oai:dc/dc:identifier/text()` | 
 | language    | `$//rss:channel/dc:language/text()`    | `$/oai:metadata/oai:dc/dc:language/text()` | 
 | rights    | `$//rss:channel/dc:rights/text()`    | `$//oai:metadata/oai:dc/dc:rights/text()` | 
