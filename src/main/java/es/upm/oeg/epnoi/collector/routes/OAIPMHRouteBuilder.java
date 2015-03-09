@@ -61,10 +61,6 @@ public class OAIPMHRouteBuilder extends AbstractRouteBuilder {
         if (provider.getPublication().getFormat() == null){
             provider.getPublication().setFormat("pdf");
         }
-        // default From value
-        if (provider.getFrom() == null){
-            provider.setFrom("1970-01-01T00:00:00Z");
-        }
         provider.validate();
         this.provider = provider;
         LOG.debug("OAIPMH Provider: {}",provider);
