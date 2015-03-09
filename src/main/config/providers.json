@@ -1,0 +1,24 @@
+{
+  "providers": [
+    {
+      "name":"slashdot",
+      "protocol": "rss",
+      "url": "http://rss.slashdot.org/Slashdot/slashdot",
+      "initialDelay": 5000
+    },
+    {
+      "name": "ucm",
+      "protocol": "oaipmh",
+      "url": "http://eprints.ucm.es/cgi/oai2",
+      "from": "2015-03-05T15:00:00Z",
+      "initialDelay": 30000
+    },
+    {
+      "name": "upm",
+      "protocol": "oaipmh",
+      "url": "http://oa.upm.es/perl/oai2",
+      "from": "2015-03-05T15:00:00Z",
+      "initialDelay": 60000
+    }
+  ]
+}
