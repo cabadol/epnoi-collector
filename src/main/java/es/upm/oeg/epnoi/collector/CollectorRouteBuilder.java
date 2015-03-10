@@ -56,6 +56,12 @@ public class CollectorRouteBuilder extends RouteBuilder {
     @Value("${uia.service.notification}")
     Boolean uiaNotificate;
 
+    @Value("${camel.log.interval}")
+    String logInterval;
+
+    @Value("${camel.log.delay}")
+    String logDelay;
+
     @Override
     public void configure() throws Exception {
 
@@ -109,14 +115,16 @@ public class CollectorRouteBuilder extends RouteBuilder {
                 to("file:" + basedir + "/?fileName=${property." + Header.PUBLICATION_URL_LOCAL + "}").
                 to(PROCESS_ROUTE);
 
-        if (uiaNotificate){
-            from(PROCESS_ROUTE).
-                    // Create a context message for Epnoi UIA
-                            process(contextBuilder).
-                    to("euia:out?servers="+ uiaServers);
-        }
+        String target = uiaNotificate? "euia:out?servers="+ uiaServers :
+                "log:es.upm.oeg.epnoi.collector?level=INFO&groupInterval="+logInterval+"&groupDelay="+logDelay+"&groupActiveOnly=false";
 
-        from(DELETED_ROUTE).process(removeHandler);
+        // Create a context message for Epnoi UIA
+        from(PROCESS_ROUTE).
+                process(contextBuilder).
+                to(target);
+
+        from(DELETED_ROUTE).
+                process(removeHandler);
 
     }
 }

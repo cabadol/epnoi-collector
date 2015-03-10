@@ -3,7 +3,10 @@
     {
       "name": "sciencepubco",
       "protocol": "oaipmh",
-      "url": "http://www.sciencepubco.com/index.php/IJAA/oai"
+      "url": "http://www.sciencepubco.com/index.php/IJAA/oai",
+      "publication": {
+        "url": "$replace(substring-before(concat(string-join(//oai:metadata/oai:dc/dc:relation/text(),\";\"),\";\"),\";\"),\"view\",\"download\")"
+      }
     }
   ]
 }

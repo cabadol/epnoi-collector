@@ -3,20 +3,26 @@
     {
       "name":"slashdot",
       "protocol": "rss",
-      "url": "http://rss.slashdot.org/Slashdot/slashdot",
-      "initialDelay": 5000
+      "url": "http://rss.slashdot.org/Slashdot/slashdot"
+    },
+
+    {
+      "name": "upm",
+      "protocol": "oaipmh",
+      "url": "http://oa.upm.es/perl/oai2"
     },
     {
       "name": "ucm",
       "protocol": "oaipmh",
-      "url": "http://eprints.ucm.es/cgi/oai2",
-      "initialDelay": 5000
+      "url": "http://eprints.ucm.es/cgi/oai2"
     },
     {
-      "name": "upm",
+      "name": "sciencepubco",
       "protocol": "oaipmh",
-      "url": "http://oa.upm.es/perl/oai2",
-      "initialDelay": 5000
+      "url": "http://www.sciencepubco.com/index.php/IJAA/oai",
+      "publication": {
+        "url": "$replace(substring-before(concat(string-join(//oai:metadata/oai:dc/dc:relation/text(),\";\"),\";\"),\";\"),\"view\",\"download\")"
+      }
     }
   ]
 }

@@ -67,6 +67,7 @@ public class HttpOAITest extends CamelTestSupport{
                 "                    <dc:format>application/pdf</dc:format>\n" +
                 "                    <dc:language>es</dc:language>\n" +
                 "                    <dc:rights>info:eu-repo/semantics/openAccess</dc:rights>\n" +
+                "                    <dc:relation>http://localhost:8080/oaipmh/resource-1425392911570-reduced.pdf</dc:relation>\n" +
                 "                </dc>\n" +
                 "            </metadata>\n" +
                 "        </record>\n" +
