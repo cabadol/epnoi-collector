@@ -1,7 +1,7 @@
 package es.upm.oeg.epnoi.collector.processor;
 
 import com.google.common.base.Joiner;
-import es.upm.oeg.epnoi.collector.Header;
+import es.upm.oeg.epnoi.collector.CollectorProperty;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.joda.time.DateTime;
@@ -32,14 +32,14 @@ public class TimeClock implements Processor{
 
         // Add current time
         long current = DateTime.now(timezone).getMillis();
-        addProperty(exchange, Header.TIME,dateTimeFormatter.print(current));
+        addProperty(exchange, CollectorProperty.TIME,dateTimeFormatter.print(current));
 
 
         // Read published date
-        String time = exchange.getProperty(Header.PUBLICATION_PUBLISHED, String.class);
+        String time = exchange.getProperty(CollectorProperty.PUBLICATION_PUBLISHED, String.class);
 
         if ((time == null) || (time.trim().equals(""))){
-            LOG.warn("no published date info for: {}! Collector timestamp used",Header.PUBLICATION_URI);
+            LOG.warn("no published date info for: {}! Collector timestamp used", CollectorProperty.PUBLICATION_URI);
             time = dateTimeFormatter.print(current);
         }
 
@@ -47,10 +47,10 @@ public class TimeClock implements Processor{
         DateTime dateTime = dateTimeFormatter.parseDateTime(time);
 
         // Add date in format: yyyy-mm-dd
-        addProperty(exchange,Header.PUBLICATION_PUBLISHED_DATE, Joiner.on("-").join(dateTime.getYear(),decimalFormat.format(dateTime.getMonthOfYear()),decimalFormat.format(dateTime.getDayOfMonth())));
+        addProperty(exchange, CollectorProperty.PUBLICATION_PUBLISHED_DATE, Joiner.on("-").join(dateTime.getYear(),decimalFormat.format(dateTime.getMonthOfYear()),decimalFormat.format(dateTime.getDayOfMonth())));
 
         // Add time in format: millis
-        addProperty(exchange,Header.PUBLICATION_PUBLISHED_MILLIS,dateTime.getMillis());
+        addProperty(exchange, CollectorProperty.PUBLICATION_PUBLISHED_MILLIS,dateTime.getMillis());
 
     }
 

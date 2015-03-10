@@ -1,6 +1,6 @@
 package es.upm.oeg.epnoi.collector.processor;
 
-import es.upm.oeg.epnoi.collector.Header;
+import es.upm.oeg.epnoi.collector.CollectorProperty;
 import es.upm.oeg.epnoi.collector.utils.FileServer;
 import org.apache.camel.EndpointInject;
 import org.apache.camel.Exchange;
@@ -156,20 +156,20 @@ public class HttpRSSTest extends CamelTestSupport{
                         .add("rss", "http://purl.org/rss/1.0/");
 
                 from("direct:start").
-                        setProperty(Header.SOURCE_NAME, constant("slashdot")).
-                        setProperty(Header.SOURCE_URI, constant("http://www.epnoi.org/feeds/slashdot")).
-                        setProperty(Header.SOURCE_URL, constant("http://rss.slashdot.org/Slashdot/slashdot")).
-                        setProperty(Header.SOURCE_PROTOCOL, constant("rss")).
-                        setProperty(Header.PUBLICATION_TITLE, xpath("//rss:item/rss:title/text()", String.class).namespaces(ns)).
-                        setProperty(Header.PUBLICATION_DESCRIPTION, xpath("//rss:item/rss:description/text()", String.class).namespaces(ns)).
-                        setProperty(Header.PUBLICATION_PUBLISHED, xpath("//rss:item/dc:date/text()", String.class).namespaces(ns)).
-                        setProperty(Header.PUBLICATION_URI, xpath("//rss:item/rss:link/text()", String.class).namespaces(ns)).
-                        setProperty(Header.PUBLICATION_URL_REMOTE, xpath("//rss:item/rss:link/text()", String.class).namespaces(ns)).
-                        setProperty(Header.PUBLICATION_LANGUAGE, xpath("//rss:channel/dc:language/text()", String.class).namespaces(ns)).
-                        setProperty(Header.PUBLICATION_RIGHTS, xpath("//rss:channel/dc:rights/text()", String.class).namespaces(ns)).
-                        setProperty(Header.PUBLICATION_CREATORS, xpath("string-join(//rss:channel/dc:creator/text(),\";\")", String.class).namespaces(ns)).
-                        setProperty(Header.PUBLICATION_FORMAT, constant("htm")).
-                        setProperty(Header.PUBLICATION_REFERENCE_FORMAT, constant("xml")).
+                        setProperty(CollectorProperty.SOURCE_NAME, constant("slashdot")).
+                        setProperty(CollectorProperty.SOURCE_URI, constant("http://www.epnoi.org/feeds/slashdot")).
+                        setProperty(CollectorProperty.SOURCE_URL, constant("http://rss.slashdot.org/Slashdot/slashdot")).
+                        setProperty(CollectorProperty.SOURCE_PROTOCOL, constant("rss")).
+                        setProperty(CollectorProperty.PUBLICATION_TITLE, xpath("//rss:item/rss:title/text()", String.class).namespaces(ns)).
+                        setProperty(CollectorProperty.PUBLICATION_DESCRIPTION, xpath("//rss:item/rss:description/text()", String.class).namespaces(ns)).
+                        setProperty(CollectorProperty.PUBLICATION_PUBLISHED, xpath("//rss:item/dc:date/text()", String.class).namespaces(ns)).
+                        setProperty(CollectorProperty.PUBLICATION_URI, xpath("//rss:item/rss:link/text()", String.class).namespaces(ns)).
+                        setProperty(CollectorProperty.PUBLICATION_URL_REMOTE, xpath("//rss:item/rss:link/text()", String.class).namespaces(ns)).
+                        setProperty(CollectorProperty.PUBLICATION_LANGUAGE, xpath("//rss:channel/dc:language/text()", String.class).namespaces(ns)).
+                        setProperty(CollectorProperty.PUBLICATION_RIGHTS, xpath("//rss:channel/dc:rights/text()", String.class).namespaces(ns)).
+                        setProperty(CollectorProperty.PUBLICATION_CREATORS, xpath("string-join(//rss:channel/dc:creator/text(),\";\")", String.class).namespaces(ns)).
+                        setProperty(CollectorProperty.PUBLICATION_FORMAT, constant("htm")).
+                        setProperty(CollectorProperty.PUBLICATION_REFERENCE_FORMAT, constant("xml")).
                         to("seda:inbox");
 
 
@@ -180,22 +180,22 @@ public class HttpRSSTest extends CamelTestSupport{
 
                 from("seda:inbox").
                         process(timeClock).
-                        setProperty(Header.PUBLICATION_REFERENCE_URL,
-                                simple("${property." + Header.SOURCE_PROTOCOL + "}/" +
-                                        "${property." + Header.SOURCE_NAME + "}/" +
-                                        "${property." + Header.PUBLICATION_PUBLISHED_DATE + "}/" +
-                                        "resource-${property." + Header.PUBLICATION_PUBLISHED_MILLIS + "}.${property." + Header.PUBLICATION_REFERENCE_FORMAT + "}")).
-                        to("file:target/?fileName=${property." + Header.PUBLICATION_REFERENCE_URL + "}").
+                        setProperty(CollectorProperty.PUBLICATION_REFERENCE_URL,
+                                simple("${property." + CollectorProperty.SOURCE_PROTOCOL + "}/" +
+                                        "${property." + CollectorProperty.SOURCE_NAME + "}/" +
+                                        "${property." + CollectorProperty.PUBLICATION_PUBLISHED_DATE + "}/" +
+                                        "resource-${property." + CollectorProperty.PUBLICATION_PUBLISHED_MILLIS + "}.${property." + CollectorProperty.PUBLICATION_REFERENCE_FORMAT + "}")).
+                        to("file:target/?fileName=${property." + CollectorProperty.PUBLICATION_REFERENCE_URL + "}").
                         setHeader(Exchange.HTTP_METHOD, constant("GET")).
-                        setHeader(Exchange.HTTP_URI, simple("${property." + Header.PUBLICATION_URL_REMOTE + "}")).
-                        log(">>>>>>>>>>>>>>>> ${property." + Header.PUBLICATION_URL_REMOTE + "}").
+                        setHeader(Exchange.HTTP_URI, simple("${property." + CollectorProperty.PUBLICATION_URL_REMOTE + "}")).
+                        log(">>>>>>>>>>>>>>>> ${property." + CollectorProperty.PUBLICATION_URL_REMOTE + "}").
                         to("http://dummyhost?throwExceptionOnFailure=true&httpClient.soTimeout=5000").
-                        setProperty(Header.PUBLICATION_URL_LOCAL,
-                                simple("${property." + Header.SOURCE_PROTOCOL + "}/" +
-                                        "${property." + Header.SOURCE_NAME + "}/" +
-                                        "${property." + Header.PUBLICATION_PUBLISHED_DATE + "}/" +
-                                        "resource-${property." + Header.PUBLICATION_PUBLISHED_MILLIS + "}.${property." + Header.PUBLICATION_FORMAT + "}")).
-                        to("file:target/?fileName=${property." + Header.PUBLICATION_URL_LOCAL + "}").
+                        setProperty(CollectorProperty.PUBLICATION_URL_LOCAL,
+                                simple("${property." + CollectorProperty.SOURCE_PROTOCOL + "}/" +
+                                        "${property." + CollectorProperty.SOURCE_NAME + "}/" +
+                                        "${property." + CollectorProperty.PUBLICATION_PUBLISHED_DATE + "}/" +
+                                        "resource-${property." + CollectorProperty.PUBLICATION_PUBLISHED_MILLIS + "}.${property." + CollectorProperty.PUBLICATION_FORMAT + "}")).
+                        to("file:target/?fileName=${property." + CollectorProperty.PUBLICATION_URL_LOCAL + "}").
                         process(contextBuilder).
                         to("mock:result");
             }

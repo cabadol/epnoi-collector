@@ -1,6 +1,6 @@
 package es.upm.oeg.epnoi.collector.processor;
 
-import es.upm.oeg.epnoi.collector.Header;
+import es.upm.oeg.epnoi.collector.CollectorProperty;
 import es.upm.oeg.epnoi.collector.utils.FileServer;
 import org.apache.camel.EndpointInject;
 import org.apache.camel.Exchange;
@@ -105,7 +105,7 @@ public class HttpRelationOAITest extends CamelTestSupport{
                         .add("rss", "http://purl.org/rss/1.0/");
 
                 from("direct:start").
-                        setProperty(Header.PUBLICATION_URL_REMOTE, xpath("replace(substring-before(concat(string-join(//oai:metadata/oai:dc/dc:relation/text(),\";\"),\";\"),\";\"),\"view\",\"download\")", String.class).namespaces(ns)).
+                        setProperty(CollectorProperty.PUBLICATION_URL_REMOTE, xpath("replace(substring-before(concat(string-join(//oai:metadata/oai:dc/dc:relation/text(),\";\"),\";\"),\";\"),\"view\",\"download\")", String.class).namespaces(ns)).
                         to("seda:inbox");
 
 
@@ -116,21 +116,21 @@ public class HttpRelationOAITest extends CamelTestSupport{
 
                 from("seda:inbox").
                         process(timeClock).
-                        setProperty(Header.PUBLICATION_REFERENCE_URL,
-                                simple("${property." + Header.SOURCE_PROTOCOL + "}/" +
-                                        "${property." + Header.SOURCE_NAME + "}/" +
-                                        "${property." + Header.PUBLICATION_PUBLISHED_DATE + "}/" +
-                                        "resource-${property." + Header.PUBLICATION_PUBLISHED_MILLIS + "}.${property." + Header.PUBLICATION_REFERENCE_FORMAT + "}")).
-                        to("file:target/?fileName=${property." + Header.PUBLICATION_REFERENCE_URL + "}").
+                        setProperty(CollectorProperty.PUBLICATION_REFERENCE_URL,
+                                simple("${property." + CollectorProperty.SOURCE_PROTOCOL + "}/" +
+                                        "${property." + CollectorProperty.SOURCE_NAME + "}/" +
+                                        "${property." + CollectorProperty.PUBLICATION_PUBLISHED_DATE + "}/" +
+                                        "resource-${property." + CollectorProperty.PUBLICATION_PUBLISHED_MILLIS + "}.${property." + CollectorProperty.PUBLICATION_REFERENCE_FORMAT + "}")).
+                        to("file:target/?fileName=${property." + CollectorProperty.PUBLICATION_REFERENCE_URL + "}").
                         setHeader(Exchange.HTTP_METHOD, constant("GET")).
-                        setHeader(Exchange.HTTP_URI, simple("${property." + Header.PUBLICATION_URL_REMOTE + "}")).
+                        setHeader(Exchange.HTTP_URI, simple("${property." + CollectorProperty.PUBLICATION_URL_REMOTE + "}")).
                         to("http://dummyhost?throwExceptionOnFailure=false").
-                        setProperty(Header.PUBLICATION_URL_LOCAL,
-                                simple("${property." + Header.SOURCE_PROTOCOL + "}/" +
-                                        "${property." + Header.SOURCE_NAME + "}/" +
-                                        "${property." + Header.PUBLICATION_PUBLISHED_DATE + "}/" +
-                                        "resource-${property." + Header.PUBLICATION_PUBLISHED_MILLIS + "}.${property." + Header.PUBLICATION_FORMAT + "}")).
-                        to("file:target/?fileName=${property." + Header.PUBLICATION_URL_LOCAL + "}").
+                        setProperty(CollectorProperty.PUBLICATION_URL_LOCAL,
+                                simple("${property." + CollectorProperty.SOURCE_PROTOCOL + "}/" +
+                                        "${property." + CollectorProperty.SOURCE_NAME + "}/" +
+                                        "${property." + CollectorProperty.PUBLICATION_PUBLISHED_DATE + "}/" +
+                                        "resource-${property." + CollectorProperty.PUBLICATION_PUBLISHED_MILLIS + "}.${property." + CollectorProperty.PUBLICATION_FORMAT + "}")).
+                        to("file:target/?fileName=${property." + CollectorProperty.PUBLICATION_URL_LOCAL + "}").
                         to("mock:result");
             }
         };

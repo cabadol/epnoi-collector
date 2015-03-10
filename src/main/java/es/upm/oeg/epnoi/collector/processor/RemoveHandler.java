@@ -1,6 +1,6 @@
 package es.upm.oeg.epnoi.collector.processor;
 
-import es.upm.oeg.epnoi.collector.Header;
+import es.upm.oeg.epnoi.collector.CollectorProperty;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.slf4j.Logger;
@@ -16,6 +16,6 @@ public class RemoveHandler implements Processor{
     public void process(Exchange exchange) throws Exception {
 
 
-        LOG.info("Resource deleted: {}", exchange.getProperty(Header.PUBLICATION_URI));
+        LOG.info("Resource deleted: {}", exchange.getProperty(CollectorProperty.PUBLICATION_URI));
     }
 }

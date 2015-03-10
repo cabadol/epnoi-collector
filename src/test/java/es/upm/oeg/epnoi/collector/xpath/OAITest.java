@@ -1,6 +1,6 @@
 package es.upm.oeg.epnoi.collector.xpath;
 
-import es.upm.oeg.epnoi.collector.Header;
+import es.upm.oeg.epnoi.collector.CollectorProperty;
 import org.apache.camel.EndpointInject;
 import org.apache.camel.Produce;
 import org.apache.camel.ProducerTemplate;
@@ -67,14 +67,14 @@ public class OAITest extends CamelTestSupport{
 
 
         resultEndpoint.expectedMessageCount(1);
-        resultEndpoint.expectedHeaderReceived(Header.PUBLICATION_TITLE,"Radiation tolerant isolation amplifiers for temperature measurement");
-        resultEndpoint.expectedHeaderReceived(Header.PUBLICATION_DESCRIPTION,"This paper concentrates on the selection of ");
-        resultEndpoint.expectedHeaderReceived(Header.PUBLICATION_PUBLISHED,"2015-03-03T09:30:04Z");
-        resultEndpoint.expectedHeaderReceived(Header.PUBLICATION_URI,"http://eprints.ucm.es/28868/1/Zong2006_Eprint.pdf");
-        resultEndpoint.expectedHeaderReceived(Header.PUBLICATION_URL_REMOTE,"http://eprints.ucm.es/28868/1/Zong2006_Eprint.pdf");
-        resultEndpoint.expectedHeaderReceived(Header.PUBLICATION_LANGUAGE,"en");
-        resultEndpoint.expectedHeaderReceived(Header.PUBLICATION_RIGHTS,"info:eu-repo/semantics/openAccess");
-        resultEndpoint.expectedHeaderReceived(Header.PUBLICATION_CREATORS,"Zong, Yi;Franco Peláez, Francisco Javier;Agapito Serrano, Juan Andrés;Fernandes, Ana C.;Marques, José G.");
+        resultEndpoint.expectedHeaderReceived(CollectorProperty.PUBLICATION_TITLE,"Radiation tolerant isolation amplifiers for temperature measurement");
+        resultEndpoint.expectedHeaderReceived(CollectorProperty.PUBLICATION_DESCRIPTION,"This paper concentrates on the selection of ");
+        resultEndpoint.expectedHeaderReceived(CollectorProperty.PUBLICATION_PUBLISHED,"2015-03-03T09:30:04Z");
+        resultEndpoint.expectedHeaderReceived(CollectorProperty.PUBLICATION_URI,"http://eprints.ucm.es/28868/1/Zong2006_Eprint.pdf");
+        resultEndpoint.expectedHeaderReceived(CollectorProperty.PUBLICATION_URL_REMOTE,"http://eprints.ucm.es/28868/1/Zong2006_Eprint.pdf");
+        resultEndpoint.expectedHeaderReceived(CollectorProperty.PUBLICATION_LANGUAGE,"en");
+        resultEndpoint.expectedHeaderReceived(CollectorProperty.PUBLICATION_RIGHTS,"info:eu-repo/semantics/openAccess");
+        resultEndpoint.expectedHeaderReceived(CollectorProperty.PUBLICATION_CREATORS,"Zong, Yi;Franco Peláez, Francisco Javier;Agapito Serrano, Juan Andrés;Fernandes, Ana C.;Marques, José G.");
 
 
         template.sendBody(xml);
@@ -92,20 +92,20 @@ public class OAITest extends CamelTestSupport{
                 ns.add("oai_dc","http://www.openarchives.org/OAI/2.0/oai_dc/");
 
                 from("direct:start").
-                        setHeader(Header.SOURCE_NAME,                   constant("ucm")).
-                        setHeader(Header.SOURCE_URI,                    constant("http://www.epnoi.org/oai-providers/ucm")).
-                        setHeader(Header.SOURCE_URL, constant("http://eprints.ucm.es/cgi/oai2")).
-                        setHeader(Header.SOURCE_PROTOCOL,               constant("oaipmh")).
-                        setHeader(Header.PUBLICATION_TITLE,             xpath("//oai:metadata/oai:dc/dc:title/text()", String.class).namespaces(ns)).
-                        setHeader(Header.PUBLICATION_DESCRIPTION,       xpath("//oai:metadata/oai:dc/dc:description/text()", String.class).namespaces(ns)).
-                        setHeader(Header.PUBLICATION_PUBLISHED,         xpath("//oai:header/oai:datestamp/text()", String.class).namespaces(ns)).
-                        setHeader(Header.PUBLICATION_URI,               xpath("//oai:metadata/oai:dc/dc:identifier/text()", String.class).namespaces(ns)).
-                        setHeader(Header.PUBLICATION_URL_REMOTE,        xpath("//oai:metadata/oai:dc/dc:identifier/text()", String.class).namespaces(ns)).
-                        setHeader(Header.PUBLICATION_LANGUAGE,          xpath("//oai:metadata/oai:dc/dc:language/text()", String.class).namespaces(ns)).
-                        setHeader(Header.PUBLICATION_RIGHTS,            xpath("//oai:metadata/oai:dc/dc:rights/text()", String.class).namespaces(ns)).
-                        setHeader(Header.PUBLICATION_CREATORS,          xpath("string-join(//oai:metadata/oai:dc/dc:creator/text(),\";\")", String.class).namespaces(ns)).
-                        setHeader(Header.PUBLICATION_FORMAT,            constant("pdf")).
-                        setHeader(Header.PUBLICATION_REFERENCE_FORMAT,  constant("xml")).
+                        setHeader(CollectorProperty.SOURCE_NAME,                   constant("ucm")).
+                        setHeader(CollectorProperty.SOURCE_URI,                    constant("http://www.epnoi.org/oai-providers/ucm")).
+                        setHeader(CollectorProperty.SOURCE_URL, constant("http://eprints.ucm.es/cgi/oai2")).
+                        setHeader(CollectorProperty.SOURCE_PROTOCOL,               constant("oaipmh")).
+                        setHeader(CollectorProperty.PUBLICATION_TITLE,             xpath("//oai:metadata/oai:dc/dc:title/text()", String.class).namespaces(ns)).
+                        setHeader(CollectorProperty.PUBLICATION_DESCRIPTION,       xpath("//oai:metadata/oai:dc/dc:description/text()", String.class).namespaces(ns)).
+                        setHeader(CollectorProperty.PUBLICATION_PUBLISHED,         xpath("//oai:header/oai:datestamp/text()", String.class).namespaces(ns)).
+                        setHeader(CollectorProperty.PUBLICATION_URI,               xpath("//oai:metadata/oai:dc/dc:identifier/text()", String.class).namespaces(ns)).
+                        setHeader(CollectorProperty.PUBLICATION_URL_REMOTE,        xpath("//oai:metadata/oai:dc/dc:identifier/text()", String.class).namespaces(ns)).
+                        setHeader(CollectorProperty.PUBLICATION_LANGUAGE,          xpath("//oai:metadata/oai:dc/dc:language/text()", String.class).namespaces(ns)).
+                        setHeader(CollectorProperty.PUBLICATION_RIGHTS,            xpath("//oai:metadata/oai:dc/dc:rights/text()", String.class).namespaces(ns)).
+                        setHeader(CollectorProperty.PUBLICATION_CREATORS,          xpath("string-join(//oai:metadata/oai:dc/dc:creator/text(),\";\")", String.class).namespaces(ns)).
+                        setHeader(CollectorProperty.PUBLICATION_FORMAT,            constant("pdf")).
+                        setHeader(CollectorProperty.PUBLICATION_REFERENCE_FORMAT,  constant("xml")).
                         to("mock:result");
             }
         };

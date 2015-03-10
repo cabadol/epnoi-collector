@@ -96,23 +96,23 @@ public class CollectorRouteBuilder extends RouteBuilder {
                 // Set UUID
                 process(uuidGenerator).
                 // Save xml file
-                setProperty(Header.PUBLICATION_REFERENCE_URL,
-                        simple("${property." + Header.SOURCE_PROTOCOL + "}/" +
-                                "${property." + Header.SOURCE_NAME + "}/" +
-                                "${property." + Header.PUBLICATION_PUBLISHED_DATE + "}/" +
-                                "resource-${property." + Header.PUBLICATION_UUID + "}.${property." + Header.PUBLICATION_REFERENCE_FORMAT + "}")).
-                to("file:"+basedir+"/?fileName=${property." + Header.PUBLICATION_REFERENCE_URL + "}").
+                setProperty(CollectorProperty.PUBLICATION_REFERENCE_URL,
+                        simple("${property." + CollectorProperty.SOURCE_PROTOCOL + "}/" +
+                                "${property." + CollectorProperty.SOURCE_NAME + "}/" +
+                                "${property." + CollectorProperty.PUBLICATION_PUBLISHED_DATE + "}/" +
+                                "resource-${property." + CollectorProperty.PUBLICATION_UUID + "}.${property." + CollectorProperty.PUBLICATION_REFERENCE_FORMAT + "}")).
+                to("file:"+basedir+"/?fileName=${property." + CollectorProperty.PUBLICATION_REFERENCE_URL + "}").
                 // Retrieve publication using Http Component
                 setHeader(Exchange.HTTP_METHOD, constant("GET")).
-                setHeader(Exchange.HTTP_URI,    simple("${property." + Header.PUBLICATION_URL_REMOTE + "}")).
+                setHeader(Exchange.HTTP_URI,    simple("${property." + CollectorProperty.PUBLICATION_URL_REMOTE + "}")).
                 to("http://dummyhost?throwExceptionOnFailure=false").
-                setProperty(Header.PUBLICATION_URL_LOCAL,
-                        simple("${property." + Header.SOURCE_PROTOCOL + "}/" +
-                                "${property." + Header.SOURCE_NAME + "}/" +
-                                "${property." + Header.PUBLICATION_PUBLISHED_DATE + "}/" +
-                                "resource-${property." + Header.PUBLICATION_UUID + "}.${property." + Header.PUBLICATION_FORMAT + "}")).
+                setProperty(CollectorProperty.PUBLICATION_URL_LOCAL,
+                        simple("${property." + CollectorProperty.SOURCE_PROTOCOL + "}/" +
+                                "${property." + CollectorProperty.SOURCE_NAME + "}/" +
+                                "${property." + CollectorProperty.PUBLICATION_PUBLISHED_DATE + "}/" +
+                                "resource-${property." + CollectorProperty.PUBLICATION_UUID + "}.${property." + CollectorProperty.PUBLICATION_FORMAT + "}")).
                 // Save publication file
-                to("file:" + basedir + "/?fileName=${property." + Header.PUBLICATION_URL_LOCAL + "}").
+                to("file:" + basedir + "/?fileName=${property." + CollectorProperty.PUBLICATION_URL_LOCAL + "}").
                 to(PROCESS_ROUTE);
 
         String target = uiaNotificate? "euia:out?servers="+ uiaServers :

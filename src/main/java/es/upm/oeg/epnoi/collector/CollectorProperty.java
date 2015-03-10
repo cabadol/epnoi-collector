@@ -6,7 +6,7 @@ import lombok.ToString;
 
 @EqualsAndHashCode
 @ToString
-public class Header {
+public class CollectorProperty {
 
     private static Joiner joiner                                = Joiner.on(".");
     private static final String EPNOI                           = "epnoi";
@@ -32,7 +32,6 @@ public class Header {
     public static final String PUBLICATION_URI                  = joiner.join(PUBLICATION,"uri");
     public static final String PUBLICATION_LANGUAGE             = joiner.join(PUBLICATION,"lang");
     public static final String PUBLICATION_RIGHTS               = joiner.join(PUBLICATION,"rights");
-    public static final String PUBLICATION_COPYRIGHT            = joiner.join(PUBLICATION,"copyright");
     public static final String PUBLICATION_FORMAT               = joiner.join(PUBLICATION,"format");
     //  -> urls
     private static final String PUBLICATION_URL                 = joiner.join(PUBLICATION,"url");

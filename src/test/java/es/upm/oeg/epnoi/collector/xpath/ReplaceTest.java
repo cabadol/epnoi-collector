@@ -1,6 +1,5 @@
 package es.upm.oeg.epnoi.collector.xpath;
 
-import es.upm.oeg.epnoi.collector.Header;
 import org.apache.camel.EndpointInject;
 import org.apache.camel.Produce;
 import org.apache.camel.ProducerTemplate;

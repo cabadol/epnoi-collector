@@ -2,7 +2,7 @@ package es.upm.oeg.epnoi.collector.routes;
 
 
 import es.upm.oeg.epnoi.collector.CollectorRouteBuilder;
-import es.upm.oeg.epnoi.collector.Header;
+import es.upm.oeg.epnoi.collector.CollectorProperty;
 import es.upm.oeg.epnoi.collector.model.Provider;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.builder.xml.Namespaces;
@@ -29,20 +29,20 @@ public abstract class AbstractRouteBuilder implements IRouteBuilder{
 
 
     protected void addProperties(RouteBuilder builder, ProcessorDefinition<RouteDefinition> def, Provider provider){
-        add(Header.SOURCE_NAME, provider.getName(), def, builder);
-        add(Header.SOURCE_URI, provider.getUri(), def, builder);
-        add(Header.SOURCE_URL, provider.getUrl(), def, builder);
-        add(Header.SOURCE_PROTOCOL, provider.getProtocol(), def, builder);
-        add(Header.PUBLICATION_TITLE, provider.getPublication().getTitle(), def, builder);
-        add(Header.PUBLICATION_DESCRIPTION, provider.getPublication().getDescription(), def, builder);
-        add(Header.PUBLICATION_PUBLISHED, provider.getPublication().getPublished(), def, builder);
-        add(Header.PUBLICATION_URI, provider.getPublication().getUri(), def, builder);
-        add(Header.PUBLICATION_URL_REMOTE, provider.getPublication().getUrl(), def, builder);
-        add(Header.PUBLICATION_LANGUAGE, provider.getPublication().getLanguage(), def, builder);
-        add(Header.PUBLICATION_RIGHTS, provider.getPublication().getRights(), def, builder);
-        add(Header.PUBLICATION_CREATORS, provider.getPublication().getCreators(), def, builder);
-        add(Header.PUBLICATION_FORMAT, provider.getPublication().getFormat(), def, builder);
-        add(Header.PUBLICATION_REFERENCE_FORMAT, "xml", def, builder);
+        add(CollectorProperty.SOURCE_NAME, provider.getName(), def, builder);
+        add(CollectorProperty.SOURCE_URI, provider.getUri(), def, builder);
+        add(CollectorProperty.SOURCE_URL, provider.getUrl(), def, builder);
+        add(CollectorProperty.SOURCE_PROTOCOL, provider.getProtocol(), def, builder);
+        add(CollectorProperty.PUBLICATION_TITLE, provider.getPublication().getTitle(), def, builder);
+        add(CollectorProperty.PUBLICATION_DESCRIPTION, provider.getPublication().getDescription(), def, builder);
+        add(CollectorProperty.PUBLICATION_PUBLISHED, provider.getPublication().getPublished(), def, builder);
+        add(CollectorProperty.PUBLICATION_URI, provider.getPublication().getUri(), def, builder);
+        add(CollectorProperty.PUBLICATION_URL_REMOTE, provider.getPublication().getUrl(), def, builder);
+        add(CollectorProperty.PUBLICATION_LANGUAGE, provider.getPublication().getLanguage(), def, builder);
+        add(CollectorProperty.PUBLICATION_RIGHTS, provider.getPublication().getRights(), def, builder);
+        add(CollectorProperty.PUBLICATION_CREATORS, provider.getPublication().getCreators(), def, builder);
+        add(CollectorProperty.PUBLICATION_FORMAT, provider.getPublication().getFormat(), def, builder);
+        add(CollectorProperty.PUBLICATION_REFERENCE_FORMAT, "xml", def, builder);
         LOG.debug("Route definition: {}", def);
     }
 
