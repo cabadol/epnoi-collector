@@ -1,0 +1,1888 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/zd/buecherei/oai2.xsl"?>
+<OAI-PMH
+    xmlns="http://www.openarchives.org/OAI/2.0/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/
+    http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+  <responseDate>2015-03-10T10:57:26Z</responseDate>
+  <request verb="ListRecords"
+    metadataPrefix="oai_dc">
+    http://www.informatik.uni-stuttgart.de/cgi-bin/OAI/OAI.pl
+  </request>
+  <ListRecords>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:ART-1996-02</identifier>
+        <datestamp>2000-11-10T10:11:00Z</datestamp>
+        <setSpec>cs:06</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Clock Hierarchies: An Abstraction for Grouping and controlling Media
+            Systems</dc:title>
+          <dc:creator>Rothermel, Kurt</dc:creator>
+          <dc:creator>Helbig, Tobias</dc:creator>
+          <dc:contributor>Verteilte Systeme (IPVR)</dc:contributor>
+          <dc:subject>General Literature (CR A)</dc:subject>
+          <dc:subject>Distributed Multimedia System</dc:subject>
+          <dc:subject>System Services Interface</dc:subject>
+          <dc:subject>Stream Synchronization</dc:subject>
+          <dc:subject>Grouping</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Article in Journal</dc:type>
+          <dc:publisher>Stuttgart: Uni-Stuttgart</dc:publisher>
+          <dc:date>1996-01-01</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=ART-1996-02&amp;engl=1</dc:identifier>
+          <dc:source>
+            In: IEEE Journal on Selected Areas in Communications -
+            Synchronization Issues in Multimedia Communications, 1996. Vol.
+            14(1), pp. 1-23
+          </dc:source>
+          <dc:source>ftp://ftp.informatik.uni-stuttgart.de/pub/library/ncstrl.ustuttgart_fi/ART-1996-02/ART-1996-02.pdf</dc:source>
+          <dc:format>application/pdf</dc:format>
+          <dc:format>75003 Bytes</dc:format>
+          <dc:language>eng</dc:language>
+          <dc:description>
+            Synchronization plays an important role in multimedia systems at
+            various levels of abstraction. In this paper, we propose a set of
+            powerful abstractions for controlling and synchronizing continuous
+            media streams in distributed environments. The proposed abstractions
+            are based on a very general computation model, which allows media
+            streams to be processed (i.e. produced, consumed or transformed) by
+            arbitrarily structured networks of linked components. Further,
+            compound components can be composed of existing ones to provide
+            higher levels of abstractions. The clock abstraction is provided to
+            control individual media streams, i.e. streams can be started,
+            paused or scaled by issuing the appropriate clock operations. Clock
+            hierarchies are used to hierarchically group related streams, where
+            each clock in the hierarchy identifies and controls a certain
+            (sub)group of streams. Control and synchronization requirements can
+            be expressed in a uniform manner by associating group members with
+            control or sync attributes. An important property of the concept of
+            clock hierarchies is that it can be combined in a natural way with
+            component nesting.
+          </dc:description>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:INPROC-1999-18</identifier>
+        <datestamp>2000-11-10T10:12:00Z</datestamp>
+        <setSpec>cs:07</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Disseminating Mobile Agents for Distributed Information
+            Filtering</dc:title>
+          <dc:creator>Theilmann, Wolfgang</dc:creator>
+          <dc:creator>Rothermel, Kurt</dc:creator>
+          <dc:contributor>Verteilte Systeme (IPVR)</dc:contributor>
+          <dc:subject>Information Systems (CR H)</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Article in Proceedings</dc:type>
+          <dc:publisher>(not available)</dc:publisher>
+          <dc:date>1999-03</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=INPROC-1999-18&amp;engl=1</dc:identifier>
+          <dc:source>
+            In: Proc. Joint Symposium ASA/MA&apos;99 of 1st Int. Symp. on Agent
+            Systems and Applications (ASA&apos;99) and 3rd Int. Symp. on Mobile
+            Agents (MA&apos;99), Palm Springs (CA), USA, October 3-6, 1999, IEEE
+            Press (to appear)
+          </dc:source>
+          <dc:language>eng</dc:language>
+          <dc:description>
+            An often claimed benefit of mobile agent technology is the reduction
+            of communication cost. Especially the area of information filtering
+            has been proposed for the application of mobile filter agents.
+            However, an effective coordination of agents, which takes into
+            account the current network conditions, is difficult to achieve.
+            This contribution analyses the situation that data distributed among
+            various remote data servers has to be examined with mobile filter
+            agents. We present an approach for coordinating the agents&apos;
+            employment, which minimizes communication costs. Validation studies
+            on the possible cost savings for various constellations show that
+            savings up to 90% can be achieved in the face of actual Internet
+            conditions.
+          </dc:description>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:INPROC-1998-14</identifier>
+        <datestamp>2000-11-10T10:13:00Z</datestamp>
+        <setSpec>cs:07</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>A Framework for Integrating Custom Applications into Multimedia
+            Annotations</dc:title>
+          <dc:creator>Benz, Hartmut</dc:creator>
+          <dc:creator>Fischer, Steffen</dc:creator>
+          <dc:creator>Mecklenburg, Rolf</dc:creator>
+          <dc:contributor>Verteilte Systeme (IPVR)</dc:contributor>
+          <dc:subject>Information Systems (CR H)</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Article in Proceedings</dc:type>
+          <dc:publisher>(not available)</dc:publisher>
+          <dc:date>1998-01</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=INPROC-1998-14&amp;engl=1</dc:identifier>
+          <dc:source>
+            In: Proceedings of the European Multimedia, Microprocessor Systems
+            andElectronic Commerce Conference (EMMSEC&apos;98)
+          </dc:source>
+          <dc:language>eng</dc:language>
+          <dc:description>
+            In the ACTS-project DIANE (Design, Implementation and Operation of a
+            Distributed Annotation Environment), a multimedia annotation system
+            has been developed. One of it&apos;s greatest benefits over legacy
+            multimedia authoring systems is it&apos;s simplicity. It enables
+            users to create multimedia documents instantly without requiring
+            great knowledge of programming languages or other details of the
+            authoring system. Media can be integrated into annotations ranging
+            from standard monomedia objects like audio, images, etc. to recorded
+            application output from legacy applications. The client/server
+            architecture has been implemented in a platform-neutral way using
+            Java and it&apos;s extensions (e.g. Java Media Framework) and is
+            running on either Internet/Intranet and broadband network
+            technologies like ATM. This paper will present the architecture and
+            the document model of DIANE with a focus on integrating custom user
+            applications into multimedia annotations. A usage scenario will
+            describe the system in general.
+          </dc:description>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:INPROC-1998-18</identifier>
+        <datestamp>2000-11-10T10:14:00Z</datestamp>
+        <setSpec>cs:07</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>On Parallel Processing of Aggregate and Scalar Functions in
+            Object-Relational DBMS</dc:title>
+          <dc:creator>Jaedicke, Michael</dc:creator>
+          <dc:creator>Mitschang, Bernhard</dc:creator>
+          <dc:contributor>Anwendersoftware (IPVR)</dc:contributor>
+          <dc:contributor>Bernhard Mitschang
+            &lt;mitsch@informatik.uni-stuttgart.de&gt;</dc:contributor>
+          <dc:subject>Database Management Systems (CR H.2.4)</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Article in Proceedings</dc:type>
+          <dc:publisher>ACM Press</dc:publisher>
+          <dc:relation>ACM SIGMOD International Conference on Management of
+            Data</dc:relation>
+          <dc:date>1998-06-04</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=INPROC-1998-18&amp;engl=1</dc:identifier>
+          <dc:identifier>ISBN: 0-89791-995-5</dc:identifier>
+          <dc:source>
+            In: Proceedings ACM SIGMOD International Conference on Management of
+            Data, Seattle, Washington, USA, June 2-4, 1998, pp. 379-389
+          </dc:source>
+          <dc:language>eng</dc:language>
+          <dc:description>
+            Nowadays parallel object-relational DBMS are envisioned as the next
+            great wave, but there is still a lack of efficient implementation
+            concepts for some parts of the proposed functionality. Thus one of
+            the current goals for parallel object-relational DBMS is to move
+            towards higher performance. In this paper we develop a framework
+            that allows to process user-defined functions with data parallelism.
+            We will describe the class of partitionable functions that can be
+            processed parallelly. We will also propose an extension which allows
+            to speed up the processing of another large class of functions by
+            means of parallel sorting. Functions that can be processed by means
+            of our techniques are often used in decision support queries on
+            large data volumes, for example. Hence a parallel execution is
+            indispensable.
+          </dc:description>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:ART-1997-02</identifier>
+        <datestamp>2000-11-10T10:15:00Z</datestamp>
+        <setSpec>cs:06</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>An Adaptive Protocol for Synchronizing Media Streams</dc:title>
+          <dc:creator>Rothermel, Kurt</dc:creator>
+          <dc:creator>Helbig, Tobias</dc:creator>
+          <dc:contributor>Verteilte Systeme (IPVR)</dc:contributor>
+          <dc:subject>Information Systems (CR H)</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Article in Journal</dc:type>
+          <dc:publisher>Springer</dc:publisher>
+          <dc:date>1997-01</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=ART-1997-02&amp;engl=1</dc:identifier>
+          <dc:source>
+            In: ACM/Springer Multimedia Systems. Vol. 5(5), pp. 324-336
+          </dc:source>
+          <dc:language>eng</dc:language>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:ART-1998-01</identifier>
+        <datestamp>2000-11-10T10:16:00Z</datestamp>
+        <setSpec>cs:06</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Agentenbasierte Informationssuche und -filterung in globalen
+            Netzen</dc:title>
+          <dc:creator>Rothermel, Kurt</dc:creator>
+          <dc:creator>Theilmann, Wolfgang</dc:creator>
+          <dc:contributor>Verteilte Systeme (IPVR)</dc:contributor>
+          <dc:subject>Information Systems (CR H)</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Article in Journal</dc:type>
+          <dc:publisher>Berlin: GITO Verlag</dc:publisher>
+          <dc:date>1998-01</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=ART-1998-01&amp;engl=1</dc:identifier>
+          <dc:source>
+            In: Industrie Management. Vol. 1, pp. 61-63
+          </dc:source>
+          <dc:language>ger</dc:language>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:INPROC-1998-19</identifier>
+        <datestamp>2000-11-10T10:17:00Z</datestamp>
+        <setSpec>cs:07</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>TOPAZ: a Cost-Based, Rule-Driven, Multi-Phase Parallelizer</dc:title>
+          <dc:creator>Nippl, Clara</dc:creator>
+          <dc:creator>Mitschang, Bernhard</dc:creator>
+          <dc:contributor>Anwendersoftware (IPVR)</dc:contributor>
+          <dc:contributor>Bernhard Mitschang
+            &lt;mitsch@informatik.uni-stuttgart.de&gt;</dc:contributor>
+          <dc:subject>Database Management Systems (CR H.2.4)</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Article in Proceedings</dc:type>
+          <dc:publisher>Morgan Kaufmann</dc:publisher>
+          <dc:relation>International Conference on Very Large Data Bases</dc:relation>
+          <dc:date>1998-08-27</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=INPROC-1998-19&amp;engl=1</dc:identifier>
+          <dc:identifier>ISBN: 1-55860-566-5</dc:identifier>
+          <dc:source>
+            In: VLDB&apos;98, Proceedings of 24rd International Conference on
+            Very Large Data Bases, New York City, New York, USA, August 24-27,
+            1998, pp. 251-262
+          </dc:source>
+          <dc:language>eng</dc:language>
+          <dc:description>
+            Currently the key problems of query optimization are extensibility
+            imposedby object-relational technology, as well as query complexity
+            caused by forthcoming applications, such as OLAP. We propose a
+            generic approach to parallelization, called TOPAZ. Different forms
+            of parallelism are exploited to obtain maximum speedup combined with
+            lowest resource consumption. The necessary abstractions w.r.t.
+            operator characteristics and system architecture are provided by
+            rules that are used by a cost-based, top-down search engine. A
+            multi-phase pruning based on a global analysis of the plan
+            efficiently guides the search process, thus considerably reducing
+            complexity and achieving optimization performance. Since TOPAZ
+            solely relies on the widespread concepts of iterators and datarivers
+            common to (parallel) execution models, it fits as an enabling
+            technology into most state-of-the-art (object-) relational systems.
+          </dc:description>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:INPROC-1998-20</identifier>
+        <datestamp>2000-11-10T10:18:00Z</datestamp>
+        <setSpec>cs:07</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Data Intensive Intra- &amp; Internet Applications - An Example Using
+            Java and CORBA in the World Wide Web</dc:title>
+          <dc:creator>Sellentin, Jürgen</dc:creator>
+          <dc:creator>Mitschang, Bernhard</dc:creator>
+          <dc:contributor>Anwendersoftware (IPVR)</dc:contributor>
+          <dc:subject>Information Systems Applications (CR H.4)</dc:subject>
+          <dc:subject>Database Management Systems (CR H.2.4)</dc:subject>
+          <dc:subject>Heterogeneous Databases (CR H.2.5)</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Article in Proceedings</dc:type>
+          <dc:publisher>IEEE</dc:publisher>
+          <dc:relation>IEEE Computer Society</dc:relation>
+          <dc:date>1998-02</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=INPROC-1998-20&amp;engl=1</dc:identifier>
+          <dc:identifier>ISBN: 0-8186-8289-2</dc:identifier>
+          <dc:source>
+            In: Proceedings of the Fourteenth International Conference on Data
+            Engineering, February 23-27, 1998, Orlando, Florida, USA, pp.
+            302-311
+          </dc:source>
+          <dc:source>ftp://ftp.informatik.uni-stuttgart.de/pub/library/ncstrl.ustuttgart_fi/INPROC-1998-20/INPROC-1998-20.pdf</dc:source>
+          <dc:format>application/pdf</dc:format>
+          <dc:language>eng</dc:language>
+          <dc:description>
+            Intra/Internet technology has become a key issue in the development
+            of modern systems. Nowadays it is not sufficient anymore to present
+            static information sheets through the WWW, instead we need
+            interactive applications that may even compute complex results or
+            process large data sets. In this paper we describe a prototype based
+            on Java and CORBA. Both represent modern concepts that have been
+            developed to fulfill these requirements. Their combination results
+            into the kind of data processing we want to apply to the WWW: First,
+            portable, powerful, structured and even reusable client programs
+            instead of cryptic HTML scripts, second, well defined interfaces,
+            and third, efficient server processes separated from the WWW server
+            and its CGI extensions. Communication is controlled by a fault
+            tolerant CORBA layer, which also enables server development using a
+            different language than Java. Besides a discussion of CORBA and its
+            data shipping capabilities, we take a closer look at Java and its
+            runtime behavior, and we report on the experiences gathered with our
+            prototype system and its testbed application. This system has also
+            been used to gather experiences with and to influence the new
+            language binding of the Standard Data Access Interface (SDAI) of the
+            Standard for the Exchange of Product Data (STEP, ISO 10303) to Java.
+          </dc:description>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:ART-1997-03</identifier>
+        <datestamp>2000-11-10T10:19:00Z</datestamp>
+        <setSpec>cs:06</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Mobile Software-Agenten: Chancen und Risiken</dc:title>
+          <dc:creator>Rothermel, Kurt</dc:creator>
+          <dc:creator>Baumann, Joachim</dc:creator>
+          <dc:contributor>Verteilte Systeme (IPVR)</dc:contributor>
+          <dc:subject>Information Systems (CR H)</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Article in Journal</dc:type>
+          <dc:publisher>dpunkt-Verlag</dc:publisher>
+          <dc:date>1997-01</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=ART-1997-03&amp;engl=1</dc:identifier>
+          <dc:source>
+            In: Internet - von der Grundlagentechnologie zum Wirtschaftsfaktor
+          </dc:source>
+          <dc:language>ger</dc:language>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:ART-1997-04</identifier>
+        <datestamp>2000-11-10T10:19:00Z</datestamp>
+        <setSpec>cs:06</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Multimedia Synchronization and Resource Management in Advanced
+            Multimedia Environments</dc:title>
+          <dc:creator>Rothermel, K.</dc:creator>
+          <dc:contributor>Verteilte Systeme (IPVR)</dc:contributor>
+          <dc:subject>Information Systems (CR H)</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Article in Journal</dc:type>
+          <dc:publisher>--</dc:publisher>
+          <dc:date>1997-01</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=ART-1997-04&amp;engl=1</dc:identifier>
+          <dc:source>
+            In: Rothermel, K. (ed.); Georganas, N. (ed.); Little, T. (ed.);
+            Steinmetz, R. (ed.): Dagstuhl Seminar Report. Vol. 184
+          </dc:source>
+          <dc:language>eng</dc:language>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:ART-1997-05</identifier>
+        <datestamp>2000-11-10T10:19:00Z</datestamp>
+        <setSpec>cs:06</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Mobile Software-Agents</dc:title>
+          <dc:creator>Rothermel, K.</dc:creator>
+          <dc:contributor>IPVR Infrastruktur (IPVR)</dc:contributor>
+          <dc:subject>Information Systems (CR H)</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Article in Journal</dc:type>
+          <dc:publisher>not available</dc:publisher>
+          <dc:date>1997-01</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=ART-1997-05&amp;engl=1</dc:identifier>
+          <dc:source>
+            In: Rothermel, K. (ed.); Mattern, F. (ed.); Schneider , F. (ed.);
+            Welch, B. (ed.): Dagstuhl Seminar Report. Vol. 192
+          </dc:source>
+          <dc:language>eng</dc:language>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:ART-1997-06</identifier>
+        <datestamp>2000-11-10T10:20:00Z</datestamp>
+        <setSpec>cs:06</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Mobile Software-Agents</dc:title>
+          <dc:creator>Rothermel, K.</dc:creator>
+          <dc:creator>Mattern, F.</dc:creator>
+          <dc:creator>Schneider, F.</dc:creator>
+          <dc:creator>Welch, B.</dc:creator>
+          <dc:contributor>Verteilte Systeme (IPVR)</dc:contributor>
+          <dc:subject>Information Systems (CR H)</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Article in Journal</dc:type>
+          <dc:publisher>not available</dc:publisher>
+          <dc:date>1997-01</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=ART-1997-06&amp;engl=1</dc:identifier>
+          <dc:source>
+            In: Dagstuhl Seminar Report. Vol. 192
+          </dc:source>
+          <dc:language>ger</dc:language>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:ART-1998-04</identifier>
+        <datestamp>2000-11-10T10:21:00Z</datestamp>
+        <setSpec>cs:06</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>The Shadow Approach: An Orphan Detection Protocol for Mobile
+            Agents</dc:title>
+          <dc:creator>Rothermel, Kurt</dc:creator>
+          <dc:creator>Baumann, Joachim</dc:creator>
+          <dc:contributor>Verteilte Systeme (IPVR)</dc:contributor>
+          <dc:subject>Information Systems (CR H)</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Article in Journal</dc:type>
+          <dc:publisher>Springer Verlag</dc:publisher>
+          <dc:date>1998</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=ART-1998-04&amp;engl=1</dc:identifier>
+          <dc:source>
+            In: Personal Technologies
+          </dc:source>
+          <dc:language>eng</dc:language>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:ART-1998-05</identifier>
+        <datestamp>2000-11-10T10:21:00Z</datestamp>
+        <setSpec>cs:06</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Reliability Concepts for Mobile Agents</dc:title>
+          <dc:creator>Strasser, Markus</dc:creator>
+          <dc:creator>Rothermel, Kurt</dc:creator>
+          <dc:contributor>Verteilte Systeme (IPVR)</dc:contributor>
+          <dc:subject>Information Systems (CR H)</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Article in Journal</dc:type>
+          <dc:publisher>not available</dc:publisher>
+          <dc:date>1998</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=ART-1998-05&amp;engl=1</dc:identifier>
+          <dc:source>
+            In: International Journal of Cooperative Information Systems
+          </dc:source>
+          <dc:language>eng</dc:language>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:INBOOK-1998-01</identifier>
+        <datestamp>2000-11-10T10:21:00Z</datestamp>
+        <setSpec>cs:08</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Mobile Agents</dc:title>
+          <dc:creator>Rothermel, K.</dc:creator>
+          <dc:creator>Schwehm, M.</dc:creator>
+          <dc:contributor>Verteilte Systeme (IPVR)</dc:contributor>
+          <dc:subject>Information Systems (CR H)</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Article in Book</dc:type>
+          <dc:publisher>New York: M. Dekker Inc.</dc:publisher>
+          <dc:date>1998-01</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=INBOOK-1998-01&amp;engl=1</dc:identifier>
+          <dc:source>
+            In: Kent, A. (ed.); Williams, J.G. (ed.): Encyclopaedia for Computer
+            Science and Technology
+          </dc:source>
+          <dc:language>eng</dc:language>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:ART-1998-06</identifier>
+        <datestamp>2000-11-10T10:22:00Z</datestamp>
+        <setSpec>cs:06</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Adaptive Multimedia Documents</dc:title>
+          <dc:creator>Wirag, Stefan</dc:creator>
+          <dc:creator>Rothermel, Kurt</dc:creator>
+          <dc:contributor>Verteilte Systeme (IPVR)</dc:contributor>
+          <dc:subject>Information Systems (CR H)</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Article in Journal</dc:type>
+          <dc:publisher>not available</dc:publisher>
+          <dc:date>1998-09</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=ART-1998-06&amp;engl=1</dc:identifier>
+          <dc:source>
+            In: Journal of Computing and Information Technology (CIT). Vol.
+            6(3), pp. 233-244
+          </dc:source>
+          <dc:language>eng</dc:language>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:INBOOK-1999-01</identifier>
+        <datestamp>2000-11-10T10:22:00Z</datestamp>
+        <setSpec>cs:08</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Mole - Concepts of a Mobile Agent System</dc:title>
+          <dc:creator>Baumann, Joachim</dc:creator>
+          <dc:creator>Hohl, Fritz</dc:creator>
+          <dc:creator>Rothermel, Kurt</dc:creator>
+          <dc:creator>Strasser, Markus</dc:creator>
+          <dc:contributor>Verteilte Systeme (IPVR)</dc:contributor>
+          <dc:subject>Information Systems (CR H)</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Article in Book</dc:type>
+          <dc:publisher>acm-press</dc:publisher>
+          <dc:date>1999-01</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=INBOOK-1999-01&amp;engl=1</dc:identifier>
+          <dc:source>
+            In: Milojicic et al. (ed.): Mobiltiy - Processes, Computers and
+            Agents
+          </dc:source>
+          <dc:language>eng</dc:language>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:INBOOK-1999-02</identifier>
+        <datestamp>2000-11-10T10:22:00Z</datestamp>
+        <setSpec>cs:08</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Parallele Simulationstechnik</dc:title>
+          <dc:creator>Feldmann, L.</dc:creator>
+          <dc:creator>Svjatnyi, V.</dc:creator>
+          <dc:creator>Lapko, V.</dc:creator>
+          <dc:creator>Gilles, E.-D.</dc:creator>
+          <dc:creator>Zeitz, M.</dc:creator>
+          <dc:creator>Reuter, A.</dc:creator>
+          <dc:creator>Rothermel, K.</dc:creator>
+          <dc:contributor>Verteilte Systeme (IPVR)</dc:contributor>
+          <dc:subject>Information Systems (CR H)</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Article in Book</dc:type>
+          <dc:publisher>Donetsk: Donetsk State Technical University</dc:publisher>
+          <dc:date>1999-01</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=INBOOK-1999-02&amp;engl=1</dc:identifier>
+          <dc:source>
+            In: Problems of Simaulation and Computer Aided Design of Dynamic
+            Systems. Collected Volume of Scientific Papers
+          </dc:source>
+          <dc:language>ger</dc:language>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:ART-1997-01</identifier>
+        <datestamp>2000-11-10T10:23:00Z</datestamp>
+        <setSpec>cs:06</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Neue Kommunikationsarchitekturen</dc:title>
+          <dc:creator>Schill, Alexander</dc:creator>
+          <dc:creator>Rothermel, Kurt</dc:creator>
+          <dc:contributor>Verteilte Systeme (IPVR)</dc:contributor>
+          <dc:subject>Information Systems (CR H)</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Article in Journal</dc:type>
+          <dc:publisher>Oldenbourg-Verlag</dc:publisher>
+          <dc:date>1997-01</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=ART-1997-01&amp;engl=1</dc:identifier>
+          <dc:source>
+            In: it+ti. Vol. 39(4)
+          </dc:source>
+          <dc:language>ger</dc:language>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:TR-1992-11</identifier>
+        <datestamp>2000-11-10T11:23:52Z</datestamp>
+        <setSpec>cs:01</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>ArabTeX : a system for typesetting arabic</dc:title>
+          <dc:creator>Lagally, Klaus</dc:creator>
+          <dc:contributor>Betriebssoftware (IFI)</dc:contributor>
+          <dc:subject>Text Processing General (CR I.7.0)</dc:subject>
+          <dc:subject>Document Preparation (CR I.7.2)</dc:subject>
+          <dc:subject>Arts and Humanities (CR J.5)</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Fakultätsbericht</dc:type>
+          <dc:publisher>Stuttgart, Germany, Universität Stuttgart</dc:publisher>
+          <dc:relation>Technical Report No. 1992/11</dc:relation>
+          <dc:date>1992-11</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=TR-1992-11&amp;engl=1</dc:identifier>
+          <dc:source>ftp://ftp.informatik.uni-stuttgart.de/pub/library/ncstrl.ustuttgart_fi/TR-1992-11/TR-1992-11.pdf</dc:source>
+          <dc:format>application/pdf</dc:format>
+          <dc:language>eng</dc:language>
+          <dc:description>8 pages</dc:description>
+          <dc:description>
+            TeX, the powerful computer typesetting system by D.E. Knuth, and
+            LaTeX, its extension by L. Lamport to handle structured documents,
+            have both been adapted to handle passages of arabic script. Our new
+            system, ArabTeX, will accept as input an ASCII encoding of the
+            standard transliteration of Arabic, and will generate the arabic
+            writing with a full complement of vowel marks, automatically
+            producing most of the usual ligatures, and obeying the common
+            writing rules. Likewise, or additionally, the standard
+            transliteration can also be generated from the same input. The
+            notation is easily readable and suitable for electronic
+            transmission. For non-vocalized writing, a reduced input notation is
+            available, as are some extensions for other languages using the
+            arabic script, and for reproducing erroneous or archaic documents.
+
+            ArabTeX will run on a wide range of hardware platforms in
+            conjunction with any TeX implementation that can be extended by
+            loading additional macros and additional fonts. No special equipment
+            is required.
+          </dc:description>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:TR-1993-14</identifier>
+        <datestamp>2000-11-10T11:23:52Z</datestamp>
+        <setSpec>cs:01</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>QuickSearch : ein schneller Algorithmus zur Mustersuche in
+            Zeichenfolgen</dc:title>
+          <dc:creator>Ziegler, Bernhard</dc:creator>
+          <dc:contributor>Betriebssoftware (IFI)</dc:contributor>
+          <dc:subject>Pattern Recognition (CR I.5)</dc:subject>
+          <dc:subject>Nonnumerical Algorithms and Problems (CR F.2.2)</dc:subject>
+          <dc:subject>Information Search and Retrieval (CR H.3.3)</dc:subject>
+          <dc:subject>Mustererkennung</dc:subject>
+          <dc:subject>Boyer-Moore</dc:subject>
+          <dc:subject>Wortsuche</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Fakultätsbericht</dc:type>
+          <dc:publisher>Stuttgart, Germany, Universität Stuttgart</dc:publisher>
+          <dc:relation>Technical Report No. 1993/14</dc:relation>
+          <dc:date>1993</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=TR-1993-14&amp;engl=1</dc:identifier>
+          <dc:source>ftp://ftp.informatik.uni-stuttgart.de/pub/library/ncstrl.ustuttgart_fi/TR-1993-14/TR-1993-14.pdf</dc:source>
+          <dc:format>application/pdf</dc:format>
+          <dc:language>ger</dc:language>
+          <dc:description>11 pages</dc:description>
+          <dc:description>
+            Quicksearch ist eine neue Variante des Algorithmus BoMo von Boyer
+            und Moore zur Mustersuche in Texten. Sie ist bei Texten in
+            natürlichen Sprachen, das heißt solchen mit relativ großen
+            Alphabeten, und bei der Suche nach relativ kurzen Mustern den bisher
+            bekannten BoMo-Varianten ebenbürtig, übertrifft sie aber bei
+            langen Mustern und kleinen Alphabeten, wie sie bei der Suche nach
+            Genetischem Code vorkommen, um einen Faktor von ca. 1.25 bei der
+            Musterlänge 10 und bis zu einem Faktor &gt; 2 bei Mustern ab der
+            Größe 40.
+
+            QuickSearch is a new variant of BoMo, the Boyer-Moore algorithm for
+            pattern matching in strings. For strings with relatively large
+            alphabets such as natural-language texts and for short patterns, it
+            matches with presently known BoMo variants; for long patterns and
+            short alphabets as do occur in Genetic Code, it surpasses these
+            variants by a factor 1.25 at pattern length 10, and up to a factor
+            &gt; 2 for patterns of length greater 40.
+          </dc:description>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:TR-1993-15</identifier>
+        <datestamp>2000-11-10T11:23:52Z</datestamp>
+        <setSpec>cs:01</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Some problems in Arabizing LaTeX</dc:title>
+          <dc:creator>Lagally, Klaus</dc:creator>
+          <dc:contributor>Betriebssoftware (IFI)</dc:contributor>
+          <dc:subject>Text Processing General (CR I.7.0)</dc:subject>
+          <dc:subject>Document Preparation (CR I.7.2)</dc:subject>
+          <dc:subject>Arts and Humanities (CR J.5)</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Fakultätsbericht</dc:type>
+          <dc:publisher>Stuttgart, Germany, Universität Stuttgart</dc:publisher>
+          <dc:relation>Technical Report No. 1993/15</dc:relation>
+          <dc:date>1993</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=TR-1993-15&amp;engl=1</dc:identifier>
+          <dc:source>ftp://ftp.informatik.uni-stuttgart.de/pub/library/ncstrl.ustuttgart_fi/TR-1993-15/TR-1993-15.pdf</dc:source>
+          <dc:format>application/pdf</dc:format>
+          <dc:language>eng</dc:language>
+          <dc:description>8 pages</dc:description>
+          <dc:description>
+            ArabTeX, a macro package for use with TeX, the powerful typesetting
+            system designed by D. E. Knuth, and LaTeX, its extension by L.
+            Lamport to handle structured documents, was initially designed to
+            support Arabic quotations inside scholarly texts written in some
+            Western language. A prototype was released in the fall of 1991, and
+            since then there have been two major revisions, extending the
+            capabilities of the system far beyond the original goals.
+
+            The current version supports several different languages all using
+            the Arabic script, and also a variety of different input notations.
+            In this paper we discuss some of the problems which must be resolved
+            in a multi-lingual system, and we present some local solutions as
+            implemented inside ArabTeX.
+          </dc:description>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:TR-1994-11</identifier>
+        <datestamp>2000-11-10T11:23:52Z</datestamp>
+        <setSpec>cs:01</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Bidirectional line breaking with TeX macros</dc:title>
+          <dc:creator>Lagally, Klaus</dc:creator>
+          <dc:contributor>Betriebssoftware (IFI)</dc:contributor>
+          <dc:subject>Natural Language Processing (CR I.2.7)</dc:subject>
+          <dc:subject>Text Processing General (CR I.7.0)</dc:subject>
+          <dc:subject>Document Preparation (CR I.7.2)</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Fakultätsbericht</dc:type>
+          <dc:publisher>Stuttgart, Germany, Universität Stuttgart</dc:publisher>
+          <dc:relation>Technical Report No. 1994/11</dc:relation>
+          <dc:date>1994-11</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=TR-1994-11&amp;engl=1</dc:identifier>
+          <dc:source>ftp://ftp.informatik.uni-stuttgart.de/pub/library/ncstrl.ustuttgart_fi/TR-1994-11/TR-1994-11.pdf</dc:source>
+          <dc:format>application/pdf</dc:format>
+          <dc:language>eng</dc:language>
+          <dc:description>9 pages</dc:description>
+          <dc:description>
+            TeX has originally been designed with European languages in mind,
+            and thus, whenever a paragraph contains text portions running in
+            opposite directions, e.g. when combining English and Arabic or
+            Hebrew in the same document, the task of line-breaking becomes
+            rather complicated.
+
+            For a clean solution, Knuth and MacKay have proposed an modification
+            to TeX, TeX-XeT, which will produce an extended DVI file containing
+            additional directional information to be exploited by a modified DVI
+            driver; and by now there exist several implementations of this idea,
+            including TeX-XeT that produces a standard DVI file. The main
+            drawback is just that we have to go outside the TeX standard.
+
+            We present a portable technique to handle bidirectional
+            line-breaking by using TeX macros alone, albeit at some sacrifice in
+            quality. This technique has been implemented in the version 3.02 of
+            the author&apos;s multi-lingual ArabTeX package.
+          </dc:description>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:TR-1994-15</identifier>
+        <datestamp>2000-11-10T11:23:52Z</datestamp>
+        <setSpec>cs:01</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Using TeX as a tool in the production of a multi-lingual
+            dictionary</dc:title>
+          <dc:creator>Lagally, Klaus</dc:creator>
+          <dc:contributor>Betriebssoftware (IFI)</dc:contributor>
+          <dc:subject>Natural Language Processing (CR I.2.7)</dc:subject>
+          <dc:subject>Text Processing General (CR I.7.0)</dc:subject>
+          <dc:subject>Document Preparation (CR I.7.2)</dc:subject>
+          <dc:subject>Text Processing Index Generation (CR I.7.3)</dc:subject>
+          <dc:subject>Arts and Humanities (CR J.5)</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Fakultätsbericht</dc:type>
+          <dc:publisher>Stuttgart, Germany, Universität Stuttgart</dc:publisher>
+          <dc:relation>Technical Report No. 1994/15</dc:relation>
+          <dc:date>1994</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=TR-1994-15&amp;engl=1</dc:identifier>
+          <dc:source>ftp://ftp.informatik.uni-stuttgart.de/pub/library/ncstrl.ustuttgart_fi/TR-1994-15/TR-1994-15.pdf</dc:source>
+          <dc:format>application/pdf</dc:format>
+          <dc:language>eng</dc:language>
+          <dc:description>13 pages</dc:description>
+          <dc:description>
+            We propose some simple design rules for encoding multi-lingual texts
+            for flexibility of further automatic processing. Our main
+            recommendation is to include the available descriptive information
+            with the data, and to use symbolic markup conventions. These rules
+            have been applied successfully to the first steps of compiling a
+            multi-lingual dictionary.
+          </dc:description>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:TR-1995-10</identifier>
+        <datestamp>2000-11-10T11:23:52Z</datestamp>
+        <setSpec>cs:01</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>A Framework for Negotiable Quality of Service in Distributed
+            Multimedia Systems</dc:title>
+          <dc:creator>Dermler, Gabriel</dc:creator>
+          <dc:creator>Fiederer, Walter</dc:creator>
+          <dc:creator>Barth, Ingo</dc:creator>
+          <dc:creator>Rothermel, Kurt</dc:creator>
+          <dc:contributor>Verteilte Systeme (IPVR)</dc:contributor>
+          <dc:subject>Distributed Systems (CR C.2.4)</dc:subject>
+          <dc:subject>Operating Systems Organization and Design (CR D.4.7)</dc:subject>
+          <dc:subject>Multimedia Information Systems (CR H.5.1)</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Fakultätsbericht</dc:type>
+          <dc:publisher>Stuttgart, Germany, Universität Stuttgart</dc:publisher>
+          <dc:relation>Technical Report No. 1995/10</dc:relation>
+          <dc:date>1995-10</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=TR-1995-10&amp;engl=1</dc:identifier>
+          <dc:source>ftp://ftp.informatik.uni-stuttgart.de/pub/library/ncstrl.ustuttgart_fi/TR-1995-10/TR-1995-10.pdf</dc:source>
+          <dc:format>application/pdf</dc:format>
+          <dc:language>eng</dc:language>
+          <dc:description>19 pages</dc:description>
+          <dc:description>
+            Distributed multimedia applications offer to clients degrees of
+            freedom for selecting Quality of Service (QoS). This paper describes
+            a framework for application level negotiation as a means to regulate
+            client requested QoS under QoS constraints imposed on an
+            application. A QoS architecture is motivated interrelating levels
+            for media specific and transport level QoS handling. The necessity
+            of corresponding protocol levels is explained. The coupling between
+            these levels is demonstrated for a concrete protocol developed for
+            an example application. The embedding of end-to-end delay into the
+            protocol is discussed.
+          </dc:description>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:TR-1995-11</identifier>
+        <datestamp>2000-11-10T11:23:52Z</datestamp>
+        <setSpec>cs:01</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>A Negotiation and Resource Reservation Protocol (NRP) for Distributed
+            Multimedia Applications</dc:title>
+          <dc:creator>Dermler, Gabriel</dc:creator>
+          <dc:creator>Fiederer, Walter</dc:creator>
+          <dc:creator>Barth, Ingo</dc:creator>
+          <dc:creator>Rothermel, Kurt</dc:creator>
+          <dc:contributor>Verteilte Systeme (IPVR)</dc:contributor>
+          <dc:subject>Distributed Systems (CR C.2.4)</dc:subject>
+          <dc:subject>Operating Systems Organization and Design (CR D.4.7)</dc:subject>
+          <dc:subject>Multimedia Information Systems (CR H.5.1)</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Fakultätsbericht</dc:type>
+          <dc:publisher>Stuttgart, Germany, Universität Stuttgart</dc:publisher>
+          <dc:relation>Technical Report No. 1995/11</dc:relation>
+          <dc:date>1995-11</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=TR-1995-11&amp;engl=1</dc:identifier>
+          <dc:source>ftp://ftp.informatik.uni-stuttgart.de/pub/library/ncstrl.ustuttgart_fi/TR-1995-11/TR-1995-11.pdf</dc:source>
+          <dc:format>application/pdf</dc:format>
+          <dc:language>eng</dc:language>
+          <dc:description>27 pages</dc:description>
+          <dc:description>
+            Distributed multimedia applications require negotiation of quality
+            of service (QoS) and resource reservation for distributed
+            application parts and communication links. Negotiation of QoS is a
+            balancing process between the QoS specified by a client, the
+            resource availabilities of the distributed system and the functional
+            capabilities of the distributed application. Negotiation requires
+            application level QoS descriptions and an end-to-end view spanning
+            the whole distributed application. NRP is an application level
+            protocol meeting these requirements. NRP performs negotiation based
+            on client specified QoS value ranges and given resource availability
+            on endsystems and communication links. NRP is independent of
+            application level QoS semantics. It allows QoS negotiation and
+            resource reservation in three phases and supports a wide range of
+            distributed application topologies.
+          </dc:description>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:TR-1996-03</identifier>
+        <datestamp>2000-11-10T11:23:52Z</datestamp>
+        <setSpec>cs:01</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Problem Formulations, Models and Algorithms for Mapping Distributed
+            Multimedia Applications to Distributed Computer Systems</dc:title>
+          <dc:creator>Hagin, Alexander</dc:creator>
+          <dc:creator>Dermler, Gabriel</dc:creator>
+          <dc:creator>Rothermel, Kurt</dc:creator>
+          <dc:contributor>Verteilte Systeme (IPVR)</dc:contributor>
+          <dc:subject>Distributed Systems (CR C.2.4)</dc:subject>
+          <dc:subject>Performance of Systems (CR C.4)</dc:subject>
+          <dc:subject>Numerical Analysis Optimization (CR G.1.6)</dc:subject>
+          <dc:subject>Graph Theory (CR G.2.2)</dc:subject>
+          <dc:subject>Simulation and Modeling (CR I.6)</dc:subject>
+          <dc:subject>Mapping</dc:subject>
+          <dc:subject>Distributed Multimedia Application</dc:subject>
+          <dc:subject>Distributed System</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Fakultätsbericht</dc:type>
+          <dc:publisher>Stuttgart, Germany, Universität Stuttgart</dc:publisher>
+          <dc:relation>Technical Report No. 1996/03</dc:relation>
+          <dc:date>1996-02</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=TR-1996-03&amp;engl=1</dc:identifier>
+          <dc:source>ftp://ftp.informatik.uni-stuttgart.de/pub/library/ncstrl.ustuttgart_fi/TR-1996-03/TR-1996-03.pdf</dc:source>
+          <dc:format>application/pdf</dc:format>
+          <dc:language>eng</dc:language>
+          <dc:description>66 pages</dc:description>
+          <dc:description>
+            In the report, the problem of optimal allocation of Distributed
+            Multimedia Applications (DMA) into Distributed Computer Systems
+            (DCS) is examined. We are given precedence graphs representing
+            topologies of the DMA and data streams between components of DMA.
+            Nodes and arcs of the graphs are weighted by the computational and
+            communication resources needed to meet quality of service
+            requirements of DMA. A special-purpose precedence graph model is
+            proposed to present the structure of DCS including computers,
+            virtual channel connections and communication resources of DCS over
+            which the channels are routed. Nodes and links of the graph are
+            weighted by the computational resources and capacities of
+            communication resources available to mapped DMA.
+
+            An approach, based on the solving two kinds of the mapping problem,
+            is proposed. The first one is formulated as a nonlinear integer
+            programming problem with cost function under constraints on DCS
+            resources available to mapped DMA. If the first one has not an
+            acceptable solution, then other problem, formulated as minimax
+            nonlinear integer one to find the DMA location into the DCS with
+            minimum DCS resource gap, is solved. To solve both problems,
+            effective algorithms based on the branch-bound method are proposed.
+            Computational efficiency of the algorithms is examined and
+            illustrated by numerical examples
+          </dc:description>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:TR-1997-13</identifier>
+        <datestamp>2000-11-10T11:23:52Z</datestamp>
+        <setSpec>cs:01</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Hierarchische Graphen zur kürzesten Wegesuche in planaren
+            Graphen</dc:title>
+          <dc:creator>Buchholz, Friedhelm</dc:creator>
+          <dc:creator>Riedhofer, Bernhard</dc:creator>
+          <dc:contributor>Formale Konzepte (IFI)</dc:contributor>
+          <dc:subject>Nonnumerical Algorithms and Problems (CR F.2.2)</dc:subject>
+          <dc:subject>Graph Theory (CR G.2.2)</dc:subject>
+          <dc:subject>Graph</dc:subject>
+          <dc:subject>kürzeste</dc:subject>
+          <dc:subject>Weg</dc:subject>
+          <dc:subject>Hierarchie</dc:subject>
+          <dc:subject>separator</dc:subject>
+          <dc:subject>verkehr</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Technical Report</dc:type>
+          <dc:publisher>Stuttgart, Germany, Universität Stuttgart</dc:publisher>
+          <dc:relation>Technical Report No. 1997/13</dc:relation>
+          <dc:date>1997-08-21</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=TR-1997-13&amp;engl=1</dc:identifier>
+          <dc:source>ftp://ftp.informatik.uni-stuttgart.de/pub/library/ncstrl.ustuttgart_fi/TR-1997-13/TR-1997-13.pdf</dc:source>
+          <dc:format>application/pdf</dc:format>
+          <dc:language>ger</dc:language>
+          <dc:description>12 pages</dc:description>
+          <dc:description>
+            Obwohl kürzeste Wegeprobleme im Rahmen der Graphentheorie bereits
+            ausführlich untersucht wurden, werden in den letzten Jahren im
+            Zusammenhang mit Verkehrsinformationssystemen neue Lösungsansätze
+            entwickelt. Dabei legt man in einer Preprocessing-Phase
+            hierarchische Strukturen für ein gegebenes Verkehrsnetz an, so daß
+            die kürzeste Wegesuche in dem Verkehrsnetz mit dieser Struktur
+            effizienter erfolgen kann.
+
+            Wir führen für ungerichtete Graphen hierarchische und
+            regionenhierarchische Graphen ein. In planaren hierarchischen und
+            regionenhierarchischen Graphen kann die kürzeste Entfernung
+            zwischen zwei Knoten in einer Laufzeit von O(n^{0.5}) ermittelt
+            werden (n sei die Anzahl der Knoten in dem gegebenen Graphen). Der
+            kürzeste Weg mit l Knoten kann in O(n^{0.5} + l) Operationen
+            berechnet werden. Beide Typen von hierarchischen Graphen benötigen
+            O(n^{1.5}) Platz für die Speicherung der Hilfstabellen. Während
+            für den Aufbau von allgemeinen planaren hierarchischen Graphen
+            O(n^2) Operationen benötigt werden, kann der Aufbau von planaren
+            regionenhierarchischen Graphen in O(n^{1.5}) Operationen erfolgen.
+            Beim Aufbau der hierarchischen Graphen benutzen wir insbesondere ein
+            Separatortheorem von Lipton und Tarjan von 1979.
+
+            Die Ergebnisse wurden anhand von Experimenten mit realen
+            Straßendaten nachgewiesen
+          </dc:description>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:TR-1994-13</identifier>
+        <datestamp>2000-11-10T11:23:53Z</datestamp>
+        <setSpec>cs:01</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Foundations for Mapping of Distributed Multimedia Applications to
+            Distributed Computer System</dc:title>
+          <dc:creator>Hagin, Alexander</dc:creator>
+          <dc:contributor>Verteilte Systeme (IPVR)</dc:contributor>
+          <dc:subject>Distributed Systems (CR C.2.4)</dc:subject>
+          <dc:subject>Performance of Systems (CR C.4)</dc:subject>
+          <dc:subject>Numerical Analysis Optimization (CR G.1.6)</dc:subject>
+          <dc:subject>Graph Theory (CR G.2.2)</dc:subject>
+          <dc:subject>Simulation and Modeling (CR I.6)</dc:subject>
+          <dc:subject>distributed multimedia application</dc:subject>
+          <dc:subject>mapping</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Technical Report</dc:type>
+          <dc:publisher>Stuttgart, Germany, Universität Stuttgart</dc:publisher>
+          <dc:relation>Technical Report No. 1994/13</dc:relation>
+          <dc:date>1994-10</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=TR-1994-13&amp;engl=1</dc:identifier>
+          <dc:source>ftp://ftp.informatik.uni-stuttgart.de/pub/library/ncstrl.ustuttgart_fi/TR-1994-13/TR-1994-13.pdf</dc:source>
+          <dc:format>application/pdf</dc:format>
+          <dc:language>eng</dc:language>
+          <dc:description>49 pages</dc:description>
+          <dc:description>
+            Distributed multimedia applications need convenient framework for
+            their realiza tion in a distributed computer system. This paper
+            deals with the problem of mapping distributed multimedia
+            applications to a distributed computer system. An approach for
+            formalization of this problem as well as a set of abstractions,
+            mathematical pro gramming formulations, models and solution
+            procedures are proposed. Distributed multimedia application is
+            represented by one or a set of data flow graphs that specify quality
+            of service and resource requirements of the application. Distri
+            buted computer system is represented as a relevant directed weighted
+            graph with information about available computer and communication
+            resources. A problem of best placement (from the point of
+            preliminary defined cost criteria) of data flow graphs onto
+            distributed computer system is decided.
+          </dc:description>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:TR-1997-04</identifier>
+        <datestamp>2000-11-10T11:23:53Z</datestamp>
+        <setSpec>cs:01</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>32. Workshop ueber Komplexitaetstheorie, Datenstrukturen und
+            effiziente Algorithmen</dc:title>
+          <dc:creator>Hertrampf, Ulrich</dc:creator>
+          <dc:creator>Bergen, Andreas</dc:creator>
+          <dc:contributor>Theoretische Informatik (IFI)</dc:contributor>
+          <dc:subject>Data Structures (CR E.1)</dc:subject>
+          <dc:subject>Complexity Classes (CR F.1.3)</dc:subject>
+          <dc:subject>Analysis of Algorithms and Problem Complexity (CR F.2)</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Technical Report</dc:type>
+          <dc:publisher>Stuttgart, Germany, Universität Stuttgart</dc:publisher>
+          <dc:relation>Technical Report No. 1997/04</dc:relation>
+          <dc:date>June 17, 19971996</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=TR-1997-04&amp;engl=1</dc:identifier>
+          <dc:source>ftp://ftp.informatik.uni-stuttgart.de/pub/library/ncstrl.ustuttgart_fi/TR-1997-04/TR-1997-04.pdf</dc:source>
+          <dc:format>application/pdf</dc:format>
+          <dc:language>ger</dc:language>
+          <dc:description>17 pages</dc:description>
+          <dc:description>
+            This report contains the abstracts of all talks that were presented
+            at the 32nd Workshop on Complexity Theory, Data Structures, and
+            Efficient Algorithms held on June 17th, 1997, at the
+            computer-science department of the University of Stuttgart, Germany.
+            This so-called &quot;Theorietag&quot; is a joint event of the
+            working groups 0.1.4 (&quot;Complexity&quot;) and 0.1.3
+            (&quot;Parallel and distributed algorithms&quot;) of the German
+            Association for Computer Science (GI).
+          </dc:description>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:TR-1997-06</identifier>
+        <datestamp>2000-11-10T11:23:53Z</datestamp>
+        <setSpec>cs:01</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Efficient Code Migration for Modular Mobile Agents</dc:title>
+          <dc:creator>Hohl, Fritz</dc:creator>
+          <dc:creator>Klar, Peter</dc:creator>
+          <dc:creator>Baumann, Joachim</dc:creator>
+          <dc:contributor>Verteilte Systeme (IPVR)</dc:contributor>
+          <dc:subject>Distributed Systems (CR C.2.4)</dc:subject>
+          <dc:subject>Performance of Systems (CR C.4)</dc:subject>
+          <dc:subject>mobile agents</dc:subject>
+          <dc:subject>code migration</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Technical Report</dc:type>
+          <dc:publisher>Stuttgart, Germany, Universität Stuttgart</dc:publisher>
+          <dc:relation>Technical Report No. 1997/06</dc:relation>
+          <dc:date>1997-09-03</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=TR-1997-06&amp;engl=1</dc:identifier>
+          <dc:source>ftp://ftp.informatik.uni-stuttgart.de/pub/library/ncstrl.ustuttgart_fi/TR-1997-06/TR-1997-06.pdf</dc:source>
+          <dc:format>application/pdf</dc:format>
+          <dc:language>eng</dc:language>
+          <dc:description>12 pages</dc:description>
+          <dc:description>
+            This paper examines how an efficient code migration component for
+            mobile agents can be designed, an aspect crucial to the migration
+            performance and thus, for the overall performance of such a system.
+            Therefore, after listing the require ments of code migration in this
+            area, and a description of the code migration mechanisms of the Java
+            applet model, a more appropriate approach is proposed. This new
+            approach uses two mechanisms to transport code: one that is able to
+            get classes in an efficient manner and one that is able to get any
+            valid class by its ref erence. Both mechanisms use a code
+            replacement policy that is able to handle a space restricted class
+            storage. Finally the approach uses digital signatures to pro tect
+            the code migration component, the codeserver, against modification
+            attacks.
+          </dc:description>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:TR-1997-10</identifier>
+        <datestamp>2000-11-10T11:23:53Z</datestamp>
+        <setSpec>cs:01</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Zwischenbericht der Projektgruppe Fahrgemeinschaften</dc:title>
+          <dc:creator>Heid, Herbert</dc:creator>
+          <dc:creator>Nicklas, Daniela</dc:creator>
+          <dc:creator>Porrmann, Schäffer, Scholz, Alexander, Thomas, Volker</dc:creator>
+          <dc:contributor>Formale Konzepte (IFI)</dc:contributor>
+          <dc:subject>Software Engineering Management (CR D.2.9)</dc:subject>
+          <dc:subject>Data Structures (CR E.1)</dc:subject>
+          <dc:subject>Information Systems Applications Types of Systems (CR
+            H.4.2)</dc:subject>
+          <dc:subject>Fahrgemeinschaft</dc:subject>
+          <dc:subject>Projektgruppe</dc:subject>
+          <dc:subject>Matching</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Technical Report</dc:type>
+          <dc:publisher>Stuttgart, Germany, Universität Stuttgart</dc:publisher>
+          <dc:relation>Technical Report No. 1997/10</dc:relation>
+          <dc:date>1997-04</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=TR-1997-10&amp;engl=1</dc:identifier>
+          <dc:source>ftp://ftp.informatik.uni-stuttgart.de/pub/library/ncstrl.ustuttgart_fi/TR-1997-10/TR-1997-10.pdf</dc:source>
+          <dc:format>application/pdf</dc:format>
+          <dc:language>ger</dc:language>
+          <dc:description>152 pages</dc:description>
+          <dc:description>
+            Im vorliegenden Zwischenbericht der Projektgruppe
+            &quot;Fahrgemeinschaften&quot; wird die Entwicklung des Projekts von
+            der Anforderungsanalyse bis zum Grobentwurf dokumentiert.
+
+            Im Rahmen der Projektgruppe soll das Programm Mobidick (Mobil durch
+            intelligentes computerunterstütztes Kombinieren) entstehen, das
+            ausgehend von Personen- und Verkehrsdaten Aufteilungen in Fahr-
+            gemeinschaften berechnet. Es handelt sich hierbei um einen Prototyp
+            für ein System, das beispielsweise in einer Mitfahr- oder Mobili-
+            tätszentrale eingesetzt werden kann, um für große Personenmengen
+            Fahrgemeinschaften zu bestimmen und zu verwalten.
+
+            Die Personendaten enthalten Informationen über Start-, Zielorte,
+            Ar- beitszeiten und Eigenschaften der Personen (z.B. Geschlecht,
+            Rau- cher/Nichtraucher usw.). Außerdem können die Personen
+            angeben, wie ihre Wunschfahrgemeinschaft aussehen sollte, d.h.
+            welche Kriterien ihnen besonders wichtig sind (Umweg, Arbeitszeit,
+            Eigenschaften der Mitfahrer und persönliche Zu- bzw. Abneigung
+            gegenüber bestimmten Personen).
+
+            Die Verkehrsdaten (Stadtplan) liefern die Grundlage für die Berech-
+            nung der besten Routen mit den kürzesten Umwegen. Davon ausgehend
+            soll nun eine optimale oder heuristische Lösung gefunden werden.
+            Die Güte von Fahrgemeinschaften und Einteilungen des Personenstamms
+            kann anhand einer Bewertungsfunktion beurteilt werden. In diese
+            Bewer- tungsfunktion gehen die o.g. Kriterien Umweg, Arbeitszeiten,
+            Per- soneneigenschaften und Zu-/Abneigungen ein.
+
+            Die Personen-, Verkehrs- und Fahrgemeinschaftsdaten müssen
+            verwaltet werden und leicht änderbar sein.
+
+            Besonderer Wert wird im Projekt auf die Austauschbarkeit der
+            Algorith- men gelegt. Der Prototyp ermöglicht die Untersuchung
+            verschiedener Algorithmen zur Wegsuche und zur Einteilung in
+            Fahrgemeinschaften
+          </dc:description>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:TR-1997-11</identifier>
+        <datestamp>2000-11-10T11:23:53Z</datestamp>
+        <setSpec>cs:01</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Configuration and synchronization management in distributed multimedia
+            systems</dc:title>
+          <dc:creator>Karpov, Yuri</dc:creator>
+          <dc:creator>Rothermel, Kurt</dc:creator>
+          <dc:creator>Hagin, Alexander</dc:creator>
+          <dc:contributor>Verteilte Systeme (IPVR)</dc:contributor>
+          <dc:subject>Distributed Systems (CR C.2.4)</dc:subject>
+          <dc:subject>Performance of Systems (CR C.4)</dc:subject>
+          <dc:subject>Operating Systems Organization and Design (CR D.4.7)</dc:subject>
+          <dc:subject>Numerical Analysis Optimization (CR G.1.6)</dc:subject>
+          <dc:subject>Graph Theory (CR G.2.2)</dc:subject>
+          <dc:subject>Simulation and Modeling (CR I.6)</dc:subject>
+          <dc:subject>distributed multimedia systems</dc:subject>
+          <dc:subject>configuration management</dc:subject>
+          <dc:subject>stream control</dc:subject>
+          <dc:subject>stream synchronization</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Technical Report</dc:type>
+          <dc:publisher>Stuttgart, Germany, Universität Stuttgart</dc:publisher>
+          <dc:relation>Technical Report No. 1997/11</dc:relation>
+          <dc:date>1997-08</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=TR-1997-11&amp;engl=1</dc:identifier>
+          <dc:source>ftp://ftp.informatik.uni-stuttgart.de/pub/library/ncstrl.ustuttgart_fi/TR-1997-11/TR-1997-11.pdf</dc:source>
+          <dc:format>application/pdf</dc:format>
+          <dc:language>eng</dc:language>
+          <dc:description>66 pages</dc:description>
+          <dc:description>
+            This annual technical report presents the current state of the
+            project OPTIMUS 01 IR 605 &apos;Optimization, Modeling and
+            Implementation of Distributed Multimedia Systems&apos;, which is a
+            research activity at St. Petersburg Technical University,
+            Distributed Computing and Networks Department in collaboration with
+            Stuttgart University, Distributed Systems Department. The project is
+            supported by a research grant of the &apos;Bundesministeriums für
+            Bildung, Wissenschaft, Forschung und Technologie&apos; of Germany.
+            The project is dedicated to the problems of configuration and
+            synchronization management modeling, analysis, optimization and
+            development for distributed multimedia systems. The annual report
+            presents the methods, models, algorithms, mechanisms, and a
+            simulation tool developed for analysis, optimization and design of
+            distributed multimedia application configuration management,
+            negotiation and resource reservation protocol, and adaptive
+            synchronization protocol, that support configurable distributed
+            multimedia applications. Results of computational experiments
+            conducted for complexity and accuracy evaluation of algorithms
+            proposed are presented as well. Problems of testbed platform
+            development and implementation for configuration and synchronization
+            management of distributed multimedia systems are discussed. The
+            research results obtained are oriented on the further development of
+            CINEMA (Configurable IntEgrated Multimedia Architecture) that was
+            designed at the Distributed Systems Department of Stuttgart
+            University and supports development and control of multimedia
+            applications with arbitrary processing topologies consisting of
+            multiple data sources and sinks as well as arbitrary intermediate
+            processing stages.
+          </dc:description>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:TR-1997-12</identifier>
+        <datestamp>2000-11-10T11:23:53Z</datestamp>
+        <setSpec>cs:01</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Adaptive Scheduling of Multimedia Documents</dc:title>
+          <dc:creator>Wirag, Stefan</dc:creator>
+          <dc:contributor>Verteilte Systeme (IPVR)</dc:contributor>
+          <dc:subject>Distributed Systems (CR C.2.4)</dc:subject>
+          <dc:subject>Document Preparation (CR I.7.2)</dc:subject>
+          <dc:subject>Multimedia Information Systems (CR H.5.1)</dc:subject>
+          <dc:subject>Adaptive Multimedia Documents</dc:subject>
+          <dc:subject>Adaptive Scheduling</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Technical Report</dc:type>
+          <dc:publisher>Stuttgart, Germany, Universität Stuttgart</dc:publisher>
+          <dc:relation>Technical Report No. 1997/12</dc:relation>
+          <dc:date>1997-09-05</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=TR-1997-12&amp;engl=1</dc:identifier>
+          <dc:source>ftp://ftp.informatik.uni-stuttgart.de/pub/library/ncstrl.ustuttgart_fi/TR-1997-12/TR-1997-12.pdf</dc:source>
+          <dc:format>application/pdf</dc:format>
+          <dc:language>eng</dc:language>
+          <dc:description>22 pages</dc:description>
+          <dc:description>
+            Multimedia presentations are applicable in various domains such as
+            advertising, commercial presentations or education. Multimedia
+            presentations are described by multimedia documents. The
+            presentation of multimedia documents require vast system resources
+            due to the huge amount of data that has to be transferred and
+            processed by the computer system. If multimedia documents can be
+            accessed on-line via different types of networks and be presented on
+            various types of terminals, such as PCs or Set-Top-Units, different
+            amounts of resources may be available at presentation time. Hence,
+            it can happen that there are not enough resources to render a
+            multimedia document according to the specification. For usual
+            multimedia documents resource scarcity implies an arbitrarily
+            reduced quality of the presentation or it can even be impossible to
+            start or continue the presentation. To handle resource scarcity in a
+            better way, multimedia documents can be specified flexible so that
+            they can be adapted to different resource situations. Our temporal
+            model provides abstractions to specify flexible multimedia documents
+            on two levels. It is possible to specify multimedia documents with
+            alternative presentation parts. Further on, the presentation
+            behavior of media objects can vary within specified limits. Hence,
+            the temporal model allows to compose presentations which have a
+            defined behavior when resource restrictions occur. The presented
+            adaptive scheduling algorithm uses the flexibility in specifications
+            to adapt presentations at regular intervals to the current resource
+            situation. Hence, the quality of presentations is reduced or
+            increased in a defined manner
+          </dc:description>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:TR-1997-14</identifier>
+        <datestamp>2000-11-10T11:23:53Z</datestamp>
+        <setSpec>cs:01</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>ATOMAS: A Transaction-oriented Open Multi Agent-System Annual
+            Report</dc:title>
+          <dc:creator>Straßer, Markus</dc:creator>
+          <dc:creator>Baumann, Joachim</dc:creator>
+          <dc:creator>Hohl, Fritz</dc:creator>
+          <dc:contributor>Verteilte Systeme (IPVR)</dc:contributor>
+          <dc:subject>Network Protocols (CR C.2.2)</dc:subject>
+          <dc:subject>Distributed Systems (CR C.2.4)</dc:subject>
+          <dc:subject>agent</dc:subject>
+          <dc:subject>mobile</dc:subject>
+          <dc:subject>transactions</dc:subject>
+          <dc:subject>communication</dc:subject>
+          <dc:subject>protocol</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Technical Report</dc:type>
+          <dc:publisher>Stuttgart, Germany, Universität Stuttgart</dc:publisher>
+          <dc:relation>Technical Report No. 1997/14</dc:relation>
+          <dc:date>1997-07</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=TR-1997-14&amp;engl=1</dc:identifier>
+          <dc:source>ftp://ftp.informatik.uni-stuttgart.de/pub/library/ncstrl.ustuttgart_fi/TR-1997-14/TR-1997-14.pdf</dc:source>
+          <dc:format>application/pdf</dc:format>
+          <dc:language>eng</dc:language>
+          <dc:description>68 pages</dc:description>
+          <dc:description>
+            The electronic marketplace of the future will consist of a large
+            number of services located on an open, distributed and heterogeneous
+            platform, which will be used by an even larger number of clients.
+            Mobile Agent Systems are considered to be a precondition for the
+            evolution of such an electronic market. They can provide a flexible
+            infrastructure for this market, i.e. for the installation of new
+            services by service agents as well as for the utilization of these
+            services by client agents. Mobile Agent Systems basically consist of
+            a number of locations and agents. Locations are (logical)
+            abstractions for (physical) hosts in a computer network. The network
+            of locations serves as a unique and homogeneous platform, while the
+            underlying network of hosts may be heterogeneous and widely
+            distributed. Locations therefore have to guarantee independence from
+            the underlying hard- and software. To make the Mobile Agent System
+            an open platform, the system furthermore has to guarantee security
+            of hosts against malicious attacks. (User) Agents are active,
+            autonomous software objects, that reside (and are processed) on
+            locations. They can communicate with other agents either locally
+            inside one location or globally with agents on other locations.
+            Mobile Agents furthermore can migrate from one location to another.
+            Mechanisms for the communication between agents and for the
+            migration of agents have to be provided by the Mobile Agent System.
+            Service Agents are interfaces to services. Next to the normal
+            communication mechanisms between agents of the mobile agent system,
+            they have access to services provided by the underlying host.
+            Because of their machine dependent purpose, service agents are not
+            mobile. The Atomas project aims in developing an open agent system
+            as an enabling technology for the evolution of a electronic
+            marketplace. This report documents the achieved results of the first
+            year
+          </dc:description>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:TR-1997-15</identifier>
+        <datestamp>2000-11-10T11:23:53Z</datestamp>
+        <setSpec>cs:01</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Mole - Concepts of a Mobile Agent System</dc:title>
+          <dc:creator>Baumann, Joachim</dc:creator>
+          <dc:creator>Hohl, Fritz</dc:creator>
+          <dc:creator>Rothermel, Kurt</dc:creator>
+          <dc:contributor>Verteilte Systeme (IPVR)</dc:contributor>
+          <dc:subject>Network Protocols (CR C.2.2)</dc:subject>
+          <dc:subject>Software General (CR D.0)</dc:subject>
+          <dc:subject>agent</dc:subject>
+          <dc:subject>mobile</dc:subject>
+          <dc:subject>agent system</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Technical Report</dc:type>
+          <dc:publisher>Stuttgart, Germany, Universität Stuttgart</dc:publisher>
+          <dc:relation>Technical Report No. 1997/15</dc:relation>
+          <dc:date>1997-08</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=TR-1997-15&amp;engl=1</dc:identifier>
+          <dc:source>ftp://ftp.informatik.uni-stuttgart.de/pub/library/ncstrl.ustuttgart_fi/TR-1997-15/TR-1997-15.pdf</dc:source>
+          <dc:format>application/pdf</dc:format>
+          <dc:language>ger</dc:language>
+          <dc:description>25 pages</dc:description>
+          <dc:description>
+            Due to its salient properties, mobile agent technology has received
+            a rapidly growing attention over the last few years. Many
+            developments of mobile agent systems are under way in both academic
+            and industrial environments. In addition, there are already various
+            efforts to standardize mobile agent facilities and architectures.
+            Mole is the first Mobile Agent System that has been developed in the
+            Java language. The first version has been finished in 1995, and
+            since then Mole has been constantly improved. Mole provides a stable
+            environment for the development and usage of mobile agents in the
+            area of distributed applications. In this paper we describe
+            implementation techniques for mobility, present communication
+            concepts we implemented in Mole, discuss security concerning Mobile
+            Agent Systems, and present system services provided by Mole
+          </dc:description>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:TR-1997-16</identifier>
+        <datestamp>2000-11-10T11:23:53Z</datestamp>
+        <setSpec>cs:01</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>On th Configuration Management and the Assignment Problem in
+            Distributed Multimedia Systems</dc:title>
+          <dc:creator>Hagin, Alexander</dc:creator>
+          <dc:creator>Dermler, Gabriel</dc:creator>
+          <dc:creator>Rothermel, Kurt</dc:creator>
+          <dc:contributor>Verteilte Systeme (IPVR)</dc:contributor>
+          <dc:subject>Distributed Systems (CR C.2.4)</dc:subject>
+          <dc:subject>Performance of Systems (CR C.4)</dc:subject>
+          <dc:subject>Numerical Analysis Optimization (CR G.1.6)</dc:subject>
+          <dc:subject>Graph Theory (CR G.2.2)</dc:subject>
+          <dc:subject>Simulation and Modeling (CR I.6)</dc:subject>
+          <dc:subject>Multimedia Systems Configuration Assignment Reseource
+            Reservation</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Technical Report</dc:type>
+          <dc:publisher>Stuttgart, Germany, Universität Stuttgart</dc:publisher>
+          <dc:relation>Technical Report No. 1997/16</dc:relation>
+          <dc:date>1997-01</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=TR-1997-16&amp;engl=1</dc:identifier>
+          <dc:source>ftp://ftp.informatik.uni-stuttgart.de/pub/library/ncstrl.ustuttgart_fi/TR-1997-16/TR-1997-16.pdf</dc:source>
+          <dc:format>application/pdf</dc:format>
+          <dc:language>eng</dc:language>
+          <dc:description>53 pages</dc:description>
+          <dc:description>
+            We examine the configuration management problem for distributed
+            multimedia applications (DMA) including such issues as quality of
+            service (QoS) specification, QoS negotiation, placement of a DMA in
+            a distributed computer system (DCS), and resource reservation to
+            support requested QoS. An algorithm for the DMA configuration
+            management is proposed that takes into account all mentioned above
+            issues and is based on the XNRP protocol developed earlier to
+            negotiate QoS and to reserve needed resources.
+
+            We examine in detail the problem of assigning a DMA to a DCS in a
+            cost optimized way, where the DMA and the DCS are represented by
+            weighted oriented graphs. We present two efficient heuristic
+            algorithms to solve the assignment problem. The first one, a
+            clustering algorithm, finds a suboptimal DMA placement in the DCS
+            minimizing the communication cost. The second one, the so-called
+            initial assignment improving algorithm (SIGMA), reassigns the DMA in
+            the DCS minimizing the total computational and communication cost.
+
+            In comparison with other approaches, both algorithms take into
+            account the heterogeneity of the DMA and DCS as well as different
+            kinds of constraints and behavior characteristics that are essential
+            to distributed multimedia systems. To estimate the accuracy of the
+            proposed algorithm, branch-and-bound-type algorithms with different
+            objective functions have been designed. The time complexity and
+            accuracy evaluation based on a great variety of experiments
+            conducted for randomly generated DMA and DCS graphs is very
+            encouraging, since, at significantly lower execution time, we
+            obtained allocations with cost very close to the optimal one.
+          </dc:description>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:TR-1997-17</identifier>
+        <datestamp>2000-11-10T11:23:53Z</datestamp>
+        <setSpec>cs:01</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>Statistische Objekterkennung durch nichtparametrische
+            Hypothesenverifizierung</dc:title>
+          <dc:creator>Oswald, Norbert</dc:creator>
+          <dc:creator>Levi, Paul</dc:creator>
+          <dc:contributor>Bildverstehen (IPVR)</dc:contributor>
+          <dc:subject>Vision and Scene Understanding (CR I.2.10)</dc:subject>
+          <dc:subject>Computational Geometry and Object Modeling (CR I.3.5)</dc:subject>
+          <dc:subject>Image Processing Feature Measurement (CR I.4.7)</dc:subject>
+          <dc:subject>Pattern Recognition Models (CR I.5.1)</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Technical Report</dc:type>
+          <dc:publisher>Stuttgart, Germany, Universität Stuttgart</dc:publisher>
+          <dc:relation>Technical Report No. 1997/17</dc:relation>
+          <dc:date>1997-10</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=TR-1997-17&amp;engl=1</dc:identifier>
+          <dc:source>ftp://ftp.informatik.uni-stuttgart.de/pub/library/ncstrl.ustuttgart_fi/TR-1997-17/TR-1997-17.pdf</dc:source>
+          <dc:format>application/pdf</dc:format>
+          <dc:language>ger</dc:language>
+          <dc:description>10 pages</dc:description>
+          <dc:description>
+            In diesem Bericht wird ein Verfahren vorgestellt, mit dem die
+            Ähnlichkeit zweier komplexer 3D-Objekte an Hand nichtparametrischer
+            statistischer Tests festgestellt werden kann. Dabei werden Objekte
+            zunächst in einen normierten skalierungs- und
+            translationsinvarianten Merkmalsraum abgebildet und anschließend
+            unter Anwendung von Verfahren, die auf dem Vergleich von
+            Verteilungsfunktionen basieren, mit verschiedenen Modellansichten
+            verglichen. Zur Generierung eines Bewertungsmaßes für die
+            Ähnlichkeit von Objekten verwenden wir die uni- und bivariaten
+            Teststatistiken von Kolmogoroff und Smirnow sowie die von Cramer und
+            von von Mises. Wie die Experimente zeigen, läßt sich mit diesem
+            schnellen Verfahren besonders bei den bivariaten Tests eine hohe
+            Signifikanz erzielen. Durch Gruppierung der Merkmale ist eine
+            weitere Effizienzsteigerung bei der Erkennung der Objekte möglich
+          </dc:description>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>oai:informatik.uni-stuttgart.de:TR-1997-18</identifier>
+        <datestamp>2000-11-10T11:23:53Z</datestamp>
+        <setSpec>cs:01</setSpec>
+      </header>
+      <metadata>
+        <oai_dc:dc
+            xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+            xmlns:dc="http://purl.org/dc/elements/1/1/"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
+            http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+          <dc:title>A Protocol for Preserving the Exactly-Once Property of Mobile
+            Agents</dc:title>
+          <dc:creator>Rothermel, Kurt</dc:creator>
+          <dc:creator>Straßer, Markus</dc:creator>
+          <dc:contributor>Verteilte Systeme (IPVR)</dc:contributor>
+          <dc:subject>Operating Systems Reliability (CR D.4.5)</dc:subject>
+          <dc:subject>Database Management Systems (CR H.2.4)</dc:subject>
+          <dc:subject>Process Management (CR D.4.1)</dc:subject>
+          <dc:subject>agent</dc:subject>
+          <dc:subject>mobil</dc:subject>
+          <dc:subject>exactly-once</dc:subject>
+          <dc:subject>reliability</dc:subject>
+          <dc:subject>transaction</dc:subject>
+          <dc:type>Text</dc:type>
+          <dc:type>Technical Report</dc:type>
+          <dc:publisher>Stuttgart, Germany, Universität Stuttgart</dc:publisher>
+          <dc:relation>Technical Report No. 1997/18</dc:relation>
+          <dc:date>1997-10</dc:date>
+          <dc:identifier>http://www2.informatik.uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=TR-1997-18&amp;engl=1</dc:identifier>
+          <dc:source>ftp://ftp.informatik.uni-stuttgart.de/pub/library/ncstrl.ustuttgart_fi/TR-1997-18/TR-1997-18.pdf</dc:source>
+          <dc:format>application/pdf</dc:format>
+          <dc:language>eng</dc:language>
+          <dc:description>14 pages</dc:description>
+          <dc:description>
+            Mobile agents are autonomous objects that can migrate from node to
+            node of a computer network. Mobile agent technology has been
+            proposed for various application areas, including electronic
+            commerce, systems management and active messaging. Many of these
+            applications - especially those for electronic commerce - require
+            agents to be performed &quot;exactly once&quot;, independent of
+            communication and node failures. In other words, once a mobile agent
+            has been launched, it must never be lost before its execution is
+            finished. Moreover, each &quot;portion&quot; of the agent performed
+            at the visited nodes is performed exactly once.
+
+            Due to the autonomy of mobile agents, there is no
+            &quot;natural&quot; instance that monitors the progress of an
+            agent&apos;s execution. As a result of that agents may be blocked
+            due to node crashes or network partitioning even if there are other
+            nodes available that could continue processing. In this paper, we
+            will describe a protocol that ensures the exactly once property of
+            agents and additionally reduces the blocking probability of agents
+            by introducing so-called observer nodes for monitoring the progress
+            of agents. This protocol is based on conventional transactional
+            technology, such as defined by X/Open DTP or CORBA OTS. It is
+            implemented in the Mole, a mobile agent system developed at
+            Stuttgart University.
+          </dc:description>
+        </oai_dc:dc>
+      </metadata>
+    </record>
+    <resumptionToken expirationDate="2015-03-11T10:57:26Z"
+      completeListSize="4752"
+      cursor="0">R1425985046</resumptionToken>
+  </ListRecords>
+</OAI-PMH>

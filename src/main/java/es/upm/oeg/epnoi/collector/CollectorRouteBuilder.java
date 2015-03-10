@@ -102,6 +102,8 @@ public class CollectorRouteBuilder extends RouteBuilder {
                                 "${property." + CollectorProperty.PUBLICATION_PUBLISHED_DATE + "}/" +
                                 "resource-${property." + CollectorProperty.PUBLICATION_UUID + "}.${property." + CollectorProperty.PUBLICATION_REFERENCE_FORMAT + "}")).
                 to("file:"+basedir+"/?fileName=${property." + CollectorProperty.PUBLICATION_REFERENCE_URL + "}").
+                // Filter resources with available url
+                filter(property(CollectorProperty.PUBLICATION_URL_REMOTE).isNotEqualTo("")).
                 // Retrieve publication using Http Component
                 setHeader(Exchange.HTTP_METHOD, constant("GET")).
                 setHeader(Exchange.HTTP_URI,    simple("${property." + CollectorProperty.PUBLICATION_URL_REMOTE + "}")).

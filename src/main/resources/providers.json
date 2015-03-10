@@ -1,12 +1,9 @@
 {
   "providers": [
     {
-      "name": "sciencepubco",
+      "name": "informatik.uni-stuttgart.de",
       "protocol": "oaipmh",
-      "url": "http://www.sciencepubco.com/index.php/IJAA/oai",
-      "publication": {
-        "url": "$replace(substring-before(concat(string-join(//oai:metadata/oai:dc/dc:relation/text(),\";\"),\";\"),\";\"),\"view\",\"download\")"
-      }
+      "url": "http://www.informatik.uni-stuttgart.de/cgi-bin/OAI/OAI.pl"
     }
   ]
 }
