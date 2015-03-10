@@ -83,4 +83,12 @@ All providers are listed in the `providers.json` file:
 }
 ```
 
+# Download
+
+Download the binary distribution:  [here](https://github.com/cabadol/epnoi-collector/blob/mvn-repo/es/upm/oeg/epnoi-collector/1.0.0/epnoi-collector-1.0.0.tar.gz)
+
+| Version | Link |
+| :------- |:-----|
+| 1.0.0    | [tar.gz](http://github.com/cabadol/epnoi-collector/raw/mvn-repo/es/upm/oeg/epnoi-collector/1.0.0/epnoi-collector-1.0.0.tar.gz)|
+
 This work is funded by the EC-funded project DrInventor ([www.drinventor.eu](www.drinventor.eu)).
