@@ -85,7 +85,7 @@ All providers are listed in the `providers.json` file:
 
 # Download
 
-Download the binary distribution:  [here](https://github.com/cabadol/epnoi-collector/blob/mvn-repo/es/upm/oeg/epnoi-collector/1.0.0/epnoi-collector-1.0.0.tar.gz)
+Download the binary distribution:
 
 | Version | Link |
 | :------- |:-----|
