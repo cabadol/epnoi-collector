@@ -139,6 +139,6 @@ Download the binary distribution:
 
 | Version | Link |
 | :------- |:-----|
-| 1.0.2    | [tar.gz](http://github.com/cabadol/epnoi-collector/raw/mvn-repo/es/upm/oeg/epnoi-collector/1.0.2/epnoi-collector-1.0.2.tar.gz)|
+| 1.0.3    | [tar.gz](http://github.com/cabadol/epnoi-collector/raw/mvn-repo/es/upm/oeg/epnoi-collector/1.0.3/epnoi-collector-1.0.3.tar.gz)|
 
 This work is funded by the EC-funded project DrInventor ([www.drinventor.eu](www.drinventor.eu)).
