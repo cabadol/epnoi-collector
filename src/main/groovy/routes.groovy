@@ -9,7 +9,9 @@ class routes extends AbstractRouteBuilder{
         /*********************************************************************************************************************************
          * ROUTE 1: Slashdot
          *********************************************************************************************************************************/
-        from("rss:http://rss.slashdot.org/Slashdot/slashdot?splitEntries=true&consumer.initialDelay=1000&consumer.delay=2000&feedHeader=false&filter=true").marshal().rss().
+        from("rss:http://rss.slashdot.org/Slashdot/slashdot?" +
+                "splitEntries=true&consumer.initialDelay=1000&consumer.delay=2000" +
+                "&feedHeader=false&filter=true").marshal().rss().
                 setProperty(SOURCE_NAME,        constant("slashdot")).
                 setProperty(SOURCE_URL,         constant("http://rss.slashdot.org/Slashdot/slashdot")).
                 to("direct:setCommonRssXpathExpressions").

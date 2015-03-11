@@ -109,33 +109,33 @@ public abstract class AbstractRouteBuilder extends RouteBuilder {
         from("direct:setCommonRssXpathExpressions").
                 setProperty(SOURCE_PROTOCOL,            constant("rss")).
                 setProperty(SOURCE_URI,                 simple("http://www.epnoi.org/rss/${property."+SOURCE_NAME+"}")).
-                setProperty(PUBLICATION_TITLE, xpath("//rss:item/rss:title/text()", String.class).namespaces(ns)).
-                setProperty(PUBLICATION_DESCRIPTION, xpath("//rss:item/rss:description/text()", String.class).namespaces(ns)).
-                setProperty(PUBLICATION_PUBLISHED, xpath("//rss:item/dc:date/text()", String.class).namespaces(ns)).
-                setProperty(PUBLICATION_URI, xpath("//rss:item/rss:link/text()", String.class).namespaces(ns)).
-                setProperty(PUBLICATION_URL, xpath("//rss:item/rss:link/text()", String.class).namespaces(ns)).
-                setProperty(PUBLICATION_LANGUAGE, xpath("//rss:channel/dc:language/text()", String.class).namespaces(ns)).
-                setProperty(PUBLICATION_RIGHTS, xpath("//rss:channel/dc:rights/text()", String.class).namespaces(ns)).
-                setProperty(PUBLICATION_CREATORS, xpath("string-join(//rss:channel/dc:creator/text(),\";\")", String.class).namespaces(ns)).
-                setProperty(PUBLICATION_FORMAT, constant("htm")).
+                setProperty(PUBLICATION_TITLE,          xpath("//rss:item/rss:title/text()", String.class).namespaces(ns)).
+                setProperty(PUBLICATION_DESCRIPTION,    xpath("//rss:item/rss:description/text()", String.class).namespaces(ns)).
+                setProperty(PUBLICATION_PUBLISHED,      xpath("//rss:item/dc:date/text()", String.class).namespaces(ns)).
+                setProperty(PUBLICATION_URI,            xpath("//rss:item/rss:link/text()", String.class).namespaces(ns)).
+                setProperty(PUBLICATION_URL,            xpath("//rss:item/rss:link/text()", String.class).namespaces(ns)).
+                setProperty(PUBLICATION_LANGUAGE,       xpath("//rss:channel/dc:language/text()", String.class).namespaces(ns)).
+                setProperty(PUBLICATION_RIGHTS,         xpath("//rss:channel/dc:rights/text()", String.class).namespaces(ns)).
+                setProperty(PUBLICATION_CREATORS,       xpath("string-join(//rss:channel/dc:creator/text(),\";\")", String.class).namespaces(ns)).
+                setProperty(PUBLICATION_FORMAT,         constant("htm")).
                 setProperty(PUBLICATION_METADATA_FORMAT,constant("xml"));
 
         /*********************************************************************************************************************************
          * -> Set Common OAI-PMH Xpath Expressions
          *********************************************************************************************************************************/
         from("direct:setCommonOaipmhXpathExpressions").
-                setProperty(SOURCE_PROTOCOL, constant("oaipmh")).
-                setProperty(SOURCE_URI,                 simple("http://www.epnoi.org/oaipmh/${property." + SOURCE_NAME + "}")).
-                setProperty(PUBLICATION_TITLE,          xpath("//oai:metadata/oai:dc/dc:title/text()",String.class).namespaces(ns)).
-                setProperty(PUBLICATION_DESCRIPTION,    xpath("//oai:metadata/oai:dc/dc:description/text()",String.class).namespaces(ns)).
-                setProperty(PUBLICATION_PUBLISHED,      xpath("//oai:header/oai:datestamp/text()",String.class).namespaces(ns)).
-                setProperty(PUBLICATION_URI,            xpath("//oai:header/oai:identifier/text()",String.class).namespaces(ns)).
-                setProperty(PUBLICATION_URL,            xpath("//oai:metadata/oai:dc/dc:identifier/text()",String.class).namespaces(ns)).
-                setProperty(PUBLICATION_LANGUAGE,       xpath("//oai:metadata/oai:dc/dc:language/text()",String.class).namespaces(ns)).
-                setProperty(PUBLICATION_RIGHTS,         xpath("//oai:metadata/oai:dc/dc:rights/text()",String.class).namespaces(ns)).
-                setProperty(PUBLICATION_CREATORS,       xpath("string-join(//oai:metadata/oai:dc/dc:creator/text(),\";\")",String.class).namespaces(ns)).
-                setProperty(PUBLICATION_FORMAT, xpath("substring-after(//oai:metadata/oai:dc/dc:format/text(),\"/\")", String.class).namespaces(ns)).
-                setProperty(PUBLICATION_METADATA_FORMAT, constant("xml"));
+                setProperty(SOURCE_PROTOCOL,                constant("oaipmh")).
+                setProperty(SOURCE_URI,                     simple("http://www.epnoi.org/oaipmh/${property." + SOURCE_NAME + "}")).
+                setProperty(PUBLICATION_TITLE,              xpath("//oai:metadata/oai:dc/dc:title/text()",String.class).namespaces(ns)).
+                setProperty(PUBLICATION_DESCRIPTION,        xpath("//oai:metadata/oai:dc/dc:description/text()",String.class).namespaces(ns)).
+                setProperty(PUBLICATION_PUBLISHED,          xpath("//oai:header/oai:datestamp/text()",String.class).namespaces(ns)).
+                setProperty(PUBLICATION_URI,                xpath("//oai:header/oai:identifier/text()",String.class).namespaces(ns)).
+                setProperty(PUBLICATION_URL,                xpath("//oai:metadata/oai:dc/dc:identifier/text()",String.class).namespaces(ns)).
+                setProperty(PUBLICATION_LANGUAGE,           xpath("//oai:metadata/oai:dc/dc:language/text()",String.class).namespaces(ns)).
+                setProperty(PUBLICATION_RIGHTS,             xpath("//oai:metadata/oai:dc/dc:rights/text()",String.class).namespaces(ns)).
+                setProperty(PUBLICATION_CREATORS,           xpath("string-join(//oai:metadata/oai:dc/dc:creator/text(),\";\")",String.class).namespaces(ns)).
+                setProperty(PUBLICATION_FORMAT,             xpath("substring-after(//oai:metadata/oai:dc/dc:format/text(),\"/\")", String.class).namespaces(ns)).
+                setProperty(PUBLICATION_METADATA_FORMAT,    constant("xml"));
 
 
         /*********************************************************************************************************************************
