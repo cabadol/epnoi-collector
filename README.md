@@ -4,18 +4,108 @@ For more details about Epnoi see: https://github.com/fitash/epnoi/wiki
 
 This tool allows you harvest scientific publications from [RSS](http://www.rssboard.org/rss-specification) servers and/or [OAI-PMH](http://www.openarchives.org) data providers.  
 
-## Provider Info
-| Property | Default  | Description |
-| :------- |:--------:| :---------- |
-| *protocol*\*    |     | `rss` or `oaipmh` |
-| *url*\*    |     | The base URL for making protocol requests to the repository |
-| name    | *url domain name*    | A human readable name for the repository |
-| uri    | `http://www.epnoi.org/'protocol'/'name'`    | A uniform resource identifier used to identify the repository |
-| from    | `1970-01-01T00:00:00Z`    | Specifies a lower bound for datestamp-based selective harvesting. It is a valid [ISO-8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874) value. After first request, this value is updated to current time |
-| delay    | `60000 `   | Delay in milliseconds between each poll |
-| initialDelay    | `1000`    | Milliseconds before polling starts |
+## New Routes
+We use [Camel](http://camel.apache.org) to set our harvesting workflows. All these routes are defined in `config/routes.groovy`. It is a [Groovy](http://groovy.codehaus.org) route builder that allows, in a easy way, create/modify/delete collection flows.  
 
-\* *these attributes are mandatory*
+For a RSS source, for instance [Slashdot](http://rss.slashdot.org/Slashdot/slashdot), you can define the following route:  
+```groovy
+from("rss:http://rss.slashdot.org/Slashdot/slashdot?" +
+                "splitEntries=true&consumer.initialDelay=1000&consumer.delay=2000" +
+                "&feedHeader=false&filter=true").marshal().rss().
+                setProperty(SOURCE_NAME, constant("slashdot")).
+                setProperty(SOURCE_URL,  constant("http://rss.slashdot.org/Slashdot/slashdot")).
+                to("direct:setCommonRssXpathExpressions").
+                to("direct:retrieveByHttpAndSave").
+                to("direct:notifyUIA")
+```
+For an OAI-PMH source, for instance [UPM](http://oa.upm.es/perl/oai2), the route will be: 
+```groovy
+from("oaipmh://oa.upm.es/perl/oai2?initialDelay=1000&delay=60000").
+                setProperty(SOURCE_NAME,        constant("upm")).
+                setProperty(SOURCE_URL,         constant("http://oa.upm.es/perl/oai2")).
+                to("direct:setCommonOaipmhXpathExpressions").
+                setProperty(PUBLICATION_URL,    xpath("//oai:metadata/oai:dc/dc:relation/text()",String.class).namespaces(ns)).
+                to("direct:avoidDeleted").
+                to("direct:retrieveByHttpAndSave").
+                to("direct:notifyUIA")
+```
+## Common Routes
+
+As you have seen before, exist some routes that are used but are not defined in `routes.groovy`. They contain common actions and can be used from any new route. 
+
+### direct:setCommonRssXpathExpressions
+```groovy
+from("direct:setCommonRssXpathExpressions").
+                setProperty(SOURCE_PROTOCOL,            constant("rss")).
+                setProperty(SOURCE_URI,                 simple("http://www.epnoi.org/rss/${property."+SOURCE_NAME+"}")).
+                setProperty(PUBLICATION_TITLE,          xpath("//rss:item/rss:title/text()", String.class).namespaces(ns)).
+                setProperty(PUBLICATION_DESCRIPTION,    xpath("//rss:item/rss:description/text()", String.class).namespaces(ns)).
+                setProperty(PUBLICATION_PUBLISHED,      xpath("//rss:item/dc:date/text()", String.class).namespaces(ns)).
+                setProperty(PUBLICATION_URI,            xpath("//rss:item/rss:link/text()", String.class).namespaces(ns)).
+                setProperty(PUBLICATION_URL,            xpath("//rss:item/rss:link/text()", String.class).namespaces(ns)).
+                setProperty(PUBLICATION_LANGUAGE,       xpath("//rss:channel/dc:language/text()", String.class).namespaces(ns)).
+                setProperty(PUBLICATION_RIGHTS,         xpath("//rss:channel/dc:rights/text()", String.class).namespaces(ns)).
+                setProperty(PUBLICATION_CREATORS,       xpath("string-join(//rss:channel/dc:creator/text(),\";\")", String.class).namespaces(ns)).
+                setProperty(PUBLICATION_FORMAT,         constant("htm")).
+                setProperty(PUBLICATION_METADATA_FORMAT,constant("xml"));
+```
+
+### direct:setCommonOaipmhXpathExpressions
+```groovy
+from("direct:setCommonOaipmhXpathExpressions").
+                setProperty(SOURCE_PROTOCOL, constant("oaipmh")).
+                setProperty(SOURCE_URI,                 simple("http://www.epnoi.org/oaipmh/${property." + SOURCE_NAME + "}")).
+                setProperty(PUBLICATION_TITLE,          xpath("//oai:metadata/oai:dc/dc:title/text()",String.class).namespaces(ns)).
+                setProperty(PUBLICATION_DESCRIPTION,    xpath("//oai:metadata/oai:dc/dc:description/text()",String.class).namespaces(ns)).
+                setProperty(PUBLICATION_PUBLISHED,      xpath("//oai:header/oai:datestamp/text()",String.class).namespaces(ns)).
+                setProperty(PUBLICATION_URI,            xpath("//oai:header/oai:identifier/text()",String.class).namespaces(ns)).
+                setProperty(PUBLICATION_URL,            xpath("//oai:metadata/oai:dc/dc:identifier/text()",String.class).namespaces(ns)).
+                setProperty(PUBLICATION_LANGUAGE,       xpath("//oai:metadata/oai:dc/dc:language/text()",String.class).namespaces(ns)).
+                setProperty(PUBLICATION_RIGHTS,         xpath("//oai:metadata/oai:dc/dc:rights/text()",String.class).namespaces(ns)).
+                setProperty(PUBLICATION_CREATORS,       xpath("string-join(//oai:metadata/oai:dc/dc:creator/text(),\";\")",String.class).namespaces(ns)).
+                setProperty(PUBLICATION_FORMAT, xpath("substring-after(//oai:metadata/oai:dc/dc:format/text(),\"/\")", String.class).namespaces(ns)).
+                setProperty(PUBLICATION_METADATA_FORMAT, constant("xml"));
+```
+
+### direct:avoidDeleted
+```groovy
+from("direct:avoidDeleted").
+                choice().
+                when().xpath("//oai:header[@status=\"deleted\"]", String.class, ns).stop().
+                end();
+```
+
+### direct:saveToFile
+```groovy
+from("direct:saveToFile").
+                setHeader(ARGUMENT_PATH, simple("${property." + SOURCE_PROTOCOL + "}/${property." + SOURCE_NAME + "}/${property" + PUBLICATION_PUBLISHED_DATE + "}/${header." + ARGUMENT_NAME + "}")).
+                to("file:"+basedir+"/?fileName=${header."+ARGUMENT_PATH+"}");
+```
+
+### direct:downloadByHttp
+```groovy
+from("direct:downloadByHttp").
+                // Filter resources with available url
+                filter(header(ARGUMENT_PATH).isNotEqualTo("")).
+                setHeader(Exchange.HTTP_METHOD, constant("GET")).
+                setHeader(Exchange.HTTP_URI, simple("${header." + ARGUMENT_PATH + "}")).
+                to("http://dummyhost?throwExceptionOnFailure=false");
+```
+
+### direct:retrieveByHttpAndSave
+```groovy
+rom("direct:retrieveByHttpAndSave").
+                process(timeClock).
+                process(uuidGenerator).
+                setHeader(ARGUMENT_NAME,        simple("${property."+PUBLICATION_UUID+"}."+"${property."+PUBLICATION_METADATA_FORMAT+"}")).
+                to("direct:saveToFile").
+                setHeader(ARGUMENT_PATH,        simple("${property."+PUBLICATION_URL+"}")).
+                to("direct:downloadByHttp").
+                setHeader(ARGUMENT_NAME,        simple("${property."+PUBLICATION_UUID+"}."+"${property."+PUBLICATION_FORMAT+"}")).
+                to("direct:saveToFile").
+                setProperty(PUBLICATION_URL_LOCAL, simple("${header." + ARGUMENT_PATH + "}"));
+```
+
 
 ## Publication Info
 Because each server can provide information differently, we need to know how these attributes are distributed:  
@@ -32,20 +122,7 @@ Because each server can provide information differently, we need to know how the
 | [creators](http://dublincore.org/documents/dcmi-terms/#terms-creator)    | List of entities, separated by `;`, primarily responsible for making the resource. Examples of a Creator include a person, an organization, or a service. | 
 | [format](http://dublincore.org/documents/dcmi-terms/#terms-format)    | The file format, physical medium, or dimensions of the resource. | 
 
-Using [XPath](http://www.w3.org/TR/xpath/) expressions (prefix `$`) or constant values, you can define how to obtain the attributes from the response received by the server: 
-
-| Element | RSS | OAI-PMH |
-| :---: |:---| :--- | 
-| title    | `$//rss:item/rss:title/text()` | `$//oai:metadata/oai:dc/dc:title/text()` | 
-| description    | `$//rss:item/rss:description/text()` | `$//oai:metadata/oai:dc/dc:description/text()` | 
-| published    | `$//rss:item/dc:date/text()`    | `$//oai:header/oai:datestamp/text()` | 
-| uri    | `$//rss:item/rss:link/text()`    | `$//oai:header/oai:identifier/text()` |
-| url    | `$//rss:item/rss:link/text()`    | `$//oai:metadata/oai:dc/dc:identifier/text()` | 
-| language    | `$//rss:channel/dc:language/text()`    | `$/oai:metadata/oai:dc/dc:language/text()` | 
-| rights    | `$//rss:channel/dc:rights/text()`    | `$//oai:metadata/oai:dc/dc:rights/text()` | 
-| creators    | `$string-join(//rss:channel/dc:creator/text(),";")`    | `$string-join(//oai:metadata/oai:dc/dc:creator/text(),";")` | 
-| format    | `htm`    | `pdf` | 
-
+Using [XPath](http://www.w3.org/TR/xpath/) expressions or constant values, you can define how to obtain the attributes from the response received by the server in your route.  
 The list of namespaces available to be used in *xpath* expressions are the following:  
 
 | Namespace | Code | 
@@ -56,39 +133,12 @@ The list of namespaces available to be used in *xpath* expressions are the follo
 | http://www.openarchives.org/OAI/2.0/oai_dc/    | `oai_dc`    | 
 | http://purl.org/rss/1.0/    | `rss`    | 
 
-## Config Format
-All providers are listed in the `providers.json` file:
-
-```json
-{
-  "providers": [
-    {
-      "name":"slashdot",
-      "protocol": "rss",
-      "url": "http://rss.slashdot.org/Slashdot/slashdot"
-
-    },
-    {
-      "name": "upm",
-      "protocol": "oaipmh",
-      "url": "http://oa.upm.es/perl/oai2"
-    },
-    {
-      "name": "ucm",
-      "protocol": "oaipmh",
-      "url": "http://eprints.ucm.es/cgi/oai2",
-      "from": "2014-01-01T00:00:00Z"
-    }
-  ]
-}
-```
-
 # Download
 
 Download the binary distribution:
 
 | Version | Link |
 | :------- |:-----|
-| 1.0.0    | [tar.gz](http://github.com/cabadol/epnoi-collector/raw/mvn-repo/es/upm/oeg/epnoi-collector/1.0.0/epnoi-collector-1.0.0.tar.gz)|
+| 1.0.2    | [tar.gz](http://github.com/cabadol/epnoi-collector/raw/mvn-repo/es/upm/oeg/epnoi-collector/1.0.2/epnoi-collector-1.0.2.tar.gz)|
 
 This work is funded by the EC-funded project DrInventor ([www.drinventor.eu](www.drinventor.eu)).
