@@ -14,6 +14,11 @@ public class CollectorProperty {
     // Time
     public static final String TIME                             = joiner.join(EPNOI,"time");
 
+    // File
+    private static final String ARGUMENT                        = joiner.join(EPNOI,"argument");
+    public static final String ARGUMENT_NAME                    = joiner.join(ARGUMENT,"name");
+    public static final String ARGUMENT_PATH                    = joiner.join(ARGUMENT,"path");
+
     // Source
     private static final String SOURCE                          = joiner.join(EPNOI,"source");
     public static final String SOURCE_NAME                      = joiner.join(SOURCE,"name");

@@ -1,7 +1,9 @@
 package es.upm.oeg.epnoi.collector;
 
 import groovy.lang.GroovyClassLoader;
+import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.spring.SpringCamelContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -11,31 +13,36 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 import java.io.File;
+import java.io.IOException;
 
 
-//@SpringBootApplication
 @Configuration
 @EnableAutoConfiguration
-@ComponentScan({ "routes", "es.upm.oeg.epnoi.collector" })
+@ComponentScan({ "es.upm.oeg.epnoi.collector" })
 public class Application {
 
     @Value("${camel.config.groovy}")
     File groovyFile;
+
+
+    @Autowired
+    RouteBuilder routeBuilder;
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
 
     @Bean
-    public SpringCamelContext camelContext(ApplicationContext applicationContext) throws Exception {
-
+    public RouteBuilder groovyRouteBuilder() throws IOException, IllegalAccessException, InstantiationException {
         // Loading groovy class
         GroovyClassLoader gcl = new GroovyClassLoader();
         Class clazz = gcl.parseClass(groovyFile);
-        CollectorRouteBuilder routeBuilder = (CollectorRouteBuilder) clazz.newInstance();
+        return (CollectorRouteBuilder) clazz.newInstance();
+    }
 
 
-
+    @Bean
+    public SpringCamelContext camelContext(ApplicationContext applicationContext) throws Exception {
         SpringCamelContext camelContext = new SpringCamelContext(applicationContext);
         camelContext.addRoutes(routeBuilder);
         return camelContext;

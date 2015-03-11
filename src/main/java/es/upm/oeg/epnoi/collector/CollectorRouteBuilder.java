@@ -18,52 +18,75 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.MalformedURLException;
 
-@Component
 public class CollectorRouteBuilder extends RouteBuilder {
 
     private static final Logger LOG = LoggerFactory.getLogger(CollectorRouteBuilder.class);
 
     public static final String INBOX_ROUTE = "seda:inbox";
 
-    public static final String PROCESS_ROUTE = "seda:processing";
+    public static final String UIA = "seda:processing";
 
     public static final String DELETED_ROUTE = "seda:deleted";
 
-    @Autowired
-    ErrorHandler errorHandler;
+    public static final String SOURCE_NAME              = CollectorProperty.SOURCE_NAME;
+    public static final String SOURCE_URI               = CollectorProperty.SOURCE_URI;
+    public static final String SOURCE_URL               = CollectorProperty.SOURCE_URL;
+    public static final String SOURCE_PROTOCOL          = CollectorProperty.SOURCE_PROTOCOL;
+
+    public static final String PUBLICATION_TITLE        = CollectorProperty.PUBLICATION_TITLE;
+    public static final String PUBLICATION_DESCRIPTION  = CollectorProperty.PUBLICATION_DESCRIPTION;
+    public static final String PUBLICATION_PUBLISHED    = CollectorProperty.PUBLICATION_PUBLISHED;
+    public static final String PUBLICATION_URI          = CollectorProperty.PUBLICATION_URI;
+    public static final String PUBLICATION_URL          = CollectorProperty.PUBLICATION_URL_REMOTE;
+    public static final String PUBLICATION_LANGUAGE     = CollectorProperty.PUBLICATION_LANGUAGE;
+    public static final String PUBLICATION_RIGHTS       = CollectorProperty.PUBLICATION_RIGHTS;
+    public static final String PUBLICATION_CREATORS     = CollectorProperty.PUBLICATION_CREATORS;
+    public static final String PUBLICATION_UUID         = CollectorProperty.PUBLICATION_UUID;
+    public static final String PUBLICATION_PUBLISHED_DATE = CollectorProperty.PUBLICATION_PUBLISHED_DATE;
+
+
+    public static final String ARGUMENT_NAME            = CollectorProperty.ARGUMENT_NAME;
+    public static final String ARGUMENT_PATH            = CollectorProperty.ARGUMENT_PATH;
+
+
 
     @Autowired
-    TimeClock timeClock;
+    protected ErrorHandler errorHandler;
 
     @Autowired
-    ContextBuilder contextBuilder;
+    protected TimeClock timeClock;
 
     @Autowired
-    RemoveHandler removeHandler;
+    protected ContextBuilder contextBuilder;
 
     @Autowired
-    UUIDGenerator uuidGenerator;
+    protected RemoveHandler removeHandler;
+
+    @Autowired
+    protected UUIDGenerator uuidGenerator;
 
     @Value("${camel.config.location}")
-    File configurationFile;
+    protected File configurationFile;
 
     @Value("${storage.path}")
-    String basedir;
+    protected String basedir;
 
     @Value("${uia.service.host}")
-    String uiaServers;
+    protected String uiaServers;
 
     @Value("${uia.service.notification}")
-    Boolean uiaNotificate;
+    protected Boolean uiaNotificate;
 
     @Value("${camel.log.interval}")
-    String logInterval;
+    protected String logInterval;
 
     @Value("${camel.log.delay}")
-    String logDelay;
+    protected String logDelay;
 
     @Override
     public void configure() throws Exception {
+
+
 
 
         onException(MalformedURLException.class)
@@ -115,13 +138,13 @@ public class CollectorRouteBuilder extends RouteBuilder {
                                 "resource-${property." + CollectorProperty.PUBLICATION_UUID + "}.${property." + CollectorProperty.PUBLICATION_FORMAT + "}")).
                 // Save publication file
                 to("file:" + basedir + "/?fileName=${property." + CollectorProperty.PUBLICATION_URL_LOCAL + "}").
-                to(PROCESS_ROUTE);
+                to(UIA);
 
         String target = uiaNotificate? "euia:out?servers="+ uiaServers :
                 "log:es.upm.oeg.epnoi.collector?level=INFO&groupInterval="+logInterval+"&groupDelay="+logDelay+"&groupActiveOnly=false";
 
         // Create a context message for Epnoi UIA
-        from(PROCESS_ROUTE).
+        from(UIA).
                 process(contextBuilder).
                 to(target);
 
@@ -129,4 +152,13 @@ public class CollectorRouteBuilder extends RouteBuilder {
                 process(removeHandler);
 
     }
+
+
+//    protected String getProperty(String key){
+//        return property(key).toString();
+//    }
+//
+//    protected String getHeader(String key){
+//        return header(key).toString();
+//    }
 }

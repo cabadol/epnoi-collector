@@ -48,7 +48,7 @@
             <testResource>
                 <directory>src/main/groovy</directory>
                 <includes>
-                    <include>**/*.*</include>
+                    <include>**</include>
                 </includes>
             </testResource>
         </testResources>
@@ -97,7 +97,7 @@
                         <configuration>
                             <configurationDirectory>config</configurationDirectory>
                             <copyConfigurationDirectory>true</copyConfigurationDirectory>
-                            <assembleDirectory>${assemble.directory}</assembleDirectory>
+                            <!--<assembleDirectory>${assemble.directory}</assembleDirectory>-->
                             <repositoryName>lib</repositoryName>
                             <repositoryLayout>flat</repositoryLayout>
                             <!--<preWrapperConf>src/main/resources/pre-wrapper.conf</preWrapperConf>-->
