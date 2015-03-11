@@ -11,7 +11,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.FileReader;
@@ -43,6 +42,8 @@ public class CollectorRouteBuilder extends RouteBuilder {
     public static final String PUBLICATION_CREATORS     = CollectorProperty.PUBLICATION_CREATORS;
     public static final String PUBLICATION_UUID         = CollectorProperty.PUBLICATION_UUID;
     public static final String PUBLICATION_PUBLISHED_DATE = CollectorProperty.PUBLICATION_PUBLISHED_DATE;
+    public static final String PUBLICATION_FORMAT       = CollectorProperty.PUBLICATION_FORMAT;
+    public static final String PUBLICATION_METADATA_FORMAT       = CollectorProperty.PUBLICATION_METADATA_FORMAT;
 
 
     public static final String ARGUMENT_NAME            = CollectorProperty.ARGUMENT_NAME;
@@ -123,7 +124,7 @@ public class CollectorRouteBuilder extends RouteBuilder {
                         simple("${property." + CollectorProperty.SOURCE_PROTOCOL + "}/" +
                                 "${property." + CollectorProperty.SOURCE_NAME + "}/" +
                                 "${property." + CollectorProperty.PUBLICATION_PUBLISHED_DATE + "}/" +
-                                "resource-${property." + CollectorProperty.PUBLICATION_UUID + "}.${property." + CollectorProperty.PUBLICATION_REFERENCE_FORMAT + "}")).
+                                "resource-${property." + CollectorProperty.PUBLICATION_UUID + "}.${property." + CollectorProperty.PUBLICATION_METADATA_FORMAT + "}")).
                 to("file:"+basedir+"/?fileName=${property." + CollectorProperty.PUBLICATION_REFERENCE_URL + "}").
                 // Filter resources with available url
                 filter(property(CollectorProperty.PUBLICATION_URL_REMOTE).isNotEqualTo("")).

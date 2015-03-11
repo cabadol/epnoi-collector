@@ -169,7 +169,7 @@ public class HttpRSSTest extends CamelTestSupport{
                         setProperty(CollectorProperty.PUBLICATION_RIGHTS, xpath("//rss:channel/dc:rights/text()", String.class).namespaces(ns)).
                         setProperty(CollectorProperty.PUBLICATION_CREATORS, xpath("string-join(//rss:channel/dc:creator/text(),\";\")", String.class).namespaces(ns)).
                         setProperty(CollectorProperty.PUBLICATION_FORMAT, constant("htm")).
-                        setProperty(CollectorProperty.PUBLICATION_REFERENCE_FORMAT, constant("xml")).
+                        setProperty(CollectorProperty.PUBLICATION_METADATA_FORMAT, constant("xml")).
                         to("seda:inbox");
 
 
@@ -184,7 +184,7 @@ public class HttpRSSTest extends CamelTestSupport{
                                 simple("${property." + CollectorProperty.SOURCE_PROTOCOL + "}/" +
                                         "${property." + CollectorProperty.SOURCE_NAME + "}/" +
                                         "${property." + CollectorProperty.PUBLICATION_PUBLISHED_DATE + "}/" +
-                                        "resource-${property." + CollectorProperty.PUBLICATION_PUBLISHED_MILLIS + "}.${property." + CollectorProperty.PUBLICATION_REFERENCE_FORMAT + "}")).
+                                        "resource-${property." + CollectorProperty.PUBLICATION_PUBLISHED_MILLIS + "}.${property." + CollectorProperty.PUBLICATION_METADATA_FORMAT + "}")).
                         to("file:target/?fileName=${property." + CollectorProperty.PUBLICATION_REFERENCE_URL + "}").
                         setHeader(Exchange.HTTP_METHOD, constant("GET")).
                         setHeader(Exchange.HTTP_URI, simple("${property." + CollectorProperty.PUBLICATION_URL_REMOTE + "}")).

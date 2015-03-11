@@ -52,7 +52,7 @@ public class ContextBuilder implements Processor {
 
 
         Reference reference = new Reference();
-        reference.setFormat(exchange.getProperty(CollectorProperty.PUBLICATION_REFERENCE_FORMAT,String.class));
+        reference.setFormat(exchange.getProperty(CollectorProperty.PUBLICATION_METADATA_FORMAT,String.class));
         reference.setUrl("file://"+exchange.getProperty(CollectorProperty.PUBLICATION_REFERENCE_URL,String.class));
 
         publication.setReference(reference);

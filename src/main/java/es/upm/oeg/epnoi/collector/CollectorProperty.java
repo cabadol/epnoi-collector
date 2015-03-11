@@ -44,7 +44,7 @@ public class CollectorProperty {
     public static final String PUBLICATION_URL_REMOTE           = joiner.join(PUBLICATION_URL,"remote");
     //  -> reference
     private static final String PUBLICATION_REFERENCE           = joiner.join(PUBLICATION,"reference");
-    public static final String PUBLICATION_REFERENCE_FORMAT     = joiner.join(PUBLICATION_REFERENCE,"format");
+    public static final String PUBLICATION_METADATA_FORMAT = joiner.join(PUBLICATION_REFERENCE,"format");
     public static final String PUBLICATION_REFERENCE_URL        = joiner.join(PUBLICATION_REFERENCE,"url");
     //  -> creators
     public static final String PUBLICATION_CREATORS             = joiner.join(PUBLICATION,"creators"); //CSV

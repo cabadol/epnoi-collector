@@ -107,7 +107,7 @@ public class RSSTest extends CamelTestSupport{
                         setHeader(CollectorProperty.PUBLICATION_RIGHTS,            xpath("//rss:channel/dc:rights/text()", String.class).namespaces(ns)).
                         setHeader(CollectorProperty.PUBLICATION_CREATORS,          xpath("//rss:item/dc:creator/text()", String.class).namespaces(ns)).
                         setHeader(CollectorProperty.PUBLICATION_FORMAT,            constant("htm")).
-                        setHeader(CollectorProperty.PUBLICATION_REFERENCE_FORMAT,  constant("xml")).
+                        setHeader(CollectorProperty.PUBLICATION_METADATA_FORMAT,  constant("xml")).
                         to("mock:result");
             }
         };

@@ -120,7 +120,7 @@ public class HttpRelationOAITest extends CamelTestSupport{
                                 simple("${property." + CollectorProperty.SOURCE_PROTOCOL + "}/" +
                                         "${property." + CollectorProperty.SOURCE_NAME + "}/" +
                                         "${property." + CollectorProperty.PUBLICATION_PUBLISHED_DATE + "}/" +
-                                        "resource-${property." + CollectorProperty.PUBLICATION_PUBLISHED_MILLIS + "}.${property." + CollectorProperty.PUBLICATION_REFERENCE_FORMAT + "}")).
+                                        "resource-${property." + CollectorProperty.PUBLICATION_PUBLISHED_MILLIS + "}.${property." + CollectorProperty.PUBLICATION_METADATA_FORMAT + "}")).
                         to("file:target/?fileName=${property." + CollectorProperty.PUBLICATION_REFERENCE_URL + "}").
                         setHeader(Exchange.HTTP_METHOD, constant("GET")).
                         setHeader(Exchange.HTTP_URI, simple("${property." + CollectorProperty.PUBLICATION_URL_REMOTE + "}")).

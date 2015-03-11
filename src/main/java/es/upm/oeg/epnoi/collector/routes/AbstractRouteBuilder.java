@@ -42,7 +42,7 @@ public abstract class AbstractRouteBuilder implements IRouteBuilder{
         add(CollectorProperty.PUBLICATION_RIGHTS, provider.getPublication().getRights(), def, builder);
         add(CollectorProperty.PUBLICATION_CREATORS, provider.getPublication().getCreators(), def, builder);
         add(CollectorProperty.PUBLICATION_FORMAT, provider.getPublication().getFormat(), def, builder);
-        add(CollectorProperty.PUBLICATION_REFERENCE_FORMAT, "xml", def, builder);
+        add(CollectorProperty.PUBLICATION_METADATA_FORMAT, "xml", def, builder);
         LOG.debug("Route definition: {}", def);
     }
 

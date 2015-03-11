@@ -105,7 +105,7 @@ public class OAITest extends CamelTestSupport{
                         setHeader(CollectorProperty.PUBLICATION_RIGHTS,            xpath("//oai:metadata/oai:dc/dc:rights/text()", String.class).namespaces(ns)).
                         setHeader(CollectorProperty.PUBLICATION_CREATORS,          xpath("string-join(//oai:metadata/oai:dc/dc:creator/text(),\";\")", String.class).namespaces(ns)).
                         setHeader(CollectorProperty.PUBLICATION_FORMAT,            constant("pdf")).
-                        setHeader(CollectorProperty.PUBLICATION_REFERENCE_FORMAT,  constant("xml")).
+                        setHeader(CollectorProperty.PUBLICATION_METADATA_FORMAT,  constant("xml")).
                         to("mock:result");
             }
         };
