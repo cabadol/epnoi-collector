@@ -6,7 +6,7 @@
 
     <groupId>es.upm.oeg</groupId>
     <artifactId>epnoi-collector</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.2</version>
 
     <properties>
         <distribution.name>ecollector</distribution.name>
@@ -23,6 +23,7 @@
         <mavendeploy.version>2.8.1</mavendeploy.version>
         <mavenjar.version>2.5</mavenjar.version>
         <mavendependency.version>2.5.1</mavendependency.version>
+        <mavensource.version>2.4</mavensource.version>
         <oaipmh.version>1.0.4</oaipmh.version>
         <spring.version>4.1.4.RELEASE</spring.version>
         <springboot.version>1.2.1.RELEASE</springboot.version>
@@ -44,12 +45,27 @@
                     <include>**/*.*</include>
                 </includes>
             </testResource>
+            <testResource>
+                <directory>src/main/groovy</directory>
+                <includes>
+                    <include>**/*.*</include>
+                </includes>
+            </testResource>
         </testResources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${springboot.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${mavendependency.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -65,15 +81,6 @@
                             <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                         </manifest>
                     </archive>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>${mavendependency.version}</version>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -265,6 +272,16 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-spring</artifactId>
+            <version>${camel.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-groovy</artifactId>
+            <version>${camel.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-script</artifactId>
             <version>${camel.version}</version>
         </dependency>
         <!-- Apache Camel RSS component -->
