@@ -1,79 +1,64 @@
-@Grab(group='xalan', module='xalan', version='2.6.0')
-import org.apache.xpath.XPathAPI
-import javax.xml.parsers.DocumentBuilderFactory
-import javax.xml.xpath.*
-import javax.xml.namespace.*
+//@Grab(group='xalan', module='xalan', version='2.6.0')
+//import org.apache.xpath.XPathAPI
+//import javax.xml.parsers.DocumentBuilderFactory
+//import javax.xml.xpath.*
+//import javax.xml.namespace.*
+import groovy.json.*
 
-
-
-def read(record){
-	println "Record: $record"
-	
-	def title	= XPathAPI.eval(record,'//oai:metadata/oai:dc/dc:title/text()').str()
-	println "Title: $title"
-}
-
-
-def check(address)
+def download(file,address)
 {
-	//def request = address+"?verb=ListRecords&metadataPrefix=oai_dc"
-	//URI uri 	= new URI(address)
-	//def path 	= uri.host+".xml"
-	//println "> $request"
-	//def file 	= new FileOutputStream(path)
-    //def out 	= new BufferedOutputStream(file)
-    //out << new URL(request).openStream()
-    //out.close()
-    //file.close()
-
-
-    def xmlFile = new File("www.informatik.uni-stuttgart.de.xml")
-    def exists = xmlFile.exists()
-    println "$exists downloaded"
-
-    def xml = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(xmlFile)
-	println "Xml: $xml"
-
-	def ns = ["oai":"http://www.openarchives.org/OAI/2.0/",
-	    "dc": "http://purl.org/dc/elements/1.1/",
-        "provenance": "http://www.openarchives.org/OAI/2.0/provenance",
-        "oai_dc":"http://www.openarchives.org/OAI/2.0/oai_dc/",
-        "rss":"http://purl.org/rss/1.0/"
-	]
-
-	def xpath = XPathFactory.newInstance().newXPath()
-	xpath.setNamespaceContext([getNamespaceURI: { 
-            prefix ->
-            ns.get(prefix)
-        }, 
-        getPrefix: { namespaceURI ->
-            ns.each { key, value ->
-                if (namespaceURI == value) {
-                    return key
-                }
-            }
-        }, 
-        getPrefixes: { namespaceURI ->
-            return [getPrefix(namespaceURI)]
-        }] as NamespaceContext)
-
-
-	String expression = "//oai:metadata/oai:dc/dc:title";
- 
-	//read a string value
-	String email = xpath.compile(expression).evaluate(xml);
-	println "Title $email"
-
-	def title = xpath.evaluate('//oai:metadata/oai:dc/dc:title/text()',xml.getDocumentElement())
-	println "Title $title"
-	
-	//def records = xpath.evaluate('//oai:record',xml.getDocumentElement())
-
-	//println "Records $records"
-	//def item = records.item(0)
-	//println "Items $item"
-	//xpath.evaluate('//oai:record',xml.getDocumentElement(), XPathConstants.NODESET).each{ read(it) }
+	println "downloading '$file' from $address .."
+	def fileOut 	= new FileOutputStream(file)
+    def out 	= new BufferedOutputStream(fileOut)
+    out << new URL(address).openStream()
+    out.close()
+    fileOut.close()
 }
 
-check("http://www.informatik.uni-stuttgart.de/cgi-bin/OAI/OAI.pl")
+
+// Download the list of providers
+def listOfProviders = new File("listOfProviders.xml")
+download(listOfProviders,"http://www.openarchives.org/pmh/registry/ListFriends")
+// Read base URLs
+def baseURLs = new XmlParser().parseText(listOfProviders.text)
+def allURLs = baseURLs.baseURL.size()
+println " $allURLs urls read"
+// Download xml for each data provider
+def directory = new File("data-providers")
+directory.mkdir()
+// Prepare json provider file
+def listProviders = []
+def tmpJsonFile = new File("providers-tmp.json")
+
+baseURLs.baseURL.each{ baseURL ->
+	def identifier  = baseURL.'@id'
+	def url 		= baseURL.text()
+	
+	if ( identifier == null){
+		URI uri = new URI(url)
+		identifier = uri.host
+	}
+	def xmlFile = new File(identifier+".xml",directory)
+	try{
+		download(xmlFile,url+"?verb=ListRecords&metadataPrefix=oai_dc")
+		def provider = [
+			"name":identifier,
+			"protocol": "oaipmh",
+			"url":url
+			]
+		listProviders.add(provider)
+		def json = JsonOutput.toJson(provider)
+		def prettyJson = JsonOutput.prettyPrint(json)
+		tmpJsonFile.append(prettyJson)
+		tmpJsonFile.append(",\n")
+		println "$json"
+	} catch (Exception e){
+		println "Error downloading from $baseURL: $e"
+	}
+}
+
+def providers = ["providers":listProviders]
+def json = JsonOutput.toJson(providers)
+File jsonFile = new File("providers.json")
+jsonFile << JsonOutput.prettyPrint(json)
 

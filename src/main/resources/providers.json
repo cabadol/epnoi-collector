@@ -4,6 +4,11 @@
       "name": "informatik.uni-stuttgart.de",
       "protocol": "oaipmh",
       "url": "http://www.informatik.uni-stuttgart.de/cgi-bin/OAI/OAI.pl"
+    },
+    {
+      "name": "jurnalhunafa",
+      "protocol": "oaipmh",
+      "url": "http://www.informatik.uni-stuttgart.de/cgi-bin/OAI/OAI.pl"
     }
   ]
 }
