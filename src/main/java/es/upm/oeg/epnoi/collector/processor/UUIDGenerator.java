@@ -1,6 +1,6 @@
 package es.upm.oeg.epnoi.collector.processor;
 
-import es.upm.oeg.epnoi.collector.CollectorProperty;
+import es.upm.oeg.epnoi.collector.AbstractRouteBuilder;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.springframework.stereotype.Component;
@@ -14,6 +14,6 @@ public class UUIDGenerator implements Processor {
     @Override
     public void process(Exchange exchange) throws Exception {
         String uuid = UUID.randomUUID().toString();
-        exchange.setProperty(CollectorProperty.PUBLICATION_UUID,uuid);
+        exchange.setProperty(AbstractRouteBuilder.PUBLICATION_UUID,uuid);
     }
 }

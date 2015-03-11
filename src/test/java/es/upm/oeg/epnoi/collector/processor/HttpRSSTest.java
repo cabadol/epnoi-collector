@@ -1,6 +1,6 @@
 package es.upm.oeg.epnoi.collector.processor;
 
-import es.upm.oeg.epnoi.collector.CollectorProperty;
+import es.upm.oeg.epnoi.collector.AbstractRouteBuilder;
 import es.upm.oeg.epnoi.collector.utils.FileServer;
 import org.apache.camel.EndpointInject;
 import org.apache.camel.Exchange;
@@ -145,9 +145,9 @@ public class HttpRSSTest extends CamelTestSupport{
                  * RSS Data Providers
                  ************************************************************************************************************/
 
-                TimeClock timeClock = new TimeClock();
+                TimeGenerator timeClock = new TimeGenerator();
 
-                ContextBuilder contextBuilder = new ContextBuilder();
+                UIAContextGenerator contextBuilder = new UIAContextGenerator();
 
                 Namespaces ns = new Namespaces("oai", "http://www.openarchives.org/OAI/2.0/")
                         .add("dc", "http://purl.org/dc/elements/1.1/")
@@ -156,20 +156,20 @@ public class HttpRSSTest extends CamelTestSupport{
                         .add("rss", "http://purl.org/rss/1.0/");
 
                 from("direct:start").
-                        setProperty(CollectorProperty.SOURCE_NAME, constant("slashdot")).
-                        setProperty(CollectorProperty.SOURCE_URI, constant("http://www.epnoi.org/feeds/slashdot")).
-                        setProperty(CollectorProperty.SOURCE_URL, constant("http://rss.slashdot.org/Slashdot/slashdot")).
-                        setProperty(CollectorProperty.SOURCE_PROTOCOL, constant("rss")).
-                        setProperty(CollectorProperty.PUBLICATION_TITLE, xpath("//rss:item/rss:title/text()", String.class).namespaces(ns)).
-                        setProperty(CollectorProperty.PUBLICATION_DESCRIPTION, xpath("//rss:item/rss:description/text()", String.class).namespaces(ns)).
-                        setProperty(CollectorProperty.PUBLICATION_PUBLISHED, xpath("//rss:item/dc:date/text()", String.class).namespaces(ns)).
-                        setProperty(CollectorProperty.PUBLICATION_URI, xpath("//rss:item/rss:link/text()", String.class).namespaces(ns)).
-                        setProperty(CollectorProperty.PUBLICATION_URL_REMOTE, xpath("//rss:item/rss:link/text()", String.class).namespaces(ns)).
-                        setProperty(CollectorProperty.PUBLICATION_LANGUAGE, xpath("//rss:channel/dc:language/text()", String.class).namespaces(ns)).
-                        setProperty(CollectorProperty.PUBLICATION_RIGHTS, xpath("//rss:channel/dc:rights/text()", String.class).namespaces(ns)).
-                        setProperty(CollectorProperty.PUBLICATION_CREATORS, xpath("string-join(//rss:channel/dc:creator/text(),\";\")", String.class).namespaces(ns)).
-                        setProperty(CollectorProperty.PUBLICATION_FORMAT, constant("htm")).
-                        setProperty(CollectorProperty.PUBLICATION_METADATA_FORMAT, constant("xml")).
+                        setProperty(AbstractRouteBuilder.SOURCE_NAME, constant("slashdot")).
+                        setProperty(AbstractRouteBuilder.SOURCE_URI, constant("http://www.epnoi.org/feeds/slashdot")).
+                        setProperty(AbstractRouteBuilder.SOURCE_URL, constant("http://rss.slashdot.org/Slashdot/slashdot")).
+                        setProperty(AbstractRouteBuilder.SOURCE_PROTOCOL, constant("rss")).
+                        setProperty(AbstractRouteBuilder.PUBLICATION_TITLE, xpath("//rss:item/rss:title/text()", String.class).namespaces(ns)).
+                        setProperty(AbstractRouteBuilder.PUBLICATION_DESCRIPTION, xpath("//rss:item/rss:description/text()", String.class).namespaces(ns)).
+                        setProperty(AbstractRouteBuilder.PUBLICATION_PUBLISHED, xpath("//rss:item/dc:date/text()", String.class).namespaces(ns)).
+                        setProperty(AbstractRouteBuilder.PUBLICATION_URI, xpath("//rss:item/rss:link/text()", String.class).namespaces(ns)).
+                        setProperty(AbstractRouteBuilder.PUBLICATION_URL, xpath("//rss:item/rss:link/text()", String.class).namespaces(ns)).
+                        setProperty(AbstractRouteBuilder.PUBLICATION_LANGUAGE, xpath("//rss:channel/dc:language/text()", String.class).namespaces(ns)).
+                        setProperty(AbstractRouteBuilder.PUBLICATION_RIGHTS, xpath("//rss:channel/dc:rights/text()", String.class).namespaces(ns)).
+                        setProperty(AbstractRouteBuilder.PUBLICATION_CREATORS, xpath("string-join(//rss:channel/dc:creator/text(),\";\")", String.class).namespaces(ns)).
+                        setProperty(AbstractRouteBuilder.PUBLICATION_FORMAT, constant("htm")).
+                        setProperty(AbstractRouteBuilder.PUBLICATION_METADATA_FORMAT, constant("xml")).
                         to("seda:inbox");
 
 
@@ -180,22 +180,22 @@ public class HttpRSSTest extends CamelTestSupport{
 
                 from("seda:inbox").
                         process(timeClock).
-                        setProperty(CollectorProperty.PUBLICATION_REFERENCE_URL,
-                                simple("${property." + CollectorProperty.SOURCE_PROTOCOL + "}/" +
-                                        "${property." + CollectorProperty.SOURCE_NAME + "}/" +
-                                        "${property." + CollectorProperty.PUBLICATION_PUBLISHED_DATE + "}/" +
-                                        "resource-${property." + CollectorProperty.PUBLICATION_PUBLISHED_MILLIS + "}.${property." + CollectorProperty.PUBLICATION_METADATA_FORMAT + "}")).
-                        to("file:target/?fileName=${property." + CollectorProperty.PUBLICATION_REFERENCE_URL + "}").
+                        setProperty(AbstractRouteBuilder.PUBLICATION_REFERENCE_URL,
+                                simple("${property." + AbstractRouteBuilder.SOURCE_PROTOCOL + "}/" +
+                                        "${property." + AbstractRouteBuilder.SOURCE_NAME + "}/" +
+                                        "${property." + AbstractRouteBuilder.PUBLICATION_PUBLISHED_DATE + "}/" +
+                                        "resource-${property." + AbstractRouteBuilder.PUBLICATION_PUBLISHED_MILLIS + "}.${property." + AbstractRouteBuilder.PUBLICATION_METADATA_FORMAT + "}")).
+                        to("file:target/?fileName=${property." + AbstractRouteBuilder.PUBLICATION_REFERENCE_URL + "}").
                         setHeader(Exchange.HTTP_METHOD, constant("GET")).
-                        setHeader(Exchange.HTTP_URI, simple("${property." + CollectorProperty.PUBLICATION_URL_REMOTE + "}")).
-                        log(">>>>>>>>>>>>>>>> ${property." + CollectorProperty.PUBLICATION_URL_REMOTE + "}").
+                        setHeader(Exchange.HTTP_URI, simple("${property." + AbstractRouteBuilder.PUBLICATION_URL + "}")).
+                        log(">>>>>>>>>>>>>>>> ${property." + AbstractRouteBuilder.PUBLICATION_URL + "}").
                         to("http://dummyhost?throwExceptionOnFailure=true&httpClient.soTimeout=5000").
-                        setProperty(CollectorProperty.PUBLICATION_URL_LOCAL,
-                                simple("${property." + CollectorProperty.SOURCE_PROTOCOL + "}/" +
-                                        "${property." + CollectorProperty.SOURCE_NAME + "}/" +
-                                        "${property." + CollectorProperty.PUBLICATION_PUBLISHED_DATE + "}/" +
-                                        "resource-${property." + CollectorProperty.PUBLICATION_PUBLISHED_MILLIS + "}.${property." + CollectorProperty.PUBLICATION_FORMAT + "}")).
-                        to("file:target/?fileName=${property." + CollectorProperty.PUBLICATION_URL_LOCAL + "}").
+                        setProperty(AbstractRouteBuilder.PUBLICATION_URL_LOCAL,
+                                simple("${property." + AbstractRouteBuilder.SOURCE_PROTOCOL + "}/" +
+                                        "${property." + AbstractRouteBuilder.SOURCE_NAME + "}/" +
+                                        "${property." + AbstractRouteBuilder.PUBLICATION_PUBLISHED_DATE + "}/" +
+                                        "resource-${property." + AbstractRouteBuilder.PUBLICATION_PUBLISHED_MILLIS + "}.${property." + AbstractRouteBuilder.PUBLICATION_FORMAT + "}")).
+                        to("file:target/?fileName=${property." + AbstractRouteBuilder.PUBLICATION_URL_LOCAL + "}").
                         process(contextBuilder).
                         to("mock:result");
             }

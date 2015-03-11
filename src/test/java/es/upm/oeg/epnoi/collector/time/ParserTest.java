@@ -1,7 +1,7 @@
 package es.upm.oeg.epnoi.collector.time;
 
-import es.upm.oeg.epnoi.collector.CollectorProperty;
-import es.upm.oeg.epnoi.collector.processor.TimeClock;
+import es.upm.oeg.epnoi.collector.AbstractRouteBuilder;
+import es.upm.oeg.epnoi.collector.processor.TimeGenerator;
 import org.apache.camel.EndpointInject;
 import org.apache.camel.Produce;
 import org.apache.camel.ProducerTemplate;
@@ -21,10 +21,10 @@ public class ParserTest extends CamelTestSupport {
     @Test
     public void validTime() throws Exception {
         resultEndpoint.expectedMessageCount(1);
-        resultEndpoint.expectedPropertyReceived(CollectorProperty.PUBLICATION_PUBLISHED_DATE, "2015-03-03");
-        resultEndpoint.expectedPropertyReceived(CollectorProperty.PUBLICATION_PUBLISHED_MILLIS,"1425389934000");
+        resultEndpoint.expectedPropertyReceived(AbstractRouteBuilder.PUBLICATION_PUBLISHED_DATE, "2015-03-03");
+        resultEndpoint.expectedPropertyReceived(AbstractRouteBuilder.PUBLICATION_PUBLISHED_MILLIS,"1425389934000");
 
-        template.sendBodyAndProperty("message", CollectorProperty.PUBLICATION_PUBLISHED, "2015-03-03T13:38:54Z");
+        template.sendBodyAndProperty("message", AbstractRouteBuilder.PUBLICATION_PUBLISHED, "2015-03-03T13:38:54Z");
 
         resultEndpoint.assertIsSatisfied();
     }
@@ -34,7 +34,7 @@ public class ParserTest extends CamelTestSupport {
         return new RouteBuilder() {
             public void configure() {
 
-                TimeClock timeClock = new TimeClock();
+                TimeGenerator timeClock = new TimeGenerator();
 
                 from("direct:start")
                         .process(timeClock)

@@ -37,7 +37,7 @@ public class Application {
         // Loading groovy class
         GroovyClassLoader gcl = new GroovyClassLoader();
         Class clazz = gcl.parseClass(groovyFile);
-        return (CollectorRouteBuilder) clazz.newInstance();
+        return (AbstractRouteBuilder) clazz.newInstance();
     }
 
 

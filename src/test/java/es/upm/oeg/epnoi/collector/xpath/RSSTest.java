@@ -1,6 +1,6 @@
 package es.upm.oeg.epnoi.collector.xpath;
 
-import es.upm.oeg.epnoi.collector.CollectorProperty;
+import es.upm.oeg.epnoi.collector.AbstractRouteBuilder;
 import org.apache.camel.EndpointInject;
 import org.apache.camel.Produce;
 import org.apache.camel.ProducerTemplate;
@@ -67,14 +67,14 @@ public class RSSTest extends CamelTestSupport{
                 "\n";
 
         resultEndpoint.expectedMessageCount(1);
-        resultEndpoint.expectedHeaderReceived(CollectorProperty.PUBLICATION_TITLE,"EU Free Data Roaming, Net Neutrality Plans In Jeopardy");
-        resultEndpoint.expectedHeaderReceived(CollectorProperty.PUBLICATION_DESCRIPTION,"An anonymous reader writes EU free");
-        resultEndpoint.expectedHeaderReceived(CollectorProperty.PUBLICATION_PUBLISHED,"2015-03-05T22:00:00Z");
-        resultEndpoint.expectedHeaderReceived(CollectorProperty.PUBLICATION_URI,"http://rss.slashdot.org/~r/Slashdot/slashdot/~3/7DWYLD8XMjk/eu-free-data-roaming-net-neutrality-plans-in-jeopardy");
-        resultEndpoint.expectedHeaderReceived(CollectorProperty.PUBLICATION_URL_REMOTE,"http://rss.slashdot.org/~r/Slashdot/slashdot/~3/7DWYLD8XMjk/eu-free-data-roaming-net-neutrality-plans-in-jeopardy");
-        resultEndpoint.expectedHeaderReceived(CollectorProperty.PUBLICATION_LANGUAGE,"en-us");
-        resultEndpoint.expectedHeaderReceived(CollectorProperty.PUBLICATION_RIGHTS,"Copyright 1997-2015, Dice. All Rights Reserved. Slashdot is a Dice Holdings, Inc. service");
-        resultEndpoint.expectedHeaderReceived(CollectorProperty.PUBLICATION_CREATORS,"timothy");
+        resultEndpoint.expectedHeaderReceived(AbstractRouteBuilder.PUBLICATION_TITLE,"EU Free Data Roaming, Net Neutrality Plans In Jeopardy");
+        resultEndpoint.expectedHeaderReceived(AbstractRouteBuilder.PUBLICATION_DESCRIPTION,"An anonymous reader writes EU free");
+        resultEndpoint.expectedHeaderReceived(AbstractRouteBuilder.PUBLICATION_PUBLISHED,"2015-03-05T22:00:00Z");
+        resultEndpoint.expectedHeaderReceived(AbstractRouteBuilder.PUBLICATION_URI,"http://rss.slashdot.org/~r/Slashdot/slashdot/~3/7DWYLD8XMjk/eu-free-data-roaming-net-neutrality-plans-in-jeopardy");
+        resultEndpoint.expectedHeaderReceived(AbstractRouteBuilder.PUBLICATION_URL,"http://rss.slashdot.org/~r/Slashdot/slashdot/~3/7DWYLD8XMjk/eu-free-data-roaming-net-neutrality-plans-in-jeopardy");
+        resultEndpoint.expectedHeaderReceived(AbstractRouteBuilder.PUBLICATION_LANGUAGE,"en-us");
+        resultEndpoint.expectedHeaderReceived(AbstractRouteBuilder.PUBLICATION_RIGHTS,"Copyright 1997-2015, Dice. All Rights Reserved. Slashdot is a Dice Holdings, Inc. service");
+        resultEndpoint.expectedHeaderReceived(AbstractRouteBuilder.PUBLICATION_CREATORS,"timothy");
 
 
         template.sendBody(xml);
@@ -94,20 +94,20 @@ public class RSSTest extends CamelTestSupport{
                         .add("rss","http://purl.org/rss/1.0/");
 
                 from("direct:start").
-                        setHeader(CollectorProperty.SOURCE_NAME,                   constant("slashdot")).
-                        setHeader(CollectorProperty.SOURCE_URI,                    constant("http://www.epnoi.org/feeds/slashdot")).
-                        setHeader(CollectorProperty.SOURCE_URL,                    constant("http://rss.slashdot.org/Slashdot/slashdot")).
-                        setHeader(CollectorProperty.SOURCE_PROTOCOL,               constant("rss")).
-                        setHeader(CollectorProperty.PUBLICATION_TITLE,             xpath("//rss:item/rss:title/text()", String.class).namespaces(ns)).
-                        setHeader(CollectorProperty.PUBLICATION_DESCRIPTION,       xpath("//rss:item/rss:description/text()", String.class).namespaces(ns)).
-                        setHeader(CollectorProperty.PUBLICATION_PUBLISHED,         xpath("//rss:item/dc:date/text()", String.class).namespaces(ns)).
-                        setHeader(CollectorProperty.PUBLICATION_URI,               xpath("//rss:item/rss:link/text()", String.class).namespaces(ns)).
-                        setHeader(CollectorProperty.PUBLICATION_URL_REMOTE,        xpath("//rss:item/rss:link/text()", String.class).namespaces(ns)).
-                        setHeader(CollectorProperty.PUBLICATION_LANGUAGE,          xpath("//rss:channel/dc:language/text()", String.class).namespaces(ns)).
-                        setHeader(CollectorProperty.PUBLICATION_RIGHTS,            xpath("//rss:channel/dc:rights/text()", String.class).namespaces(ns)).
-                        setHeader(CollectorProperty.PUBLICATION_CREATORS,          xpath("//rss:item/dc:creator/text()", String.class).namespaces(ns)).
-                        setHeader(CollectorProperty.PUBLICATION_FORMAT,            constant("htm")).
-                        setHeader(CollectorProperty.PUBLICATION_METADATA_FORMAT,  constant("xml")).
+                        setHeader(AbstractRouteBuilder.SOURCE_NAME,                   constant("slashdot")).
+                        setHeader(AbstractRouteBuilder.SOURCE_URI,                    constant("http://www.epnoi.org/feeds/slashdot")).
+                        setHeader(AbstractRouteBuilder.SOURCE_URL,                    constant("http://rss.slashdot.org/Slashdot/slashdot")).
+                        setHeader(AbstractRouteBuilder.SOURCE_PROTOCOL,               constant("rss")).
+                        setHeader(AbstractRouteBuilder.PUBLICATION_TITLE,             xpath("//rss:item/rss:title/text()", String.class).namespaces(ns)).
+                        setHeader(AbstractRouteBuilder.PUBLICATION_DESCRIPTION,       xpath("//rss:item/rss:description/text()", String.class).namespaces(ns)).
+                        setHeader(AbstractRouteBuilder.PUBLICATION_PUBLISHED,         xpath("//rss:item/dc:date/text()", String.class).namespaces(ns)).
+                        setHeader(AbstractRouteBuilder.PUBLICATION_URI,               xpath("//rss:item/rss:link/text()", String.class).namespaces(ns)).
+                        setHeader(AbstractRouteBuilder.PUBLICATION_URL,        xpath("//rss:item/rss:link/text()", String.class).namespaces(ns)).
+                        setHeader(AbstractRouteBuilder.PUBLICATION_LANGUAGE,          xpath("//rss:channel/dc:language/text()", String.class).namespaces(ns)).
+                        setHeader(AbstractRouteBuilder.PUBLICATION_RIGHTS,            xpath("//rss:channel/dc:rights/text()", String.class).namespaces(ns)).
+                        setHeader(AbstractRouteBuilder.PUBLICATION_CREATORS,          xpath("//rss:item/dc:creator/text()", String.class).namespaces(ns)).
+                        setHeader(AbstractRouteBuilder.PUBLICATION_FORMAT,            constant("htm")).
+                        setHeader(AbstractRouteBuilder.PUBLICATION_METADATA_FORMAT,  constant("xml")).
                         to("mock:result");
             }
         };
