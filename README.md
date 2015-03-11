@@ -53,7 +53,7 @@ from("direct:setCommonRssXpathExpressions").
 ### direct:setCommonOaipmhXpathExpressions
 ```groovy
 from("direct:setCommonOaipmhXpathExpressions").
-                setProperty(SOURCE_PROTOCOL, constant("oaipmh")).
+                setProperty(SOURCE_PROTOCOL,            constant("oaipmh")).
                 setProperty(SOURCE_URI,                 simple("http://www.epnoi.org/oaipmh/${property." + SOURCE_NAME + "}")).
                 setProperty(PUBLICATION_TITLE,          xpath("//oai:metadata/oai:dc/dc:title/text()",String.class).namespaces(ns)).
                 setProperty(PUBLICATION_DESCRIPTION,    xpath("//oai:metadata/oai:dc/dc:description/text()",String.class).namespaces(ns)).
@@ -94,7 +94,7 @@ from("direct:downloadByHttp").
 
 ### direct:retrieveByHttpAndSave
 ```groovy
-rom("direct:retrieveByHttpAndSave").
+from("direct:retrieveByHttpAndSave").
                 process(timeClock).
                 process(uuidGenerator).
                 setHeader(ARGUMENT_NAME,        simple("${property."+PUBLICATION_UUID+"}."+"${property."+PUBLICATION_METADATA_FORMAT+"}")).
