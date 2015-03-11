@@ -122,7 +122,7 @@ Because each server can provide information differently, we need to know how the
 | [creators](http://dublincore.org/documents/dcmi-terms/#terms-creator)    | List of entities, separated by `;`, primarily responsible for making the resource. Examples of a Creator include a person, an organization, or a service. | 
 | [format](http://dublincore.org/documents/dcmi-terms/#terms-format)    | The file format, physical medium, or dimensions of the resource. | 
 
-Using [XPath](http://www.w3.org/TR/xpath/) expressions or constant values, you can define how to obtain the attributes from the response received by the server in your route.  
+Using [XPath](http://www.w3.org/TR/xpath/) expressions or constant values, you can define how to obtain the attributes from the response received by the server in the specific route.  
 The list of namespaces available to be used in *xpath* expressions are the following:  
 
 | Namespace | Code | 
