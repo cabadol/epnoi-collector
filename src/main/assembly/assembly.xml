@@ -22,6 +22,14 @@
             </excludes>
         </fileSet>
         <fileSet>
+            <fileMode />
+            <directory>src/main/groovy</directory>
+            <outputDirectory>config/</outputDirectory>
+            <includes>
+                <include>routes.groovy</include>
+            </includes>
+        </fileSet>
+        <fileSet>
             <fileMode>0744</fileMode>
             <directory>${assemble.directory}</directory>
             <outputDirectory></outputDirectory>
