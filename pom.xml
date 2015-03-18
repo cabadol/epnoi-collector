@@ -120,6 +120,7 @@
                                             <systemProperty>file.encoding=UTF-8</systemProperty>
                                             <systemProperty>user.country=US</systemProperty>
                                             <systemProperty>user.language=en</systemProperty>
+                                            <systemProperty>javax.xml.accessExternalDTD=all</systemProperty>
                                         </systemProperties>
                                         <extraArguments>
                                             <extraArgument>-XX:+UseConcMarkSweepGC</extraArgument>
